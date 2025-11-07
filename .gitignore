@@ -17,6 +17,16 @@
 /wp-*.php
 /xmlrpc.php
 
+# Track safepilot theme assets
+!/wp-content/themes/safepilot-main/assets/
+!/wp-content/themes/safepilot-main/assets/images/
+!/wp-content/themes/safepilot-main/assets/**
+
+# Always include key image formats
+!*.svg
+!*.png
+!*.jpg
+
 # Configuration
 wp-config.php
 
