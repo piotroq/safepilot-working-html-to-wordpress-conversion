@@ -1,0 +1,205 @@
+:root {
+
+    /* Primary & Base Colors */
+    --body: #ffffff;
+    --black: #000000;
+    --white: #ffffff;
+    --theme: #4fb9ad;
+    --theme2: #213543;
+    --theme-color3: #41857d;
+    --header: #19222a;
+    --text: #213543;
+    --text-2: #ffffff;
+    --border: #d8d5c8;
+    --border2: #4fb9ad;
+    --border3: #4fb9ad;
+    --bg: #ffffff;
+    --bg2: #19222a;
+    --bg3: #4fb9ad1a;  
+    --title-color: #213543;
+    --header: #19222a;
+    --body-color: #ffffff;
+    --smoke-color: #f5f9f8;
+    --smoke-color2: #d8dbd6;
+    --smoke-color3: #ececec;
+    --smoke-color4: #e8e8e8;
+    --black-color: #000000;
+    --gray-color: #f8f8f8;
+    --white-color: #ffffff;
+    --light-color: #b0aca5;
+    --text-color: #213543;
+    --text-color2: #4a5568;
+    --border-color: #d8d5c8;
+    
+    /* SafePilot Brand Colors */
+    --primary-teal: #4fb9ad;
+    --secondary-navy: #213543;
+    --tertiary-dark: #19222a;
+    --accent-beige: #d8d5c8;
+    --hover-teal: #41857d;
+    --light-mint: #e8f7f5;
+    
+    /* Typography */
+    --title-font: "Rajdhani", sans-serif;
+    --body-font: "Plus Jakarta Sans", sans-serif;
+    --icon-font: "Font Awesome 6 Pro";
+    
+    /* Spacing & Layout */
+    --main-container: 1410px;
+    --container-gutters: 30px;
+    --section-space: 120px;
+    --section-space-mobile: 80px;
+    --section-title-space: 60px;
+    --ripple-ani-duration: 5s;
+    
+    /* Shadows */
+    --box-shadow: 0px 4px 25px rgba(31, 34, 42, 0.08);
+    --box-shadow-2: 0px 4px 25px rgba(79, 185, 173, 0.12);
+    --box-shadow-hover: 0px 8px 35px rgba(79, 185, 173, 0.18);
+
+}
+
+/* ==================== */
+/* SCSS Variable Mapping */
+/* ==================== */
+
+/* Theme Colors - SafePilot Brand */
+$black: var(--black);
+$white: var(--white);
+$theme-color: var(--theme); // Primary Teal #4fb9ad
+$theme-color-2: var(--theme2); // Secondary Navy #213543
+$text-color: var(--text);
+$text-color-2: var(--text-2);
+$header-color: var(--header);
+$button-color: var(--theme); // Use primary teal for buttons
+$border-color: var(--border);
+$border-color-2: var(--border2);
+$border-color-3: var(--border3);
+$bg-color: var(--bg);
+$bg-color-2: var(--bg2);
+$bg-color-3: var(--bg3);
+$shadow: var(--box-shadow);
+$shadow-2: var(--box-shadow-2);
+$shadow-hover: var(--box-shadow-hover);
+
+/* SafePilot Brand Color Variables */
+$primary-teal: var(--primary-teal);
+$secondary-navy: var(--secondary-navy);
+$tertiary-dark: var(--tertiary-dark);
+$accent-beige: var(--accent-beige);
+$hover-teal: var(--hover-teal);
+$light-mint: var(--light-mint);
+
+/* Color Variations */
+$theme-color3 : var(--theme-color3);
+$title-color : var(--title-color);
+$body-color : var(--body-color);
+$smoke-color : var(--smoke-color);
+$smoke-color2 : var(--smoke-color2);
+$smoke-color3 : var(--smoke-color3);
+$smoke-color4 : var(--smoke-color4);
+$white-color : var(--white-color);
+$light-color : var(--light-color);
+$black-color : var(--black-color);
+$gray-color : var(--gray-color);
+$text-color : var(--text-color);
+$text-color2 : var(--text-color2);
+$border-color : var(--border-color);
+$header-color: var(--header);
+
+/* Font Variations */
+$icon-font : var(--icon-font);
+
+/* Typography */
+$title-font : var(--title-font);
+$body-font : var(--body-font);
+
+$body-font-size : 16px;
+$body-line-Height: 26px;
+$body-font-weight: 400;
+$p-line-Height : 1.75;
+
+/* ==================== */
+/* Device Breakpoints */
+/* ==================== */
+$hd: 1921px; // Large Device Than 1920
+$xxl: 1500px; // Extra large Device
+$ml: 1399px; // Medium Large Device
+$xl: 1299px; // Medium Large Device
+$lg: 1199px; // Large Device (Laptop)
+$md: 991px; // Medium Device (Tablet)
+$sm: 767px; // Small Device
+$xs: 575px; // Extra Small Device
+$vxs: 375px; // Extra Small Device
+
+/* ==================== */
+/* Spacing & Dimensions */
+/* ==================== */
+$space-count: 20;
+
+// Section Space For large Device
+$space : var(--section-space);
+$space-extra : calc(var(--section-space) - 45px);
+$space-extra2 : calc(var(--section-space) - 60px);
+$space2 : calc(var(--section-space) - 20px);
+
+// Section Space On small Device
+$space-mobile : var(--section-space-mobile);
+$space-mobile-extra: calc(var(--section-space-mobile) - 30px);
+
+/* ==================== */
+/* Mixin Examples */
+/* ==================== */
+
+@mixin transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@mixin hover-effect {
+  @include transition-smooth;
+  
+  &:hover {
+    color: $hover-teal;
+    text-decoration: none;
+  }
+}
+
+@mixin button-primary {
+  background-color: $primary-teal;
+  color: $white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: 600;
+  @include transition-smooth;
+  
+  &:hover {
+    background-color: $hover-teal;
+    box-shadow: $shadow-hover;
+  }
+  
+  &:focus {
+    outline: 2px solid $primary-teal;
+    outline-offset: 2px;
+  }
+}
+
+@mixin button-secondary {
+  background-color: transparent;
+  color: $secondary-navy;
+  border: 2px solid $secondary-navy;
+  padding: 10px 22px;
+  border-radius: 4px;
+  font-weight: 600;
+  @include transition-smooth;
+  
+  &:hover {
+    background-color: $secondary-navy;
+    color: $white;
+  }
+}
+
+@mixin input-focus {
+  border-color: $primary-teal;
+  box-shadow: 0 0 0 3px rgba(79, 185, 173, 0.1);
+}

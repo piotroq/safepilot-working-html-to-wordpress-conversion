@@ -1,0 +1,1543 @@
+/**
+ * Header Component Styles - SafePilot WordPress Theme
+ * 
+ * @package    SafePilot
+ * @subpackage Components/Header
+ * @version    2.0.0
+ * @author     PB MEDIA
+ * 
+ * Brand Colors:
+ * Primary: #4fb9ad
+ * Secondary: #213543
+ * Header BG: #d8d5c8
+ * Dark: #19222a
+ * Hover: #41857d
+ */
+
+/* ============================================
+   Table of Contents
+   ============================================
+   1. CSS Variables & Custom Properties
+   2. Topbar Styles
+   3. Main Header
+   4. Logo
+   5. Navigation
+   6. Header Actions
+   7. Mobile Menu
+   8. Search Overlay
+   9. Sticky Header
+   10. Accessibility Features
+   11. Animations & Transitions
+   12. Responsive Design
+   ============================================ */
+
+/* ============================================
+   1. CSS Variables & Custom Properties
+   ============================================ */
+:root {
+    /* Brand Colors */
+    --safepilot-primary: #4fb9ad;
+    --safepilot-primary-hover: #41857d;
+    --safepilot-primary-light: #6eccc0;
+    --safepilot-primary-dark: #3a9088;
+
+    --safepilot-secondary: #213543;
+    --safepilot-secondary-light: #2d4557;
+    --safepilot-secondary-dark: #19222a;
+
+    --safepilot-header-bg: #d8d5c8;
+    --safepilot-header-bg-light: #e5e2d7;
+    --safepilot-header-bg-dark: #c8c5b8;
+
+    /* Typography */
+    --safepilot-font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --safepilot-font-heading: 'Rajdhani', sans-serif;
+
+    /* Spacing */
+    --safepilot-header-height: 80px;
+    --safepilot-topbar-height: 40px;
+    --safepilot-mobile-header-height: 60px;
+
+    /* Transitions */
+    --safepilot-transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --safepilot-transition-medium: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --safepilot-transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Shadows */
+    --safepilot-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+    --safepilot-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+    --safepilot-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
+    --safepilot-shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.24);
+
+    /* Z-index */
+    --safepilot-z-topbar: 1000;
+    --safepilot-z-header: 1001;
+    --safepilot-z-sticky: 1002;
+    --safepilot-z-mobile-menu: 9999;
+    --safepilot-z-search-overlay: 9998;
+}
+
+/* ============================================
+   2. Topbar Styles
+   ============================================ */
+.safepilot-topbar {
+    background: linear-gradient(135deg, var(--safepilot-secondary) 0%, var(--safepilot-secondary-dark) 100%);
+    color: #ffffff;
+    font-size: 13px;
+    min-height: var(--safepilot-topbar-height);
+    position: relative;
+    z-index: var(--safepilot-z-topbar);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.safepilot-topbar .container {
+    height: var(--safepilot-topbar-height);
+    display: flex;
+    align-items: center;
+}
+
+.safepilot-topbar__info {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.safepilot-topbar__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.9);
+    transition: color var(--safepilot-transition-fast);
+}
+
+.safepilot-topbar__item i {
+    color: var(--safepilot-primary);
+    font-size: 14px;
+}
+
+.safepilot-topbar__item a {
+    color: inherit;
+    text-decoration: none;
+    transition: all var(--safepilot-transition-fast);
+    position: relative;
+}
+
+.safepilot-topbar__item a:hover {
+    color: var(--safepilot-primary);
+    text-decoration: none;
+}
+
+.safepilot-topbar__item a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--safepilot-primary);
+    transition: width var(--safepilot-transition-medium);
+}
+
+.safepilot-topbar__item a:hover::after {
+    width: 100%;
+}
+
+.safepilot-topbar__right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: auto;
+}
+
+/* Language Switcher */
+.safepilot-topbar__lang {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.safepilot-topbar__lang img {
+    width: 20px;
+    height: 14px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+/* Accessibility Toggle */
+.safepilot-accessibility-toggle {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--safepilot-transition-fast);
+}
+
+.safepilot-accessibility-toggle:hover,
+.safepilot-accessibility-toggle:focus {
+    background: var(--safepilot-primary);
+    border-color: var(--safepilot-primary);
+    transform: scale(1.1);
+}
+
+/* ============================================
+   3. Main Header
+   ============================================ */
+.safepilot-header {
+    background: var(--safepilot-header-bg);
+    position: relative;
+    z-index: var(--safepilot-z-header);
+    transition: all var(--safepilot-transition-medium);
+    box-shadow: var(--safepilot-shadow-sm);
+}
+
+.safepilot-header__main {
+    min-height: var(--safepilot-header-height);
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.safepilot-header__main .container {
+    width: 100%;
+}
+
+.safepilot-header__main .row {
+    align-items: center;
+}
+
+/* Transparent Header Variant */
+.safepilot-header--transparent {
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: none;
+}
+
+.safepilot-header--transparent .safepilot-header__main {
+    background: rgba(216, 213, 200, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* ============================================
+   4. Logo
+   ============================================ */
+.safepilot-header__logo {
+    display: flex;
+    align-items: center;
+}
+
+.safepilot-logo-link,
+.custom-logo-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    transition: transform var(--safepilot-transition-medium);
+    transform-origin: left center;
+}
+
+.safepilot-logo-link:hover,
+.custom-logo-link:hover {
+    transform: scale(1.05);
+}
+
+.safepilot-logo {
+    height: 50px;
+    width: auto;
+    max-width: 200px;
+}
+
+.custom-logo {
+    height: 50px;
+    width: auto;
+    max-width: 200px;
+}
+
+/* Logo Animation on Load */
+@keyframes logoSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.safepilot-header__logo {
+    animation: logoSlideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ============================================
+   5. Navigation
+   ============================================ */
+.safepilot-header__nav {
+    display: flex;
+    justify-content: center;
+}
+
+.safepilot-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.safepilot-nav>li {
+    position: relative;
+}
+
+.safepilot-nav>li>a {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    font-family: var(--safepilot-font-primary);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--safepilot-secondary);
+    text-decoration: none;
+    position: relative;
+    transition: all var(--safepilot-transition-fast);
+    border-radius: 8px;
+}
+
+.safepilot-nav>li>a::before {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--safepilot-primary) 0%, var(--safepilot-primary-hover) 100%);
+    border-radius: 3px;
+    transition: width var(--safepilot-transition-medium);
+}
+
+.safepilot-nav>li>a:hover,
+.safepilot-nav>li.current-menu-item>a,
+.safepilot-nav>li.current-menu-ancestor>a {
+    color: var(--safepilot-primary);
+    background: rgba(79, 185, 173, 0.08);
+}
+
+.safepilot-nav>li>a:hover::before,
+.safepilot-nav>li.current-menu-item>a::before {
+    width: calc(100% - 32px);
+}
+
+/* Dropdown Menu */
+.safepilot-nav .sub-menu,
+.safepilot-nav .children {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 240px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--safepilot-shadow-xl);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all var(--safepilot-transition-medium);
+    padding: 12px 0;
+    margin-top: 8px;
+    list-style: none;
+    z-index: 100;
+}
+
+.safepilot-nav .sub-menu::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 30px;
+    width: 12px;
+    height: 12px;
+    background: white;
+    transform: rotate(45deg);
+    box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.safepilot-nav li:hover>.sub-menu,
+.safepilot-nav li:hover>.children {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.safepilot-nav .sub-menu li,
+.safepilot-nav .children li {
+    margin: 0;
+}
+
+.safepilot-nav .sub-menu a,
+.safepilot-nav .children a {
+    display: block;
+    padding: 10px 24px;
+    color: var(--safepilot-secondary);
+    font-size: 14px;
+    text-decoration: none;
+    transition: all var(--safepilot-transition-fast);
+    position: relative;
+}
+
+.safepilot-nav .sub-menu a:hover,
+.safepilot-nav .children a:hover {
+    color: var(--safepilot-primary);
+    background: linear-gradient(90deg, rgba(79, 185, 173, 0.1) 0%, transparent 100%);
+    padding-left: 32px;
+}
+
+/* Multi-level Dropdown */
+.safepilot-nav .sub-menu .sub-menu,
+.safepilot-nav .children .children {
+    left: 100%;
+    top: -12px;
+    margin-top: 0;
+    margin-left: 8px;
+}
+
+/* Dropdown Arrow Indicator */
+.safepilot-nav .menu-item-has-children>a::after {
+    content: '\f107';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 12px;
+    margin-left: 6px;
+    transition: transform var(--safepilot-transition-fast);
+}
+
+.safepilot-nav .menu-item-has-children:hover>a::after {
+    transform: rotate(180deg);
+}
+
+/* ============================================
+   6. Header Actions
+   ============================================ */
+.safepilot-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: flex-end;
+}
+
+/* Search Toggle */
+.safepilot-header__search-toggle {
+    background: none;
+    border: none;
+    color: var(--safepilot-secondary);
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--safepilot-transition-fast);
+    position: relative;
+}
+
+.safepilot-header__search-toggle:hover,
+.safepilot-header__search-toggle:focus {
+    background: rgba(79, 185, 173, 0.1);
+    color: var(--safepilot-primary);
+    transform: scale(1.1);
+}
+
+/* Mini Cart */
+.safepilot-header__cart {
+    position: relative;
+}
+
+.safepilot-cart-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: var(--safepilot-secondary);
+    text-decoration: none;
+    position: relative;
+    transition: all var(--safepilot-transition-fast);
+}
+
+.safepilot-cart-toggle:hover {
+    color: var(--safepilot-primary);
+    transform: scale(1.1);
+}
+
+.safepilot-cart-count {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: var(--safepilot-primary);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    animation: cartBounce 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes cartBounce {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Mini Cart Dropdown */
+.safepilot-minicart {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 320px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--safepilot-shadow-xl);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all var(--safepilot-transition-medium);
+    z-index: 1000;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.safepilot-header__cart:hover .safepilot-minicart {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* User Account */
+.safepilot-header__user .dropdown-toggle {
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    transition: transform var(--safepilot-transition-fast);
+}
+
+.safepilot-header__user .dropdown-toggle:hover {
+    transform: scale(1.05);
+}
+
+.safepilot-user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--safepilot-primary);
+    transition: border-color var(--safepilot-transition-fast);
+}
+
+.safepilot-user-avatar:hover {
+    border-color: var(--safepilot-primary-hover);
+}
+
+.safepilot-login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: var(--safepilot-secondary);
+    text-decoration: none;
+    border-radius: 50%;
+    transition: all var(--safepilot-transition-fast);
+}
+
+.safepilot-login-btn:hover {
+    background: rgba(79, 185, 173, 0.1);
+    color: var(--safepilot-primary);
+    transform: scale(1.1);
+}
+
+/* CTA Button */
+.safepilot-header__cta .safepilot-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.safepilot-btn--gradient {
+    background: linear-gradient(135deg, var(--safepilot-primary) 0%, var(--safepilot-primary-hover) 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(79, 185, 173, 0.3);
+    transition: all var(--safepilot-transition-medium);
+}
+
+.safepilot-btn--gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--safepilot-primary-hover) 0%, var(--safepilot-primary-dark) 100%);
+    transition: left var(--safepilot-transition-medium);
+    z-index: -1;
+}
+
+.safepilot-btn--gradient:hover::before {
+    left: 0;
+}
+
+.safepilot-btn--gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 185, 173, 0.4);
+}
+
+/* Mobile Toggle (Hamburger) */
+.safepilot-header__mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.safepilot-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    position: relative;
+}
+
+.safepilot-hamburger__line {
+    width: 100%;
+    height: 3px;
+    background: var(--safepilot-secondary);
+    border-radius: 3px;
+    transition: all var(--safepilot-transition-fast);
+    transform-origin: center;
+}
+
+.safepilot-header__mobile-toggle.active .safepilot-hamburger__line:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+}
+
+.safepilot-header__mobile-toggle.active .safepilot-hamburger__line:nth-child(2) {
+    opacity: 0;
+}
+
+.safepilot-header__mobile-toggle.active .safepilot-hamburger__line:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* ============================================
+   7. Mobile Menu
+   ============================================ */
+.safepilot-mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: var(--safepilot-z-mobile-menu);
+    pointer-events: none;
+    display: none;
+}
+
+.safepilot-mobile-menu.active {
+    pointer-events: all;
+}
+
+.safepilot-mobile-menu__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity var(--safepilot-transition-medium);
+}
+
+.safepilot-mobile-menu.active .safepilot-mobile-menu__overlay {
+    opacity: 1;
+}
+
+.safepilot-mobile-menu__content {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 320px;
+    max-width: 90vw;
+    height: 100%;
+    background: white;
+    overflow-y: auto;
+    transition: right var(--safepilot-transition-medium);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.safepilot-mobile-menu.active .safepilot-mobile-menu__content {
+    right: 0;
+}
+
+.safepilot-mobile-menu__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: var(--safepilot-header-bg);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.safepilot-mobile-menu__close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--safepilot-secondary);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all var(--safepilot-transition-fast);
+}
+
+.safepilot-mobile-menu__close:hover {
+    background: rgba(0, 0, 0, 0.05);
+    transform: rotate(90deg);
+}
+
+.safepilot-mobile-menu__search {
+    padding: 20px;
+    background: var(--safepilot-header-bg-light);
+}
+
+.safepilot-mobile-menu__search .input-group {
+    position: relative;
+}
+
+.safepilot-mobile-menu__search .form-control {
+    border-radius: 25px;
+    padding-right: 45px;
+    border: 2px solid transparent;
+    background: white;
+    transition: border-color var(--safepilot-transition-fast);
+}
+
+.safepilot-mobile-menu__search .form-control:focus {
+    border-color: var(--safepilot-primary);
+    box-shadow: 0 0 0 3px rgba(79, 185, 173, 0.1);
+}
+
+.safepilot-mobile-menu__search .btn {
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    padding: 0;
+    background: var(--safepilot-primary);
+    border: none;
+    color: white;
+    transition: all var(--safepilot-transition-fast);
+}
+
+.safepilot-mobile-menu__search .btn:hover {
+    background: var(--safepilot-primary-hover);
+    transform: translateY(-50%) scale(1.05);
+}
+
+/* Mobile Navigation */
+.safepilot-mobile-nav {
+    list-style: none;
+    margin: 0;
+    padding: 20px 0;
+}
+
+.safepilot-mobile-nav li {
+    margin: 0;
+    position: relative;
+}
+
+.safepilot-mobile-nav a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--safepilot-secondary);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all var(--safepilot-transition-fast);
+    position: relative;
+}
+
+.safepilot-mobile-nav a:hover,
+.safepilot-mobile-nav .current-menu-item>a {
+    color: var(--safepilot-primary);
+    background: linear-gradient(90deg, rgba(79, 185, 173, 0.1) 0%, transparent 100%);
+    padding-left: 28px;
+}
+
+.safepilot-mobile-nav .menu-item-has-children>a::after {
+    content: '\f105';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform var(--safepilot-transition-fast);
+}
+
+.safepilot-mobile-nav .menu-item-has-children.open>a::after {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+.safepilot-mobile-nav .sub-menu {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.safepilot-mobile-nav .sub-menu.active {
+    display: block;
+    animation: slideDown var(--safepilot-transition-medium);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+
+    to {
+        opacity: 1;
+        max-height: 1000px;
+    }
+}
+
+.safepilot-mobile-nav .sub-menu a {
+    padding-left: 40px;
+    font-size: 14px;
+}
+
+/* Mobile Contact Info */
+.safepilot-mobile-menu__contact {
+    padding: 20px;
+    background: var(--safepilot-header-bg-light);
+}
+
+.safepilot-mobile-menu__subtitle {
+    font-family: var(--safepilot-font-heading);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--safepilot-secondary);
+    margin-bottom: 15px;
+}
+
+.safepilot-contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.safepilot-contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: var(--safepilot-secondary);
+}
+
+.safepilot-contact-list li i {
+    width: 20px;
+    text-align: center;
+    color: var(--safepilot-primary);
+}
+
+.safepilot-contact-list li a {
+    color: var(--safepilot-secondary);
+    text-decoration: none;
+    transition: color var(--safepilot-transition-fast);
+}
+
+.safepilot-contact-list li a:hover {
+    color: var(--safepilot-primary);
+}
+
+/* Mobile CTA */
+.safepilot-mobile-menu__cta {
+    padding: 20px;
+}
+
+.safepilot-mobile-menu__cta .btn {
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all var(--safepilot-transition-fast);
+}
+
+.safepilot-mobile-menu__cta .btn-primary {
+    background: linear-gradient(135deg, var(--safepilot-primary) 0%, var(--safepilot-primary-hover) 100%);
+    border: none;
+    color: white;
+}
+
+.safepilot-mobile-menu__cta .btn-success {
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    border: none;
+    color: white;
+}
+
+/* ============================================
+   8. Search Overlay
+   ============================================ */
+.safepilot-search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(33, 53, 67, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: var(--safepilot-z-search-overlay);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--safepilot-transition-medium);
+}
+
+.safepilot-search-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.safepilot-search-overlay__close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all var(--safepilot-transition-fast);
+}
+
+.safepilot-search-overlay__close:hover {
+    background: var(--safepilot-primary);
+    border-color: var(--safepilot-primary);
+    transform: rotate(90deg);
+}
+
+.safepilot-search-overlay__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.safepilot-search-form--large {
+    position: relative;
+}
+
+.safepilot-search-form__wrapper {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 60px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    transition: box-shadow var(--safepilot-transition-fast);
+}
+
+.safepilot-search-form__wrapper:focus-within {
+    box-shadow: 0 10px 50px rgba(79, 185, 173, 0.4);
+}
+
+.safepilot-search-form__input {
+    flex: 1;
+    border: none;
+    padding: 20px 30px;
+    font-size: 18px;
+    background: transparent;
+    outline: none;
+}
+
+.safepilot-search-form__submit {
+    background: var(--safepilot-primary);
+    border: none;
+    color: white;
+    padding: 20px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all var(--safepilot-transition-fast);
+}
+
+.safepilot-search-form__submit:hover {
+    background: var(--safepilot-primary-hover);
+    padding-right: 45px;
+}
+
+/* Popular Searches */
+.safepilot-search-overlay__popular {
+    margin-top: 40px;
+    text-align: center;
+    animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.safepilot-search-overlay__popular h3 {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.safepilot-search-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.safepilot-search-tag {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all var(--safepilot-transition-fast);
+}
+
+.safepilot-search-tag:hover {
+    background: var(--safepilot-primary);
+    border-color: var(--safepilot-primary);
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   9. Sticky Header
+   ============================================ */
+.safepilot-header--sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    animation: none;
+    transform: translateY(-100%);
+    transition: transform var(--safepilot-transition-medium);
+}
+
+.safepilot-header--sticky.scrolled {
+    transform: translateY(0);
+    z-index: var(--safepilot-z-sticky);
+    box-shadow: var(--safepilot-shadow-md);
+}
+
+.safepilot-header--sticky.scrolled .safepilot-header__main {
+    min-height: 60px;
+}
+
+.safepilot-header--sticky.scrolled .safepilot-logo,
+.safepilot-header--sticky.scrolled .custom-logo {
+    height: 40px;
+}
+
+.safepilot-header--sticky.scrolled .safepilot-topbar {
+    display: none;
+}
+
+/* Reading Progress Bar */
+.safepilot-reading-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.safepilot-reading-progress__bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--safepilot-primary) 0%, var(--safepilot-primary-hover) 100%);
+    width: 0;
+    transition: width 0.1s linear;
+}
+
+/* ============================================
+   10. Accessibility Features
+   ============================================ */
+/* Focus Visible */
+.safepilot-header *:focus-visible {
+    outline: 3px solid var(--safepilot-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Skip Link */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 10px;
+    background: var(--safepilot-primary);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 0 0 8px 8px;
+    z-index: 10000;
+    transition: top var(--safepilot-transition-fast);
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .safepilot-header {
+        border-bottom: 2px solid currentColor;
+    }
+
+    .safepilot-nav a {
+        text-decoration: underline;
+    }
+
+    .safepilot-nav a:hover,
+    .safepilot-nav .current-menu-item>a {
+        text-decoration-thickness: 3px;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .safepilot-header {
+        background: var(--safepilot-secondary-dark);
+    }
+
+    .safepilot-header__main {
+        background: var(--safepilot-secondary);
+    }
+
+    .safepilot-nav a {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .safepilot-nav a:hover,
+    .safepilot-nav .current-menu-item>a {
+        color: var(--safepilot-primary);
+    }
+
+    .safepilot-nav .sub-menu,
+    .safepilot-nav .children {
+        background: var(--safepilot-secondary);
+    }
+
+    .safepilot-nav .sub-menu a,
+    .safepilot-nav .children a {
+        color: rgba(255, 255, 255, 0.9);
+    }
+}
+
+/* Accessibility Modal Styles */
+.safepilot-accessibility-options {
+    padding: 15px;
+}
+
+.safepilot-accessibility-option {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.safepilot-accessibility-option:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.safepilot-accessibility-option label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--safepilot-secondary);
+}
+
+.safepilot-accessibility-option .btn-group {
+    display: flex;
+    gap: 5px;
+}
+
+.safepilot-accessibility-option .btn {
+    flex: 1;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+/* Font Size Adjustments */
+body.font-size-small {
+    font-size: 14px;
+}
+
+body.font-size-large {
+    font-size: 18px;
+}
+
+body.font-size-large .safepilot-nav {
+    font-size: 17px;
+}
+
+/* High Contrast Mode */
+body.high-contrast {
+    background: white !important;
+    color: black !important;
+}
+
+body.high-contrast .safepilot-header {
+    background: white !important;
+    border-bottom: 3px solid black;
+}
+
+body.high-contrast .safepilot-nav a {
+    color: black !important;
+    font-weight: 600;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background: #1a1a1a;
+    color: #e0e0e0;
+}
+
+body.dark-mode .safepilot-header {
+    background: #2a2a2a;
+}
+
+/* Underline Links */
+body.underline-links a {
+    text-decoration: underline !important;
+    text-underline-offset: 2px;
+}
+
+/* Readable Font */
+body.readable-font {
+    font-family: 'OpenDyslexic', 'Comic Sans MS', 'Arial', sans-serif !important;
+}
+
+body.readable-font * {
+    font-family: inherit !important;
+}
+
+/* Stop Animations */
+body.stop-animations *,
+body.stop-animations *::before,
+body.stop-animations *::after {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* ============================================
+   11. Animations & Transitions
+   ============================================ */
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide In From Top */
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pulse Animation for CTAs */
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.safepilot-btn--gradient {
+    animation: pulse 3s infinite;
+}
+
+.safepilot-btn--gradient:hover {
+    animation: none;
+}
+
+/* Wave Animation for Background */
+@keyframes wave {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-25%) translateY(-10px);
+    }
+
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+.safepilot-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(79, 185, 173, 0.05),
+            transparent);
+    animation: wave 15s linear infinite;
+    pointer-events: none;
+}
+
+/* ============================================
+   12. Responsive Design
+   ============================================ */
+/* Tablet Landscape (1024px and below) */
+@media (max-width: 1024px) {
+    .safepilot-nav>li>a {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .safepilot-header__cta {
+        display: none !important;
+    }
+}
+
+/* Tablet Portrait (991px and below) */
+@media (max-width: 991px) {
+    .safepilot-header__nav {
+        display: none !important;
+    }
+
+    .safepilot-header__mobile-toggle {
+        display: flex !important;
+    }
+
+    .safepilot-mobile-menu {
+        display: block;
+    }
+
+    .safepilot-header__main {
+        min-height: var(--safepilot-mobile-header-height);
+    }
+
+    .safepilot-logo,
+    .custom-logo {
+        height: 40px;
+    }
+
+    .safepilot-header__user .dropdown-menu {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        border-radius: 16px 16px 0 0;
+        transform: translateY(100%);
+        transition: transform var(--safepilot-transition-medium);
+    }
+
+    .safepilot-header__user .dropdown-menu.show {
+        transform: translateY(0);
+    }
+}
+
+/* Mobile (768px and below) */
+@media (max-width: 768px) {
+    .safepilot-topbar {
+        display: none;
+    }
+
+    .safepilot-header--sticky.scrolled .safepilot-header__main {
+        min-height: 50px;
+    }
+
+    .safepilot-header--sticky.scrolled .safepilot-logo,
+    .safepilot-header--sticky.scrolled .custom-logo {
+        height: 35px;
+    }
+
+    .safepilot-search-overlay__content {
+        padding: 0 15px;
+    }
+
+    .safepilot-search-form__wrapper {
+        border-radius: 30px;
+    }
+
+    .safepilot-search-form__input {
+        padding: 15px 20px;
+        font-size: 16px;
+    }
+
+    .safepilot-search-form__submit {
+        padding: 15px 25px;
+        font-size: 14px;
+    }
+
+    .safepilot-search-form__submit span {
+        display: none;
+    }
+}
+
+/* Small Mobile (576px and below) */
+@media (max-width: 576px) {
+    .safepilot-header__actions {
+        gap: 8px;
+    }
+
+    .safepilot-header__search-toggle,
+    .safepilot-cart-toggle,
+    .safepilot-login-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    .safepilot-mobile-menu__content {
+        width: 280px;
+    }
+
+    .safepilot-search-tags {
+        gap: 6px;
+    }
+
+    .safepilot-search-tag {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .safepilot-header {
+        position: static;
+        box-shadow: none;
+    }
+
+    .safepilot-topbar,
+    .safepilot-header__actions,
+    .safepilot-mobile-menu,
+    .safepilot-search-overlay {
+        display: none !important;
+    }
+
+    .safepilot-nav {
+        display: block !important;
+    }
+
+    .safepilot-nav .sub-menu,
+    .safepilot-nav .children {
+        display: none !important;
+    }
+}
+
+/* ============================================
+   End of Header Styles
+   ============================================ */

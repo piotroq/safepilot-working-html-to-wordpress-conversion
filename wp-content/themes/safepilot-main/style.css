@@ -1,0 +1,299 @@
+/*
+Theme Name: SafePilot
+Theme URI: https://safepilot.pl
+Author: SafePilot Team
+Author URI: https://safepilot.pl
+Description: Nowoczesny motyw WordPress dla firmy SafePilot - kompleksowe usługi BHP, PPOŻ i Pierwszej Pomocy. Motyw wspiera pełną edycję witryny (FSE - Full Site Editing) z wykorzystaniem bloków Gutenberg.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.4
+Requires PHP: 8.2
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: safepilot
+Tags: block-themes, full-site-editing, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, threaded-comments, translation-ready, wide-blocks
+*/
+
+/*
+===========================================
+Table of Contents
+===========================================
+1. CSS Variables
+2. Global Styles
+3. Typography
+4. Layout
+5. Header Styles
+6. Navigation
+7. Footer Styles
+8. Gutenberg Block Styles
+9. Responsive Design
+10. Accessibility
+===========================================
+*/
+
+/*
+===========================================
+1. CSS Variables
+===========================================
+*/
+:root {
+	/* Brand Colors */
+	--safepilot-primary: #4fb9ad;
+	--safepilot-secondary: #213543;
+	--safepilot-background: #d8d5c8;
+	--safepilot-tertiary: #19222a;
+	--safepilot-hover: #213542;
+	
+	/* Additional Colors */
+	--safepilot-white: #ffffff;
+	--safepilot-black: #000000;
+	--safepilot-light-gray: #f5f5f5;
+	--safepilot-dark-gray: #333333;
+	
+	/* Typography */
+	--safepilot-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	--safepilot-font-size-base: 16px;
+	--safepilot-line-height-base: 1.6;
+	
+	/* Spacing */
+	--safepilot-spacing-xs: 0.5rem;
+	--safepilot-spacing-sm: 1rem;
+	--safepilot-spacing-md: 1.5rem;
+	--safepilot-spacing-lg: 2rem;
+	--safepilot-spacing-xl: 3rem;
+	
+	/* Border Radius */
+	--safepilot-border-radius: 4px;
+	
+	/* Transitions */
+	--safepilot-transition: all 0.3s ease;
+}
+
+/*
+===========================================
+2. Global Styles
+===========================================
+*/
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: var(--safepilot-font-family);
+	font-size: var(--safepilot-font-size-base);
+	line-height: var(--safepilot-line-height-base);
+	color: var(--safepilot-dark-gray);
+	background-color: var(--safepilot-background);
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: var(--safepilot-primary);
+	text-decoration: none;
+	transition: var(--safepilot-transition);
+}
+
+a:hover,
+a:focus {
+	color: var(--safepilot-hover);
+	text-decoration: underline;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+/*
+===========================================
+3. Typography
+===========================================
+*/
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 700;
+	line-height: 1.2;
+	margin-top: 0;
+	margin-bottom: var(--safepilot-spacing-md);
+	color: var(--safepilot-secondary);
+}
+
+h1 {
+	font-size: 2.5rem;
+}
+
+h2 {
+	font-size: 2rem;
+}
+
+h3 {
+	font-size: 1.75rem;
+}
+
+h4 {
+	font-size: 1.5rem;
+}
+
+h5 {
+	font-size: 1.25rem;
+}
+
+h6 {
+	font-size: 1rem;
+}
+
+p {
+	margin-top: 0;
+	margin-bottom: var(--safepilot-spacing-sm);
+}
+
+/*
+===========================================
+4. Layout
+===========================================
+*/
+.container {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 var(--safepilot-spacing-md);
+}
+
+.site-content {
+	padding: var(--safepilot-spacing-xl) 0;
+}
+
+/*
+===========================================
+5. Header Styles
+===========================================
+*/
+.site-header {
+	background-color: var(--safepilot-white);
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/*
+===========================================
+6. Navigation
+===========================================
+*/
+.main-navigation a {
+	color: var(--safepilot-secondary);
+	padding: var(--safepilot-spacing-sm);
+	display: inline-block;
+}
+
+.main-navigation a:hover {
+	color: var(--safepilot-primary);
+	text-decoration: none;
+}
+
+/*
+===========================================
+7. Footer Styles
+===========================================
+*/
+.site-footer {
+	background-color: var(--safepilot-secondary);
+	color: var(--safepilot-white);
+	padding: var(--safepilot-spacing-xl) 0;
+}
+
+.site-footer a {
+	color: var(--safepilot-white);
+}
+
+.site-footer a:hover {
+	color: var(--safepilot-primary);
+}
+
+/*
+===========================================
+8. Gutenberg Block Styles
+===========================================
+*/
+.wp-block-button__link {
+	background-color: var(--safepilot-primary);
+	color: var(--safepilot-white);
+	padding: var(--safepilot-spacing-sm) var(--safepilot-spacing-lg);
+	border-radius: var(--safepilot-border-radius);
+	transition: var(--safepilot-transition);
+}
+
+.wp-block-button__link:hover {
+	background-color: var(--safepilot-hover);
+	text-decoration: none;
+}
+
+/*
+===========================================
+9. Responsive Design
+===========================================
+*/
+@media (max-width: 768px) {
+	h1 {
+		font-size: 2rem;
+	}
+	
+	h2 {
+		font-size: 1.75rem;
+	}
+	
+	h3 {
+		font-size: 1.5rem;
+	}
+	
+	.container {
+		padding: 0 var(--safepilot-spacing-sm);
+	}
+}
+
+/*
+===========================================
+10. Accessibility
+===========================================
+*/
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+	background-color: var(--safepilot-light-gray);
+	border-radius: var(--safepilot-border-radius);
+	clip: auto !important;
+	color: var(--safepilot-secondary);
+	display: block;
+	font-size: 0.875rem;
+	font-weight: 700;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+}
+
+/* Skip to content link */
+.skip-link {
+	position: absolute;
+	left: -9999px;
+	top: -9999px;
+	z-index: 999999;
+}
+
+.skip-link:focus {
+	left: 6px;
+	top: 7px;
+	background-color: var(--safepilot-white);
+	color: var(--safepilot-secondary);
+	padding: var(--safepilot-spacing-sm);
+}
