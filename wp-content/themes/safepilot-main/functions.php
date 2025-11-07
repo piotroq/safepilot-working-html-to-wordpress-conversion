@@ -19,6 +19,27 @@ define( 'SAFEPILOT_THEME_DIR', get_template_directory() );
 define( 'SAFEPILOT_THEME_URI', get_template_directory_uri() );
 
 /**
+ * Prevent zlib output compression conflicts that trigger PHP notices.
+ */
+function safepilot_disable_zlib_output_compression() {
+	if ( ! function_exists( 'ini_get' ) || ! function_exists( 'ini_set' ) ) {
+		return;
+	}
+
+	$value = ini_get( 'zlib.output_compression' );
+	if ( false === $value ) {
+		return;
+	}
+
+	// Normalize value because servers may return "1", "On", or "true".
+	if ( in_array( strtolower( (string) $value ), array( '1', 'on', 'true' ), true ) ) {
+		// Disables compression so WordPress can flush buffers without notices.
+		@ini_set( 'zlib.output_compression', '0' );
+	}
+}
+add_action( 'init', 'safepilot_disable_zlib_output_compression', 0 );
+
+/**
  * Theme Setup
  */
 function safepilot_theme_setup() {
