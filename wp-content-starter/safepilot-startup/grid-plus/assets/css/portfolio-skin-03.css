@@ -1,0 +1,15 @@
+div.portfolio-skin-03 .hover-outer .icon-groups a {
+    height: 38px;
+    width: 38px;
+    line-height: 36px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.grid-plus-container a.portfolio-like {
+    margin-left: 0;
+}
+
+div.portfolio-skin-03 .post-meta-date {
+    display: inline-block;
+}

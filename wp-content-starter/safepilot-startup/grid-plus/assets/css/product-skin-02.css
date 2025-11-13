@@ -1,0 +1,77 @@
+div.product-skin-02 .post-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+}
+div.product-skin-02 .post-info .product-heading,
+div.product-skin-02 .post-info .price-wrap {
+    display: table-cell;
+}
+
+div.product-skin-02 .post-info .product-heading {
+    width: 100%;
+    vertical-align: top;
+    padding-top: 6px;
+    padding-right: 10px;
+}
+div.product-skin-02 .post-info .price-wrap {
+    white-space: nowrap;
+    width: 70px;
+    height: 70px;
+    vertical-align: bottom;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    background-color: #222;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    line-height: 70px;
+}
+div.product-skin-02 .post-info .categories {
+    font-size: 14px;
+    font-weight: 300;
+    color: #777;
+    text-transform: uppercase;
+    text-decoration: underline #777;
+    margin-bottom: 12px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+div.product-skin-02 .post-info .product-name a {
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    color: #111;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+div.product-skin-02 .post-info .categories:hover,
+div.product-skin-02 .post-info .product-name a:hover {
+    color: #0077ed;
+}
+div.product-skin-02 .post-info .categories:hover {
+    text-decoration-color: #0077ed;
+}
+div.product-skin-02 .post-info .price-wrap span {
+    display: block;
+    width: 70px;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+}
+div.product-skin-02:hover .post-info .price-wrap {
+    background-color: #0077ed;
+}

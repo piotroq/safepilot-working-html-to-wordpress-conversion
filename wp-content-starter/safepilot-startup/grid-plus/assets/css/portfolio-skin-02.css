@@ -1,0 +1,12 @@
+div.portfolio-skin-02 .hover-outer .icon-groups a{
+    height: 38px;
+    width: 38px;
+    line-height: 36px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+div.portfolio-skin-02 {
+    text-align: center;
+}

@@ -1,0 +1,121 @@
+.breadcrumbs-container ul.breadcrumbs {
+    padding: 0;
+    margin: 0;
+}
+.breadcrumbs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0;
+    text-transform: uppercase;
+    li {
+        display: inline-block;
+        a, span {
+            font-size: 13px;
+            color: #aaa;
+            line-height: 2;
+        }
+        a:hover,
+        a:focus,
+        a:active {
+            color: @accent_color;
+        }
+        span {
+            color: @accent_color;
+        }
+        &:after {
+            display: inline-block;
+            content: '/';
+            font-size: 13px;
+            padding: 0 18px;
+            color: #aaa;
+        }
+    }
+    li:last-child:after {
+        display: none;
+    }
+}
+
+// Page title
+.gf-page-title {
+    &.gf-page-title-default {
+        background-color: #f4f4f4;
+    }
+    .page-title-inner {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        h1 {
+            font-size: 48px;
+        }
+    }
+    h1 {
+        margin-bottom: 10px;
+    }
+    p {
+        margin-bottom: 0;
+    }
+}
+.page-title-container {
+    h1 {
+        margin-bottom: 10px;
+    }
+    p {
+        margin-bottom: 0;
+    }
+}
+.page-title-container.title-bottom-line {
+    p {
+        margin-bottom: 10px;
+    }
+    h1 {
+        margin-bottom: 0;
+        position: relative;
+        text-transform: uppercase;
+        padding-bottom: 18px;
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 2px;
+            width: 65px;
+            background-color: @accent_color;
+            bottom: 0;
+        }
+    }
+    &.text-left {
+        h1:after {
+            left: 0;
+        }
+    }
+    &.text-center {
+        h1:after {
+            left: 50%;
+            .transform(translateX(-50%));
+        }
+    }
+    &.text-right {
+        h1:after {
+            right: 0;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .gf-page-title {
+        .page-title-inner {
+            display: table;
+            .page-title-content,
+            div.breadcrumbs {
+                display: table-cell;
+                vertical-align: middle;
+            }
+            .page-title-content {
+                width: 100%;
+                padding-right: 40px;
+            }
+            div.breadcrumbs {
+                white-space: nowrap;
+            }
+        }
+    }
+}

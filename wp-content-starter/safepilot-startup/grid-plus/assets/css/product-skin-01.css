@@ -1,0 +1,106 @@
+div.product-skin-01 .hover-outer {
+    background-color: rgba(0,0,0,0.3);
+}
+div.product-skin-01 .hover-inner {
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+    top: auto !important;
+    transform: none;
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+div.product-skin-01 .hover-inner .icon-groups a {
+    display: block;
+    margin-top: 10px;
+    background-color: #fff;
+    color: #222;
+    -webkit-transform: translateX(-20px);
+    -moz-transform: translateX(-20px);
+    -o-transform: translateX(-20px);
+    -ms-transform: translateX(-20px);
+    transform: translateX(-20px);
+    -webkit-transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.9s;
+    -moz-transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.9s;
+    -ms-transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.9s;
+    -o-transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.9s;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.9s;
+}
+
+div.product-skin-01 .hover-inner .icon-groups a + a {
+    -webkit-transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.76s;
+    -moz-transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.6s;
+    -ms-transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.6s;
+    -o-transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.6s;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.6s;
+}
+
+div.product-skin-01 .hover-inner .icon-groups a + a + a {
+    -webkit-transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.3s;
+    -moz-transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.3s;
+    -ms-transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.3s;
+    -o-transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.3s;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+div.product-skin-01:hover .hover-inner {
+    opacity: 1;
+}
+
+div.product-skin-01:hover .hover-inner .icon-groups a {
+    -webkit-transform: translateX(20px);
+    -moz-transform: translateX(20px);
+    -o-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+}
+
+div.product-skin-01 .hover-inner .icon-groups a:hover {
+    color: #fff;
+    border-color: #0077ed;
+    background-color: #0077ed;
+}
+
+div.product-skin-01 .post-info .grid-add-to-cart,
+div.product-skin-01 .post-info .product-info-right {
+    display: table-cell;
+    vertical-align: middle;
+}
+div.product-skin-01 .post-info .grid-add-to-cart {
+    border-right: 1px solid #eee;
+    padding-right: 15px;
+}
+div.product-skin-01 .post-info .grid-add-to-cart a,
+div.product-skin-01 .post-info .grid-add-to-cart i {
+    padding: 0;
+    margin: 0;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+div.product-skin-01 .post-info .grid-add-to-cart a:hover {
+    color: #0077ed;
+}
+
+div.product-skin-01 .post-info .product-info-right {
+    padding-left: 20px;
+}
+
+div.product-skin-01 .post-info .title a {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #111;
+}
+div.product-skin-01 .post-info .title a:hover {
+    color: #0077ed;
+}
+
+div.product-skin-01 .post-info .rating i {
+    display: inline-block;
+    font-size: 13px;
+}

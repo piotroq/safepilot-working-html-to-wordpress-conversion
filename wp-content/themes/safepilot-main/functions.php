@@ -232,6 +232,14 @@ function safepilot_scripts() {
 		array( 'safepilot-main-static' ),
 		SAFEPILOT_VERSION
 	);
+
+			// Enqueue main theme CSS from static template
+	wp_enqueue_style(
+		'safepilot-all-scss-file',
+		SAFEPILOT_THEME_URI . '/assets/css/all-scss-file1.css',
+		array( 'bootstrap', 'font-awesome' ),
+		SAFEPILOT_VERSION
+	);
 	
 	// Enqueue jQuery (WordPress includes its own)
 	wp_enqueue_script( 'jquery' );
