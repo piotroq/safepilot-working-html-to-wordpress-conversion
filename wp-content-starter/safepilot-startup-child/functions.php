@@ -89,6 +89,178 @@ if ( ! function_exists( 'safepilot_nuclear_child_theme_setup' ) ) {
 }
 add_action( 'after_setup_theme', 'safepilot_nuclear_child_theme_setup', 11 );
 
+/**
+ * SafePilot Child Theme functions and definitions.
+ *
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ *
+ * @package safepilot-startup-child
+ */
+
+/**
+ * Enqueue scripts and styles.
+ */
+function safepilot_child_enqueue_assets() {
+    // --- Krok 3: Dodaj niestandardowe pliki CSS ---
+    
+    // 1. Plik z kolorami marki SafePilot
+    wp_enqueue_style(
+        'safepilot-brand-colors', // Unikalna nazwa (uchwyt) dla tego pliku CSS
+        get_stylesheet_directory_uri() . '/assets/css/safe-pilot-fullbrand-color.css',
+        array( 'safepilot-startup-child' ), // Zależność: ładuj PO głównym pliku style.css motywu potomnego
+        '1.0.0' // Wersja pliku
+    );
+
+    // 2. Plik z niestandardowymi animacjami
+    wp_enqueue_style(
+        'safepilot-custom-animations', // Unikalna nazwa
+        get_stylesheet_directory_uri() . '/assets/css/animate.css',
+        array( 'safepilot-brand-colors' ), // Zależność: ładuj PO pliku z kolorami
+        '1.0.0'
+    );
+    
+    // 3. Plik z niestandardowymi okienko popup zdjecia
+    wp_enqueue_style(
+        'safepilot-magnific-popup', // Unikalna nazwa
+        get_stylesheet_directory_uri() . '/assets/css/magnific-popup.css',
+        array( 'safepilot-brand-colors' ), // Zależność: ładuj PO pliku z kolorami
+        '1.0.0'
+    );
+    
+    // 4. Plik z niestandardowymi main glowny css extechu
+    wp_enqueue_style(
+        'safepilot-main-css', // Unikalna nazwa
+        get_stylesheet_directory_uri() . '/assets/css/main.css',
+        array( 'safepilot-brand-colors' ), // Zależność: ładuj PO pliku z kolorami
+        '1.0.0'
+    );
+    
+    // 5. Plik z niestandardowymi meanmenu css extechu
+    wp_enqueue_style(
+        'safepilot-meanmenu-css', // Unikalna nazwa
+        get_stylesheet_directory_uri() . '/assets/css/meanmenu.css',
+        array( 'safepilot-brand-colors' ), // Zależność: ładuj PO pliku z kolorami
+        '1.0.0'
+    );
+    
+    // 6. Plik z niestandardowymi nice select css extechu
+    wp_enqueue_style(
+        'safepilot-nice-select-css', // Unikalna nazwa
+        get_stylesheet_directory_uri() . '/assets/css/nice-select.css',
+        array( 'safepilot-brand-colors' ), // Zależność: ładuj PO pliku z kolorami
+        '1.0.0'
+    );
+    
+    // 7. Plik z niestandardowymi swiper css extechu
+    wp_enqueue_style(
+        'safepilot-swiper-bundle-min-css', // Unikalna nazwa
+        get_stylesheet_directory_uri() . '/assets/css/swiper-bundle.min.css',
+        array( 'safepilot-brand-colors' ), // Zależność: ładuj PO pliku z kolorami
+        '1.0.0'
+    );
+    
+    // 8. Plik z niestandardowymi all file style min css extechu
+    wp_enqueue_style(
+        'safepilot-all-style-extech-min-css', // Unikalna nazwa
+        get_stylesheet_directory_uri() . '/assets/css/all.min.css',
+        array( 'safepilot-brand-colors' ), // Zależność: ładuj PO pliku z kolorami
+        '1.0.0'
+    );
+    
+    // 9. Plik z niestandardowymi all scss style file extechu
+    wp_enqueue_style(
+        'safepilot-all-file-scss-extech', // Unikalna nazwa
+        get_stylesheet_directory_uri() . '/assets/css/all-file-scss-extech.css',
+        array( 'safepilot-brand-colors' ), // Zależność: ładuj PO pliku z kolorami
+        '1.0.0'
+    );
+
+    // --- Krok 4: Dodaj niestandardowe pliki JavaScript ---
+
+    // 1. Plik z biblioteką Bootstrap Bundle Extech
+    wp_enqueue_script(
+        'library-bootstrap-bundle-extech', // Unikalna nazwa (uchwyt) dla tego skryptu
+        get_stylesheet_directory_uri() . '/assets/js/bootstrap.bundle.min.js',
+        array(), // Zależności (np. array('jquery'), jeśli skrypt wymaga jQuery)
+        '2.3.4', // Wersja biblioteki
+        true // `true` oznacza, że skrypt zostanie załadowany w stopce strony (zalecane dla wydajności)
+    );
+    
+    // 2. Plik z Twoimi counterup js extech
+    wp_enqueue_script(
+        'counterup-js-extech', // Unikalna nazwa
+        get_stylesheet_directory_uri() . '/assets/js/jquery.counterup.min.js',
+        array( 'jquery', 'library-bootstrap-bundle-extech' ), // Zależność: ładuj PO jQuery i bibliotece AOS
+        '1.0.0',
+        true // Ładuj w stopce
+    );
+    
+    // 3. Plik z Twoimi magnific popup js extech
+    wp_enqueue_script(
+        'magnific-popup-js-extech', // Unikalna nazwa
+        get_stylesheet_directory_uri() . '/assets/js/jquery.magnific-popup.min.js',
+        array( 'jquery', 'library-bootstrap-bundle-extech' ), // Zależność: ładuj PO jQuery i bibliotece AOS
+        '1.0.0',
+        true // Ładuj w stopce
+    );
+    
+    // 4. Plik z Twoimi meanmenu js extech
+    wp_enqueue_script(
+        'meanmenu-js-extech', // Unikalna nazwa
+        get_stylesheet_directory_uri() . '/assets/js/jquery.meanmenu.min.js',
+        array( 'jquery', 'library-bootstrap-bundle-extech' ), // Zależność: ładuj PO jQuery i bibliotece AOS
+        '1.0.0',
+        true // Ładuj w stopce
+    );
+    
+    // 5. Plik z Twoimi niceselect js extech
+    wp_enqueue_script(
+        'niceselect-js-extech', // Unikalna nazwa
+        get_stylesheet_directory_uri() . '/assets/js/jquery.nice-select.min.js',
+        array( 'jquery', 'library-bootstrap-bundle-extech' ), // Zależność: ładuj PO jQuery i bibliotece AOS
+        '1.0.0',
+        true // Ładuj w stopce
+    );
+    
+    // 6. Plik z Twoimi waypoints js extech
+    wp_enqueue_script(
+        'waypoints-js-extech', // Unikalna nazwa
+        get_stylesheet_directory_uri() . '/assets/js/jquery.waypoints.js',
+        array( 'jquery', 'library-bootstrap-bundle-extech' ), // Zależność: ładuj PO jQuery i bibliotece AOS
+        '1.0.0',
+        true // Ładuj w stopce
+    );
+    
+    // 7. Plik z Twoimi swiper bundle extech
+    wp_enqueue_script(
+        'swiper-bundle-js-extech', // Unikalna nazwa
+        get_stylesheet_directory_uri() . '/assets/js/swiper-bundle.min.js',
+        array( 'jquery', 'library-bootstrap-bundle-extech' ), // Zależność: ładuj PO jQuery i bibliotece AOS
+        '1.0.0',
+        true // Ładuj w stopce
+    );
+    
+    // 8. Plik z Twoimi viewport js extech
+    wp_enqueue_script(
+        'viewport-js-extech', // Unikalna nazwa
+        get_stylesheet_directory_uri() . '/assets/js/viewport.jquery.js',
+        array( 'jquery', 'library-bootstrap-bundle-extech' ), // Zależność: ładuj PO jQuery i bibliotece AOS
+        '1.0.0',
+        true // Ładuj w stopce
+    );
+    
+    // 9. Plik z Twoimi wow js extech
+    wp_enqueue_script(
+        'wow-js-extech', // Unikalna nazwa
+        get_stylesheet_directory_uri() . '/assets/js/wow.min.js',
+        array( 'jquery', 'library-bootstrap-bundle-extech' ), // Zależność: ładuj PO jQuery i bibliotece AOS
+        '1.0.0',
+        true // Ładuj w stopce
+    );
+
+}
+add_action( 'wp_enqueue_scripts', 'safepilot_child_enqueue_assets' );
+
 remove_action('wp_head', 'wp_generator');
 
 function my_secure_generator( $generator, $type ) {
@@ -759,12 +931,125 @@ function wpdocs_customize_admin_menu_for_users() {
 }
 add_action( 'admin_init', 'wpdocs_customize_admin_menu_for_users', 999 );
 
-// Simple Shortcode
-# Dodanie Realizacji shortcode dla strony głównej.
-function realizacjeloopcpt() {
-    ob_start();
-    get_template_part('realizacjeloopcpt');
-    return ob_get_clean();   
-} 
-add_shortcode( 'realizacjeloopcpt_shortcode', 'realizacjeloopcpt' );
+// =========================================================================
+// Zaawansowana obsługa Shortcode'ów dla szablonów
+// =========================================================================
+
+/**
+ * Rejestruje shortcode, który wczytuje określony plik szablonu z motywu potomnego.
+ *
+ * Ta funkcja pozwala dynamicznie tworzyć shortcody dla różnych plików szablonów,
+ * podając nazwę shortcode'u i ścieżkę do pliku w folderze motywu potomnego.
+ *
+ * @param string $tag Nazwa shortcode'u (np. 'moj_slider').
+ * @param string $template_path Ścieżka do pliku szablonu względem folderu motywu potomnego
+ *                              (np. 'template-parts/sliders/main-slider.php').
+ */
+function safepilot_register_template_shortcode( $tag, $template_path ) {
+    
+    // Sprawdzamy, czy podano nazwę shortcode'u i ścieżkę
+    if ( empty( $tag ) || empty( $template_path ) ) {
+        return;
+    }
+
+    // Tworzymy nową funkcję dla shortcode'u
+    add_shortcode( $tag, function() use ( $template_path ) {
+        
+        // Budujemy pełną, absolutną ścieżkę do pliku w motywie potomnym
+        $full_path = get_stylesheet_directory() . '/' . $template_path;
+        
+        // Zaczynamy buforowanie wyjścia - przechwytujemy cały kod HTML z pliku
+        ob_start();
+
+        // Sprawdzamy, czy plik fizycznie istnieje na serwerze
+        if ( file_exists( $full_path ) ) {
+            // Jeśli tak, wczytujemy go
+            include $full_path;
+        } else {
+            // Jeśli nie, wyświetlamy komunikat błędu (widoczny tylko dla administratorów)
+            if ( current_user_can( 'manage_options' ) ) {
+                echo '<p style="color: red; background: #ffe0e0; border: 1px solid red; padding: 10px;">';
+                echo 'Błąd shortcode\'u [<strong>' . esc_html( $tag ) . '</strong>]: Plik szablonu nie został znaleziony w lokalizacji: <code>' . esc_html( $template_path ) . '</code>';
+                echo '</p>';
+            }
+        }
+
+        // Kończymy buforowanie i zwracamy całą zawartość jako tekst
+        return ob_get_clean();
+    });
+}
+
+// --- Przykład użycia nowej funkcji ---
+
+// 3. Rejestracja shortcode'u dla sekcji "Hero"
+safepilot_register_template_shortcode(
+    'sekcja_hero', 
+    'template-shortcode-extech/index1/index1-hero-section.php'
+);
+
+// 4. Rejestracja shortcode'u dla sekcji "Usługi"
+safepilot_register_template_shortcode(
+    'sekcja_uslugi', 
+    'template-shortcode-extech/index1/index1-service-section.php'
+);
+
+// 5. Rejestracja shortcode'u dla sekcji "O nas"
+safepilot_register_template_shortcode(
+    'sekcja_o_nas', 
+    'template-shortcode-extech/index1/index1-about-section.php'
+);
+
+// 6. Rejestracja shortcode'u dla sekcji "Projekty"
+safepilot_register_template_shortcode(
+    'sekcja_projekty', 
+    'template-shortcode-extech/index1/index1-project-section.php'
+);
+
+// 7. Rejestracja shortcode'u dla sekcji "Proces Pracy"
+safepilot_register_template_shortcode(
+    'sekcja_proces_pracy', 
+    'template-shortcode-extech/index1/index1-work-process-section.php'
+);
+
+// 8. Rejestracja shortcode'u dla sekcji "Cennik"
+safepilot_register_template_shortcode(
+    'sekcja_cennik', 
+    'template-shortcode-extech/index1/index1-pricing-section.php'
+);
+
+// 9. Rejestracja shortcode'u dla sekcji "Zespół"
+safepilot_register_template_shortcode(
+    'sekcja_zespol', 
+    'template-shortcode-extech/index1/index1-team-section.php'
+);
+
+// 10. Rejestracja shortcode'u dla sekcji "FAQ"
+safepilot_register_template_shortcode(
+    'sekcja_faq', 
+    'template-shortcode-extech/index1/index1-faq-section.php'
+);
+
+// 11. Rejestracja shortcode'u dla pierwszej sekcji "CTA"
+safepilot_register_template_shortcode(
+    'sekcja_cta_1', 
+    'template-shortcode-extech/index1/index1-cta-section.php'
+);
+
+// 12. Rejestracja shortcode'u dla sekcji "Opinie"
+safepilot_register_template_shortcode(
+    'sekcja_opinie_slider', 
+    'template-shortcode-extech/index1/index1-testimonial-section.php'
+);
+
+// 13. Rejestracja shortcode'u dla sekcji "Blog"
+safepilot_register_template_shortcode(
+    'sekcja_blog', 
+    'template-shortcode-extech/index1/index1-blog-section.php'
+);
+
+// 14. Rejestracja shortcode'u dla drugiej sekcji "CTA"
+safepilot_register_template_shortcode(
+    'sekcja_cta_2', 
+    'template-shortcode-extech/index1/index1-cta-section-2.php'
+);
 
