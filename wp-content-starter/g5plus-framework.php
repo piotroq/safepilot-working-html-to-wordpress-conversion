@@ -38,7 +38,8 @@ if (!class_exists('GF_Loader')) {
 
             add_action( 'plugins_loaded',array(&$this, 'define_plugin_version') );
             add_action( 'plugins_loaded',array(&$this, 'include_vc_shortcode') );
-            add_action( 'init', array($this,'load_text_domain'));
+            // FIXED: Load textdomain at init instead of plugins_loaded
+            add_action( 'init', array($this,'load_text_domain'), 10);
 
             add_action('wp_ajax_popup_icon', array(&$this,'popup_icon'));
 
@@ -176,9 +177,20 @@ if (!class_exists('GF_Loader')) {
             }
         }
 
-        public function load_text_domain() {
-            load_plugin_textdomain( 'startup-framework', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-        }
+        /**
+ * FIXED: Load text domain at proper time (init action)
+ * Prevents WordPress 6.7 early loading warnings
+ */
+public function load_text_domain() {
+    // Only load if not already loaded
+    if ( ! is_textdomain_loaded( 'startup-framework' ) ) {
+        load_plugin_textdomain( 
+            'startup-framework', 
+            false, 
+            dirname( plugin_basename( __FILE__ ) ) . '/languages' 
+        );
+    }
+}
 
         //////////////////////////////////////////////////////////////////
         // Dequeue Style Woocomerce

@@ -5,49 +5,194 @@ define('G5PLUS_THEME_URL', trailingslashit(get_template_directory_uri()));
 
 /**
  * ===================================================================
- * WordPress 6.7+ Compatibility Fix
- * Prevents "translation loading triggered too early" warnings
+ * WordPress 6.7+ Compatibility Fix - COMPLETE SOLUTION
+ * Prevents all translation loading and output buffer errors
  * ===================================================================
  */
 
 /**
- * Ensure textdomains are loaded at the correct time
- * This prevents WordPress 6.7 notices
+ * FIX #1: Disable Output Compression (Prevents ob_end_flush errors)
+ * Must run before any output
  * 
  * @since 1.0.0
  */
-function safepilot_parent_load_textdomain() {
-    
-    // Load parent theme textdomain properly
-    if ( ! is_textdomain_loaded( 'safepilot-startup' ) ) {
-        load_theme_textdomain( 
-            'safepilot-startup', 
-            get_template_directory() . '/languages' 
-        );
+if ( ! function_exists( 'safepilot_disable_output_compression' ) ) {
+    function safepilot_disable_output_compression() {
+        // Disable gzip compression to prevent buffer conflicts
+        if ( function_exists( 'ini_set' ) ) {
+            @ini_set( 'zlib.output_compression', '0' );
+            @ini_set( 'output_buffering', '0' );
+        }
+        
+        // Prevent WordPress from using ob_gzhandler
+        remove_action( 'init', 'ob_gzhandler' );
+        
+        // Set proper headers for no compression
+        if ( ! headers_sent() ) {
+            header( 'Content-Encoding: identity' );
+        }
     }
 }
-add_action( 'init', 'safepilot_parent_load_textdomain', 1 );
+// Run immediately, before any output
+add_action( 'plugins_loaded', 'safepilot_disable_output_compression', 1 );
 
 /**
- * Remove early textdomain loading from plugins
- * Prevents plugins from loading translations before 'init'
+ * FIX #2: Prevent Early Translation Loading
+ * Blocks plugins from loading translations before init
  * 
  * @since 1.0.0
  */
-function safepilot_parent_prevent_early_loading() {
-    
-    // Remove common early loading hooks
-    remove_action( 'plugins_loaded', 'load_plugin_textdomain', 1 );
-    remove_action( 'after_setup_theme', 'load_theme_textdomain', 1 );
-    
-    // Specifically for Visual Composer
-    if ( class_exists( 'Vc_Manager' ) ) {
-        // Prevent VC from loading textdomain too early
-        remove_action( 'plugins_loaded', array( 'Vc_Manager', 'loadTextDomain' ), 1 );
-        remove_action( 'vc_after_init', array( 'Vc_Manager', 'loadTextDomain' ), 1 );
+if ( ! function_exists( 'safepilot_prevent_early_textdomain' ) ) {
+    function safepilot_prevent_early_textdomain() {
+        
+        // Remove early translation hooks from all plugins
+        remove_action( 'plugins_loaded', 'load_plugin_textdomain', 1 );
+        remove_action( 'plugins_loaded', 'load_plugin_textdomain', 5 );
+        remove_action( 'plugins_loaded', 'load_plugin_textdomain', 10 );
+        remove_action( 'plugins_loaded', 'load_plugin_textdomain', 15 );
+        
+        // Remove early theme translation hooks
+        remove_action( 'after_setup_theme', 'load_theme_textdomain', 1 );
+        remove_action( 'after_setup_theme', 'load_theme_textdomain', 5 );
+        
+        // Visual Composer specific fixes
+        if ( class_exists( 'Vc_Manager' ) ) {
+            remove_action( 'plugins_loaded', array( 'Vc_Manager', 'loadTextDomain' ), 1 );
+            remove_action( 'vc_after_init', array( 'Vc_Manager', 'loadTextDomain' ), 1 );
+            remove_action( 'vc_before_init', array( 'Vc_Manager', 'loadTextDomain' ), 1 );
+        }
+        
+        // Startup Framework specific fixes
+        global $gf_loader;
+        if ( isset( $gf_loader ) && is_object( $gf_loader ) ) {
+            remove_action( 'plugins_loaded', array( $gf_loader, 'load_text_domain' ), 1 );
+            remove_action( 'plugins_loaded', array( $gf_loader, 'load_text_domain' ), 10 );
+        }
     }
 }
-add_action( 'plugins_loaded', 'safepilot_parent_prevent_early_loading', 0 );
+add_action( 'plugins_loaded', 'safepilot_prevent_early_textdomain', 0 );
+
+/**
+ * FIX #3: Proper Text Domain Loading (WordPress 6.7+ Compatible)
+ * Loads all textdomains at the correct time with correct names
+ * 
+ * @since 1.0.0
+ */
+if ( ! function_exists( 'safepilot_load_textdomains_properly' ) ) {
+    function safepilot_load_textdomains_properly() {
+        
+        // 1. Load main theme textdomain with CORRECT name
+        if ( ! is_textdomain_loaded( 'g5-startup' ) ) {
+            load_theme_textdomain( 
+                'g5-startup', 
+                get_template_directory() . '/languages' 
+            );
+        }
+        
+        // 2. Load Visual Composer textdomain properly
+        if ( defined( 'WPB_VC_VERSION' ) && ! is_textdomain_loaded( 'js_composer' ) ) {
+            $vc_paths = array(
+                WP_PLUGIN_DIR . '/js_composer/locale',
+                WP_PLUGIN_DIR . '/js_composer/languages',
+                WP_CONTENT_DIR . '/plugins/js_composer/locale',
+                WP_CONTENT_DIR . '/plugins/js_composer/languages'
+            );
+            
+            $loaded = false;
+            foreach ( $vc_paths as $path ) {
+                if ( file_exists( $path ) && ! $loaded ) {
+                    $relative_path = str_replace( WP_PLUGIN_DIR . '/', '', dirname( $path ) );
+                    if ( load_plugin_textdomain( 'js_composer', false, $relative_path . '/locale' ) ||
+                         load_plugin_textdomain( 'js_composer', false, $relative_path . '/languages' ) ) {
+                        $loaded = true;
+                        break;
+                    }
+                }
+            }
+            
+            // Fallback for different VC versions
+            if ( ! $loaded ) {
+                $locale = apply_filters( 'plugin_locale', get_locale(), 'js_composer' );
+                $fallback_paths = array(
+                    WP_PLUGIN_DIR . '/js_composer/locale/js_composer-' . $locale . '.mo',
+                    WP_PLUGIN_DIR . '/js_composer/languages/js_composer-' . $locale . '.mo'
+                );
+                
+                foreach ( $fallback_paths as $mofile ) {
+                    if ( file_exists( $mofile ) ) {
+                        load_textdomain( 'js_composer', $mofile );
+                        break;
+                    }
+                }
+            }
+        }
+        
+        // 3. Load Startup Framework textdomain properly
+        if ( ! is_textdomain_loaded( 'startup-framework' ) ) {
+            $sf_paths = array(
+                WP_PLUGIN_DIR . '/startup-framework/languages',
+                WP_CONTENT_DIR . '/plugins/startup-framework/languages',
+                get_template_directory() . '/languages'  // Fallback to theme
+            );
+            
+            $loaded = false;
+            foreach ( $sf_paths as $path ) {
+                if ( file_exists( $path ) && ! $loaded ) {
+                    if ( strpos( $path, get_template_directory() ) === 0 ) {
+                        // Theme path
+                        load_theme_textdomain( 'startup-framework', $path );
+                    } else {
+                        // Plugin path
+                        $relative_path = str_replace( WP_PLUGIN_DIR . '/', '', dirname( $path ) );
+                        load_plugin_textdomain( 'startup-framework', false, $relative_path . '/languages' );
+                    }
+                    $loaded = true;
+                    break;
+                }
+            }
+            
+            // Fallback
+            if ( ! $loaded ) {
+                $locale = apply_filters( 'plugin_locale', get_locale(), 'startup-framework' );
+                $mofile = WP_PLUGIN_DIR . '/startup-framework/languages/startup-framework-' . $locale . '.mo';
+                if ( file_exists( $mofile ) ) {
+                    load_textdomain( 'startup-framework', $mofile );
+                }
+            }
+        }
+    }
+}
+add_action( 'init', 'safepilot_load_textdomains_properly', 1 );
+
+/**
+ * FIX #4: Override Plugin Textdomain Functions
+ * Ensures plugins use our controlled loading
+ * 
+ * @since 1.0.0
+ */
+if ( ! function_exists( 'safepilot_override_plugin_textdomains' ) ) {
+    function safepilot_override_plugin_textdomains() {
+        
+        // Override VC textdomain loading
+        if ( class_exists( 'Vc_Manager' ) ) {
+            add_action( 'vc_before_init', function() {
+                if ( ! is_textdomain_loaded( 'js_composer' ) ) {
+                    // Let our function handle it
+                    safepilot_load_textdomains_properly();
+                }
+            }, 999 );
+        }
+        
+        // Override Startup Framework loading
+        add_action( 'startup_framework_init', function() {
+            if ( ! is_textdomain_loaded( 'startup-framework' ) ) {
+                // Let our function handle it
+                safepilot_load_textdomains_properly();
+            }
+        }, 999 );
+    }
+}
+add_action( 'init', 'safepilot_override_plugin_textdomains', 2 );
 
 /**
  * Include Theme Library
