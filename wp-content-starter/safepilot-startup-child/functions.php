@@ -567,65 +567,98 @@ function remove_default_post_type_menu_bar_mdstal( $wp_admin_bar ) {
 
 function wpl_gtm_head_code(){
 ?>
-
-<meta property="fb:admins" content="464369106147391"/>
-<meta property="fb:app_id" content="464369106147391" />
-<meta property="og:title" content="<?php echo esc_attr( get_the_title() ); ?>"/>
-<meta property="og:description" content="<?php echo esc_attr( get_the_excerpt() ); ?>"/>
-<meta property="og:url" content="<?php echo esc_attr( get_permalink() ); ?>"/>
-<meta property="og:type" content="article"/>
-<?php if ( has_post_thumbnail() ) : ?>
-<meta property="og:image" content="<?php echo esc_attr( get_the_post_thumbnail_url() ); ?>"/>
-<?php endif; ?>
     
-    <!-- Meta Pixel Code -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TC7CRVGW6J"></script>
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/pl_PL/fbevents.js');
-fbq('init', '816543701848772');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=816543701848772&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-<meta name="theme-color" content="#46abd7">
+  gtag('config', 'G-TC7CRVGW6J');
+</script>
 
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MKLK6C96');</script>
+})(window,document,'script','dataLayer','GTM-MM7BHBGT');</script>
 <!-- End Google Tag Manager -->
-
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId            : '464369106147391',
-      xfbml            : true,
-      version          : 'v21.0'
-    });
-  };
-</script>
-
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v21.0&appId=464369106147391"></script>
 
 <?php 
 }
 add_action('wp_head', 'wpl_gtm_head_code');
 
+/**
+ * SafePilot wp_body_open Hook Implementation
+ */
+
+// Dodaj support dla wp_body_open (WordPress 5.2+)
+if ( ! function_exists( 'wp_body_open' ) ) {
+    /**
+     * Fire the wp_body_open action.
+     * Added for backward compatibility for WordPress versions < 5.2
+     */
+    function wp_body_open() {
+        do_action( 'wp_body_open' );
+    }
+}
+
+/**
+ * Dodanie Skip Link dla dostępności
+ */
+function safepilot_add_skip_link() {
+    ?>
+    <a class="skip-link screen-reader-text" href="#main">
+        <?php esc_html_e( 'Przejdź do głównej treści', 'safepilot-startup-child' ); ?>
+    </a>
+    <?php
+}
+add_action( 'wp_body_open', 'safepilot_add_skip_link', 5 );
+
+/**
+ * Dodanie Schema.org markup dla organizacji
+ */
+function safepilot_add_organization_schema() {
+    if ( is_front_page() ) {
+        ?>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "SafePilot",
+            "url": "https://www.safepilot.pl",
+            "logo": "<?php echo get_template_directory_uri(); ?>/assets/images/safepilot-logo.png",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+48-726-739-238",
+                "contactType": "customer service",
+                "areaServed": "PL",
+                "availableLanguage": "Polish"
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "ul. Kordiana 50B/65",
+                "addressLocality": "Kraków",
+                "postalCode": "30-653",
+                "addressCountry": "PL"
+            },
+            "sameAs": [
+                "https://www.facebook.com/safepilot.pl",
+                "https://www.linkedin.com/company/safepilot"
+            ]
+        }
+        </script>
+        <?php
+    }
+}
+add_action( 'wp_body_open', 'safepilot_add_organization_schema', 1 );
+
 function wpl_gtm_body_code() { 
 ?>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKLK6C96"
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM7BHBGT"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <?php 
