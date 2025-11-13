@@ -228,15 +228,11 @@ if (!class_exists('GF_Loader')) {
          * NUCLEAR: Textdomain loading completely disabled
          * MU-Plugin handles all textdomain management
          */
-public function load_text_domain() {
-    if ( ! is_textdomain_loaded( 'startup-framework' ) ) {
-        load_plugin_textdomain(
-            'startup-framework',
-            false,
-            dirname( plugin_basename( __FILE__ ) ) . '/languages'
-        );
-    }
-}
+        public function load_text_domain() {
+            // NUCLEAR: Completely disabled
+            // MU-Plugin handles this
+            return;
+        }
 
         //////////////////////////////////////////////////////////////////
         // Dequeue Style Woocomerce
