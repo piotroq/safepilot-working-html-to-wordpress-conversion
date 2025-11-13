@@ -1,0 +1,68 @@
+:root {
+
+    /* ========================== */
+    /* Primary & Base Colors      */
+    /* ========================== */
+    --body: #ffffff;
+    --black: #000000;
+    --white: #ffffff;
+    --theme: #4fb9ad;
+    --theme2: #213543;
+    --theme-color3: #41857d;
+    --header: #19222a;
+    --text: #213543;
+    --text-2: #ffffff;
+    --border: #d8d5c8;
+    --border2: #4fb9ad;
+    --border3: #4fb9ad;
+    --bg: #ffffff;
+    --bg2: #19222a;
+    --bg3: #4fb9ad1a;  
+    --title-color: #213543;
+    --body-color: #ffffff;
+    --smoke-color: #f5f9f8;
+    --smoke-color2: #d8dbd6;
+    --smoke-color3: #ececec;
+    --smoke-color4: #e8e8e8;
+    --black-color: #000000;
+    --gray-color: #f8f8f8;
+    --white-color: #ffffff;
+    --light-color: #b0aca5;
+    --text-color: #213543;
+    --text-color2: #4a5568;
+    --border-color: #d8d5c8;
+    
+    /* ========================== */
+    /* SafePilot Brand Colors     */
+    /* ========================== */
+    --primary-teal: #4fb9ad;
+    --secondary-navy: #213543;
+    --tertiary-dark: #19222a;
+    --accent-beige: #d8d5c8;
+    --hover-teal: #41857d;
+    --light-mint: #e8f7f5;
+    
+    /* ========================== */
+    /* Typography                 */
+    /* ========================== */
+    --title-font: "Rajdhani", sans-serif;
+    --body-font: "Plus Jakarta Sans", sans-serif;
+    --icon-font: "Font Awesome 6 Pro";
+    
+    /* ========================== */
+    /* Spacing & Layout           */
+    /* ========================== */
+    --main-container: 1410px;
+    --container-gutters: 30px;
+    --section-space: 120px;
+    --section-space-mobile: 80px;
+    --section-title-space: 60px;
+    --ripple-ani-duration: 5s;
+    
+    /* ========================== */
+    /* Shadows                    */
+    /* ========================== */
+    --box-shadow: 0px 4px 25px rgba(31, 34, 42, 0.08);
+    --box-shadow-2: 0px 4px 25px rgba(79, 185, 173, 0.12);
+    --box-shadow-hover: 0px 8px 35px rgba(79, 185, 173, 0.18);
+}
