@@ -1,0 +1,130 @@
+/* ================================== */
+/* Plik ze stylami menu mobilnego     */
+/* ================================== */
+
+/* Ukrycie domyślnego przycisku MeanMenu */
+.mean-container a.meanmenu-reveal {
+	display: none !important;
+}
+
+/* Resetowanie domyślnych stylów kontenera MeanMenu */
+.mean-container .mean-nav {
+	background: none;
+	margin-top: 0;
+}
+
+.mean-container .mean-bar {
+	padding: 0;
+	min-height: auto;
+	background: none;
+}
+
+/* Główna lista menu mobilnego */
+.mean-container .mean-nav > ul {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	list-style-type: none;
+	display: block !important;
+}
+
+/* Style dla rozwijanych linków */
+.mean-container .mean-nav ul li a {
+	width: 100%;
+	padding: 10px 0;
+	color: var(--header-color);
+	font-size: 16px;
+	line-height: 1.5;
+	font-weight: 500;
+	text-transform: capitalize;
+	border: none;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+.mean-container .mean-nav ul li a:hover {
+	color: var(--theme);
+}
+
+.mean-container .mean-nav ul li:last-child a {
+	border-bottom: 0 !important;
+}
+
+/* Przycisk rozwijania podmenu */
+.mean-container .mean-nav ul li a.mean-expand {
+	margin-top: 5px;
+	padding: 0 !important;
+    height: 30px; /* Added for better touch target */
+    width: 30px; /* Added */
+    line-height: 30px; /* Added */
+    text-align: center; /* Added */
+}
+
+.mean-container .mean-nav ul li > a > i {
+	display: none;
+}
+
+.mean-container .mean-nav ul li > a.mean-expand i {
+	display: inline-block;
+	font-size: 18px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.mean-container .mean-nav ul li a.mean-expand.mean-clicked i {
+	transform: rotate(45deg);
+}
+
+/* Style dla Mega Menu (w wersji mobilnej) */
+.mean-container .mean-nav > ul .homemenu-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Reduced gap for mobile */
+    justify-content: center;
+    padding: 15px 0;
+}
+
+.mean-container .mean-nav > ul .homemenu-items .homemenu {
+    position: relative;
+    max-width: 300px;
+    text-align: center;
+    margin: 0 auto;
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    width: 100%;
+}
+
+.mean-container .mean-nav > ul .homemenu-items .homemenu .homemenu-thumb {
+    position: relative;
+}
+
+.mean-container .mean-nav > ul .homemenu-items .homemenu .homemenu-thumb img {
+    width: 100%;
+    height: auto;
+}
+
+.mean-container .mean-nav > ul .homemenu-items .homemenu .homemenu-thumb .demo-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* Increased width for better visibility */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    opacity: 1; /* Made visible by default on mobile */
+    visibility: visible;
+}
+
+.mean-container .mean-nav > ul .homemenu-items .homemenu .homemenu-thumb .demo-button .theme-btn {
+    padding: 10px 15px;
+    color: var(--white) !important;
+    font-size: 14px;
+    text-align: center;
+}
+
+.mean-container .mean-nav > ul .homemenu-items .homemenu .homemenu-title {
+    text-align: center;
+    margin: 15px auto;
+    font-size: 16px;
+    font-weight: 600; /* Added for emphasis */
+}

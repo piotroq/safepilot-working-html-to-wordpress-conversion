@@ -1,55 +1,11 @@
 /*
-Theme Name: Extech
+Theme Name: SafePilot - Extech
 Author: ex-coders
-Author URI: https://themeforest.net/user/ex-coders
-Description: Extech - IT Solution & Technology HTML Template<
+Author URI: https://pbmediaonline.pl
+Description: Extech - Template
 Version: 1.0.0
 */
 /*CSS Table Of Content Ends Here*/
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Rajdhani:wght@300;400;500;600;700&display=swap");
-:root {
-  --body: #fff;
-  --black: #000;
-  --white: #fff;
-  --theme: #384BFF;
-  --theme2: #18185E;
-  --theme-color3: #F98600;
-  --header: #0F0D1D;
-  --text: #585858;
-  --text-2: #ffffffcc;
-  --border: #E3E3E3;
-  --border2: #242449;
-  --border3: #5262FF;
-  --bg: #F3F7FB;
-  --bg2: #18185E;
-  --bg3: #ffffff33;
-  --title-color: #0F0D1D;
-  --header: #0F0D1D;
-  --body-color: #ffffff;
-  --smoke-color: #F3F7FB;
-  --smoke-color2: #CFD3FC;
-  --smoke-color3: #F7F7F7;
-  --smoke-color4: #E0E0E0;
-  --black-color: #000000;
-  --gray-color: #F5F5F5;
-  --white-color: #ffffff;
-  --light-color: #BDBDBD;
-  --text-color: #445375;
-  --text-color2: #4F536C;
-  --border-color: #D4DCFF;
-  --title-font: "Rajdhani", sans-serif;
-  --body-font: "Plus Jakarta Sans", sans-serif;
-  --icon-font: "Font Awesome 6 Pro";
-  --main-container: 1410px;
-  --container-gutters: 30px;
-  --section-space: 120px;
-  --section-space-mobile: 80px;
-  --section-title-space: 60px;
-  --ripple-ani-duration: 5s;
-  --box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.06);
-  --box-shadow-2: 0px 4px 25px rgba(56, 75, 255, 0.1);
-}
-
 /*-- margin Left And Right --*/
 .mx-5 {
   margin-right: 5px;

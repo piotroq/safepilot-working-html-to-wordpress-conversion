@@ -1,0 +1,465 @@
+/* ================================== */
+/* Plik ze stylami sekcji "Features"  */
+/* ================================== */
+
+/* --- Sekcja Achievement --- */
+.achievement-section {
+    margin-top: -200px;
+    position: relative;
+    z-index: 9;
+}
+
+.achievement-section-3 {
+    background-color: var(--theme);
+    position: relative;
+}
+
+.achievement-section-3 .shape-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: -50px;
+}
+
+.achievement-section-3 .shape-image img {
+    width: 100%;
+    height: auto;
+}
+
+.achievement-wrapper {
+    padding: 100px 80px;
+    background-color: var(--theme);
+    display: flex;
+    align-items: center; /* Added for alignment */
+    justify-content: space-between;
+    gap: 50px;
+    margin-right: -25%;
+    position: relative;
+    z-index: 9;
+}
+
+.achievement-wrapper .counter-area {
+    display: flex;
+    align-items: center; /* Added for alignment */
+    gap: 100px;
+}
+
+.achievement-wrapper .counter-area .counter-items:not(:last-child) {
+    border-right: 1px solid var(--border-color-3);
+    padding-right: 70px;
+}
+
+.achievement-wrapper .counter-area .counter-items .content {
+    margin-top: 20px;
+}
+
+.achievement-wrapper .counter-area .counter-items .content h2 {
+    color: var(--white);
+}
+
+.achievement-wrapper .counter-area .counter-items .content p {
+    color: var(--white);
+    margin-top: 5px;
+}
+
+.achievement-wrapper.style-2 {
+    background-color: initial;
+    margin-right: 0;
+    padding: 80px 0;
+}
+
+.achievement-wrapper.style-2 .counter-area {
+    gap: 70px;
+}
+
+.achievement-wrapper.style-2 .counter-area .counter-items:not(:last-child) {
+    border-right: 2px solid rgba(243, 247, 251, 0.16);
+}
+
+/* --- Sekcja Offer --- */
+.offer-section {
+    position: relative;
+}
+
+.offer-section .line-shape {
+    position: absolute;
+    top: -13%;
+    left: 0;
+}
+
+.offer-section .line-shape img {
+    width: 100%;
+    height: auto;
+}
+
+.offer-section .mask-shape {
+    position: absolute;
+    top: 10%;
+    right: -2%;
+}
+
+.offer-items {
+    margin-top: 65px;
+    position: relative;
+    text-align: center;
+    z-index: 9;
+    padding: 30px 10px 30px 10px;
+    padding-top: 1px;
+}
+
+.offer-items::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border: 1px solid var(--white);
+    opacity: .3;
+    border-radius: 8px;
+    z-index: -1;
+}
+
+.offer-items .icon {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #3C72FC -210.71%, #00060C 100%);
+    margin: -35px auto 0;
+    transition: all 0.4s ease-in-out;
+}
+
+.offer-items .content {
+    margin-top: 20px;
+}
+
+.offer-items .content h5 {
+    color: var(--white);
+}
+
+.offer-items .shape-top,
+.offer-items .shape-bottom {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+.offer-items .shape-top { top: 50%; right: 50%; }
+.offer-items .shape-bottom { bottom: 50%; left: 50%; }
+
+.offer-items:hover .shape-top,
+.offer-items.active .shape-top {
+    top: -1px;
+    right: -1px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.offer-items:hover .shape-bottom,
+.offer-items.active .shape-bottom {
+    bottom: -1px;
+    left: -1px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.offer-items:hover .icon,
+.offer-items.active .icon {
+    background-image: none;
+    background-color: var(--theme);
+    transform: rotateY(360deg);
+}
+
+.offer-items:hover .icon svg path,
+.offer-items.active .icon svg path {
+    fill: #fff;
+}
+
+/* --- Sekcja Choose Us --- */
+.choose-us-section {
+    position: relative;
+}
+
+.choose-us-section .choose-shape {
+    position: absolute;
+    top: -75px;
+    bottom: 0;
+    left: 0;
+    max-width: 850px;
+    width: 100%;
+    z-index: -1;
+}
+
+.choose-us-section .bottom-shape {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.choose-us-section .arrow-shape-1 {
+    position: absolute;
+    top: -30px;
+    left: -30px;
+}
+
+.choose-us-section .circle-shape {
+    position: absolute;
+    top: 32%;
+    left: 34%;
+    animation: cir36 10s linear infinite;
+}
+
+.choose-us-section .line-shape {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.choose-us-wrapper .choose-us-image {
+    margin-bottom: -120px;
+    max-width: 421px;
+    margin-top: 30px;
+    position: relative;
+    z-index: 9;
+}
+
+.choose-us-wrapper .choose-us-image img {
+    width: 100%;
+    height: auto;
+}
+
+.choose-us-wrapper .choose-content {
+    position: relative;
+    z-index: 9;
+}
+
+.choose-us-wrapper .choose-content .choose-list-area {
+    display: flex;
+    align-items: flex-start; /* Aligned to top */
+    gap: 50px;
+    margin-top: 30px;
+}
+
+.choose-us-wrapper .choose-content .choose-list-area .choose-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.choose-us-wrapper .choose-content .choose-list-area .choose-list li {
+    font-weight: 500;
+}
+
+.choose-us-wrapper .choose-content .choose-list-area .choose-list li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.choose-us-wrapper .choose-content .choose-list-area .choose-list li i {
+    color: var(--theme);
+    margin-right: 5px;
+}
+
+.choose-us-wrapper .choose-content .progress-wrap {
+    margin-top: 30px;
+}
+
+.choose-us-wrapper .choose-content .progress-wrap .pro-items:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.choose-us-wrapper .choose-content .progress-wrap .pro-items .pro-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.choose-us-wrapper .choose-content .progress-wrap .pro-items .pro-head .title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.choose-us-wrapper .choose-content .progress-wrap .pro-items .pro-head .point {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--header-color);
+}
+
+.choose-us-wrapper .choose-content .progress-wrap .pro-items .progress {
+    background: var(--bg-color);
+    border-radius: 16px;
+    display: flex;
+    height: 12px;
+    width: 100%;
+}
+
+.choose-us-wrapper .choose-content .progress-wrap .pro-items .progress-value {
+    background: var(--theme);
+    height: 12px;
+    width: 0;
+    border-radius: 16px;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: normal;
+}
+
+.choose-us-wrapper .choose-content .progress-wrap .pro-items .progress-value.style-one { animation-name: load1; }
+.choose-us-wrapper .choose-content .progress-wrap .pro-items .progress-value.style-two { animation-name: load2; }
+.choose-us-wrapper .choose-content .progress-wrap .pro-items .progress-value.style-three { animation-name: load3; }
+
+
+@keyframes load1 { 0% { width: 0; } 100% { width: 75%; } }
+@keyframes load2 { 0% { width: 0; } 100% { width: 95%; } }
+/* Assuming load3 is for another value, e.g., 85% */
+@keyframes load3 { 0% { width: 0; } 100% { width: 85%; } }
+
+/* --- Sekcja Work Process --- */
+.work-process-items {
+    margin-top: 30px;
+}
+
+.work-process-items .icon {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    position: relative;
+    margin: 0 auto;
+}
+
+.work-process-items .icon .number {
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: var(--theme);
+    color: var(--white);
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-weight: 400;
+}
+
+.work-process-items .content {
+    margin-top: 30px;
+}
+
+.work-process-items .content h4 {
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.work-process-items .content.style-2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.process-work-wrapper {
+    position: relative;
+}
+
+.process-work-wrapper .line-shape {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 880px;
+}
+
+.process-work-wrapper .line-shape img {
+    width: 100%;
+    height: auto;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 1800px) { /* xxxl */
+    .achievement-wrapper {
+        margin-right: 0;
+        flex-wrap: wrap;
+    }
+    .choose-us-section .choose-shape {
+        left: -180px;
+    }
+}
+
+@media (max-width: 1500px) { /* xxl */
+    .achievement-section-3 .shape-image {
+        display: none;
+    }
+    .achievement-wrapper .counter-area {
+        flex-wrap: wrap;
+        gap: 40px;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .process-work-wrapper .line-shape {
+        display: none;
+    }
+    .choose-us-section .choose-shape {
+        left: -230px;
+    }
+}
+
+@media (max-width: 1299px) { /* xl */
+    .achievement-wrapper .counter-area .counter-items:not(:last-child) {
+        padding-right: 0;
+        border: none;
+    }
+    .achievement-wrapper.style-2 .counter-area .counter-items:not(:last-child) {
+        border: none;
+    }
+    .choose-us-section .choose-shape {
+        left: -300px;
+        top: 0;
+    }
+    .choose-us-wrapper .choose-content br {
+        display: none;
+    }
+}
+
+@media (max-width: 1199px) { /* lg */
+    .choose-us-section .choose-shape {
+        display: none;
+    }
+    .choose-us-wrapper .choose-us-image {
+        margin-bottom: 30px; /* Adjusted from 0 */
+        margin-top: 0;
+        text-align: center;
+        max-width: 100%; /* Adjusted */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 991px) { /* md */
+    .achievement-wrapper {
+        padding: 50px 40px;
+    }
+    .choose-us-wrapper .choose-content .choose-list-area {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 767px) { /* sm */
+    .achievement-wrapper {
+        padding: 60px 50px;
+        text-align: center;
+        justify-content: center;
+        gap: 30px;
+    }
+    .achievement-wrapper .counter-area {
+        text-align: center;
+        justify-content: center;
+        gap: 20px;
+    }
+    .achievement-wrapper.style-2 .counter-area {
+        gap: 30px;
+    }
+}

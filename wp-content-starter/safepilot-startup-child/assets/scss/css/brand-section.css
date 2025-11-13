@@ -1,0 +1,90 @@
+/* === Sekcja: Logotypy Marek - .brand-wrapper === */
+.brand-wrapper h6 {
+    font-size: 22px;
+    position: relative;
+    margin-bottom: 50px;
+    color: var(--header-color);
+    font-weight: 600;
+}
+
+.brand-wrapper h6::before {
+    position: absolute;
+    top: 15px;
+    left: 35px;
+    content: "";
+    height: 1px;
+    width: 480px;
+    background-color: var(--border-color);
+}
+
+.brand-wrapper h6::after {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    content: "";
+    height: 1px;
+    width: 480px;
+    background-color: var(--border-color);
+}
+
+.brand-wrapper .brand-image {
+    text-align: center;
+    filter: grayscale(100%);
+    transition: all 0.3s ease-in-out;
+    opacity: .4;
+}
+
+.brand-wrapper .brand-image:hover {
+    filter: none;
+    opacity: 1;
+}
+
+.brand-wrapper .swiper-slide.swiper-slide-active .brand-image {
+    filter: none;
+    opacity: 1;
+}
+
+/* === Sekcja: Logotypy Marek - .brand-wrapper-2 === */
+.brand-wrapper-2 {
+    margin-bottom: -10px;
+}
+
+.brand-wrapper-2 .brand-img {
+    text-align: center;
+}
+
+/* === Sekcja: Logotypy Marek - Kontener Slidera === */
+.brand-slider-container-wrapper.style1 {
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.brand-slider-container-wrapper.style2 {
+    max-width: 1000px;
+    margin-right: auto;
+    margin-top: -100px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.brandSliderOne .swiper-slide {
+    margin-right: 30px !important;
+}
+
+.brand-logo {
+    text-align: center;
+}
+
+/* === Media Queries - Responsywność === */
+@media (max-width: 1500px) { /* xxl */
+    .brand-wrapper h6::before,
+    .brand-wrapper h6::after {
+        display: none;
+    }
+}
+
+@media (max-width: 1299px) { /* xl */
+    .brand-wrapper-2 {
+        margin-top: -7px;
+    }
+}
