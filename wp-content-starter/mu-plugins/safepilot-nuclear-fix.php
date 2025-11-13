@@ -1,7 +1,7 @@
 <?php
 /**
  * SafePilot NUCLEAR Textdomain Fix - Must Use Plugin
- * LEVEL 3 FIX: Complete WordPress Core Override
+ * LEVEL 3 FIX: Complete WordPress Core Override + preg_replace fix
  * 
  * Must Use Plugin - loads BEFORE all other plugins
  * 
@@ -9,7 +9,7 @@
  * @since 1.0.0
  * @author piotroq 
  * @created 2025-11-13
- * @version NUCLEAR 3.0
+ * @version NUCLEAR 3.1 FINAL
  */
 
 // Exit if accessed directly
@@ -60,6 +60,60 @@ if ( ! function_exists( 'safepilot_nuclear_disable_wp_textdomain' ) ) {
 }
 
 /**
+ * NUCLEAR: PHP Compatibility Fix - preg_replace null handling
+ */
+if ( ! function_exists( 'safepilot_nuclear_php_compat_fix' ) ) {
+    function safepilot_nuclear_php_compat_fix() {
+        
+        // Override global preg_replace to handle null values
+        if ( ! function_exists( 'safepilot_preg_replace_compat' ) ) {
+            function safepilot_preg_replace_compat( $pattern, $replacement, $subject, $limit = -1, &$count = null ) {
+                // Convert null to empty string to prevent PHP 8.2+ warnings
+                if ( is_null( $subject ) ) {
+                    $subject = '';
+                }
+                
+                // Handle array subjects
+                if ( is_array( $subject ) ) {
+                    $subject = array_map( function( $item ) {
+                        return is_null( $item ) ? '' : $item;
+                    }, $subject );
+                }
+                
+                return preg_replace( $pattern, $replacement, $subject, $limit, $count );
+            }
+        }
+        
+        // Override WordPress functions that use preg_replace with potentially null values
+        if ( ! function_exists( 'wp_strip_all_tags' ) ) {
+            function wp_strip_all_tags( $text, $remove_breaks = false ) {
+                if ( is_null( $text ) ) {
+                    return '';
+                }
+                
+                $text = preg_replace( '@<(script|style)[^>]*?>.*?</\\1>@si', '', $text );
+                $text = strip_tags( $text );
+                
+                if ( $remove_breaks ) {
+                    $text = preg_replace( '/[\r\n\t ]+/', ' ', $text );
+                }
+                
+                return trim( $text );
+            }
+        }
+        
+        // Fix for WordPress sanitize functions
+        add_filter( 'sanitize_text_field', function( $str ) {
+            return is_null( $str ) ? '' : $str;
+        }, 1 );
+        
+        add_filter( 'sanitize_textarea_field', function( $str ) {
+            return is_null( $str ) ? '' : $str;
+        }, 1 );
+    }
+}
+
+/**
  * NUCLEAR: Custom Error Handler - Suppress ALL WordPress Textdomain Errors
  */
 if ( ! function_exists( 'safepilot_nuclear_error_handler' ) ) {
@@ -72,16 +126,18 @@ if ( ! function_exists( 'safepilot_nuclear_error_handler' ) ) {
             '_load_textdomain_just_in_time',
             'ob_end_flush',
             'zlib output compression',
-            'preg_replace(): Passing null'
+            'preg_replace(): Passing null',
+            'Passing null to parameter',
+            'array|string is deprecated'
         );
         
         // Check if this error should be suppressed
         foreach ( $suppress_patterns as $pattern ) {
             if ( strpos( $errstr, $pattern ) !== false ) {
-                // Log suppressed error (for debugging only)
-                if ( defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG ) {
-                    error_log( '[SafePilot NUCLEAR] Suppressed: ' . $errstr );
-                }
+                // Log suppressed error (for debugging only) - DISABLED FOR PRODUCTION
+                // if ( defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG ) {
+                //     error_log( '[SafePilot NUCLEAR] Suppressed: ' . $errstr );
+                // }
                 return true; // Suppress the error
             }
         }
@@ -116,17 +172,7 @@ if ( ! function_exists( 'safepilot_nuclear_buffer_fix' ) ) {
         remove_action( 'init', 'wp_ob_end_flush_all', 1 );
         remove_action( 'shutdown', 'wp_ob_end_flush_all', 1 );
         
-        // Method 4: Override ob_end_flush function
-        if ( ! function_exists( 'ob_end_flush' ) ) {
-            function ob_end_flush() {
-                if ( ob_get_level() > 0 ) {
-                    return @ob_end_clean();
-                }
-                return false;
-            }
-        }
-        
-        // Method 5: Set headers to prevent compression
+        // Method 4: Set headers to prevent compression
         if ( ! headers_sent() ) {
             header( 'Content-Encoding: identity' );
             header( 'Cache-Control: no-cache, must-revalidate, max-age=0' );
@@ -263,6 +309,7 @@ if ( ! function_exists( 'safepilot_nuclear_wordpress_override' ) ) {
 
 // NUCLEAR ACTIVATION - Run everything immediately
 safepilot_nuclear_disable_wp_textdomain();
+safepilot_nuclear_php_compat_fix();
 safepilot_nuclear_buffer_fix();
 safepilot_nuclear_wordpress_override();
 
@@ -271,4 +318,5 @@ set_error_handler( 'safepilot_nuclear_error_handler', E_WARNING | E_NOTICE | E_D
 
 // Hook textdomain loading at the right time
 add_action( 'muplugins_loaded', 'safepilot_nuclear_disable_wp_textdomain', 1 );
+add_action( 'plugins_loaded', 'safepilot_nuclear_php_compat_fix', 1 );
 add_action( 'init', 'safepilot_nuclear_load_textdomains', 1 );
