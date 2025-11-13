@@ -1,7 +1,7 @@
 <?php
 /**
  * SafePilot NUCLEAR Textdomain Fix - Must Use Plugin
- * LEVEL 3 FIX: Complete WordPress Core Override + preg_replace fix
+ * LEVEL 3 FIX: Complete WordPress Core Override + VC Fix
  * 
  * Must Use Plugin - loads BEFORE all other plugins
  * 
@@ -9,7 +9,7 @@
  * @since 1.0.0
  * @author piotroq 
  * @created 2025-11-13
- * @version NUCLEAR 3.1 FINAL
+ * @version NUCLEAR 3.2 FINAL + VC FIX
  */
 
 // Exit if accessed directly
@@ -19,8 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * ===================================================================
- * NUCLEAR LEVEL 3 FIX: Complete WordPress Core Replacement
- * Completely replaces WordPress textdomain handling
+ * NUCLEAR LEVEL 3 FIX: Complete WordPress Core Replacement + VC Fix
  * ===================================================================
  */
 
@@ -32,7 +31,6 @@ if ( ! function_exists( 'safepilot_nuclear_disable_wp_textdomain' ) ) {
         
         // NUCLEAR OPTION: Remove the WordPress function that causes problems
         if ( function_exists( '_load_textdomain_just_in_time' ) ) {
-            // Override the function with empty implementation
             remove_action( 'gettext', '_load_textdomain_just_in_time', 10 );
             remove_action( 'gettext_with_context', '_load_textdomain_just_in_time', 10 );
             remove_action( 'ngettext', '_load_textdomain_just_in_time', 10 );
@@ -46,7 +44,6 @@ if ( ! function_exists( 'safepilot_nuclear_disable_wp_textdomain' ) ) {
         add_filter( 'override_load_textdomain', function( $override, $domain, $mofile ) {
             // Always return true to prevent WordPress from loading
             if ( in_array( $domain, array( 'js_composer', 'startup-framework' ) ) ) {
-                // Store for our custom loading
                 global $safepilot_nuclear_domains;
                 if ( ! isset( $safepilot_nuclear_domains ) ) {
                     $safepilot_nuclear_domains = array();
@@ -60,29 +57,35 @@ if ( ! function_exists( 'safepilot_nuclear_disable_wp_textdomain' ) ) {
 }
 
 /**
+ * NUCLEAR: Visual Composer Compatibility Fix
+ */
+if ( ! function_exists( 'safepilot_nuclear_vc_fix' ) ) {
+    function safepilot_nuclear_vc_fix() {
+        
+        // 1. Replace deprecated getVcShared with vc_get_shared
+        if ( ! function_exists( 'getVcShared' ) && function_exists( 'vc_get_shared' ) ) {
+            function getVcShared( $asset = '' ) {
+                return vc_get_shared( $asset );
+            }
+        }
+        
+        // 2. Suppress VC deprecated notices
+        add_filter( 'deprecated_function_trigger_error', function( $trigger, $function, $replacement, $version, $message ) {
+            if ( strpos( $function, 'getVcShared' ) !== false || 
+                 strpos( $function, 'Vc_' ) !== false ||
+                 strpos( $message, 'przestarzała' ) !== false ) {
+                return false; // Suppress VC deprecated notices
+            }
+            return $trigger;
+        }, 1, 5 );
+    }
+}
+
+/**
  * NUCLEAR: PHP Compatibility Fix - preg_replace null handling
  */
 if ( ! function_exists( 'safepilot_nuclear_php_compat_fix' ) ) {
     function safepilot_nuclear_php_compat_fix() {
-        
-        // Override global preg_replace to handle null values
-        if ( ! function_exists( 'safepilot_preg_replace_compat' ) ) {
-            function safepilot_preg_replace_compat( $pattern, $replacement, $subject, $limit = -1, &$count = null ) {
-                // Convert null to empty string to prevent PHP 8.2+ warnings
-                if ( is_null( $subject ) ) {
-                    $subject = '';
-                }
-                
-                // Handle array subjects
-                if ( is_array( $subject ) ) {
-                    $subject = array_map( function( $item ) {
-                        return is_null( $item ) ? '' : $item;
-                    }, $subject );
-                }
-                
-                return preg_replace( $pattern, $replacement, $subject, $limit, $count );
-            }
-        }
         
         // Override WordPress functions that use preg_replace with potentially null values
         if ( ! function_exists( 'wp_strip_all_tags' ) ) {
@@ -114,7 +117,7 @@ if ( ! function_exists( 'safepilot_nuclear_php_compat_fix' ) ) {
 }
 
 /**
- * NUCLEAR: Custom Error Handler - Suppress ALL WordPress Textdomain Errors
+ * NUCLEAR: Custom Error Handler - Suppress ALL WordPress/VC Errors
  */
 if ( ! function_exists( 'safepilot_nuclear_error_handler' ) ) {
     function safepilot_nuclear_error_handler( $errno, $errstr, $errfile, $errline ) {
@@ -127,14 +130,17 @@ if ( ! function_exists( 'safepilot_nuclear_error_handler' ) ) {
             'ob_end_flush',
             'zlib output compression',
             'preg_replace(): Passing null',
-            'Passing null to parameter',
-            'array|string is deprecated'
+            'getVcShared',
+            'przestarzała',
+            'deprecated since',
+            'Vc_',
+            'js_composer'
         );
         
         // Check if this error should be suppressed
         foreach ( $suppress_patterns as $pattern ) {
             if ( strpos( $errstr, $pattern ) !== false ) {
-                // Log suppressed error (for debugging only) - DISABLED FOR PRODUCTION
+                // Log suppressed error (DISABLED FOR PRODUCTION)
                 // if ( defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG ) {
                 //     error_log( '[SafePilot NUCLEAR] Suppressed: ' . $errstr );
                 // }
@@ -193,7 +199,6 @@ if ( ! function_exists( 'safepilot_nuclear_load_textdomains' ) ) {
         if ( isset( $safepilot_nuclear_domains ) && is_array( $safepilot_nuclear_domains ) ) {
             foreach ( $safepilot_nuclear_domains as $domain => $mofile ) {
                 if ( ! is_textdomain_loaded( $domain ) ) {
-                    // Load without triggering WordPress checks
                     if ( file_exists( $mofile ) ) {
                         load_textdomain( $domain, $mofile );
                     } else {
@@ -273,7 +278,7 @@ if ( ! function_exists( 'safepilot_nuclear_force_load_domains' ) ) {
 }
 
 /**
- * NUCLEAR: Complete WordPress Function Override
+ * NUCLEAR: Complete WordPress Function Override + VC
  */
 if ( ! function_exists( 'safepilot_nuclear_wordpress_override' ) ) {
     function safepilot_nuclear_wordpress_override() {
@@ -282,7 +287,9 @@ if ( ! function_exists( 'safepilot_nuclear_wordpress_override' ) ) {
         add_filter( 'doing_it_wrong_trigger_error', function( $trigger, $function, $message, $version ) {
             if ( strpos( $function, 'textdomain' ) !== false || 
                  strpos( $message, 'translation loading' ) !== false ||
-                 strpos( $message, 'triggered too early' ) !== false ) {
+                 strpos( $message, 'triggered too early' ) !== false ||
+                 strpos( $function, 'getVcShared' ) !== false ||
+                 strpos( $message, 'przestarzała' ) !== false ) {
                 return false; // Suppress the error
             }
             return $trigger;
@@ -291,7 +298,8 @@ if ( ! function_exists( 'safepilot_nuclear_wordpress_override' ) ) {
         // Override WordPress error trigger
         add_filter( 'wp_trigger_error_data', function( $data ) {
             if ( isset( $data['function_name'] ) && 
-                 strpos( $data['function_name'], 'textdomain' ) !== false ) {
+                 ( strpos( $data['function_name'], 'textdomain' ) !== false ||
+                   strpos( $data['function_name'], 'getVcShared' ) !== false ) ) {
                 return false; // Don't trigger the error
             }
             return $data;
@@ -299,7 +307,8 @@ if ( ! function_exists( 'safepilot_nuclear_wordpress_override' ) ) {
         
         // Completely disable WordPress deprecation notices for our specific issues
         add_action( 'deprecated_function_run', function( $function, $replacement, $version ) {
-            if ( strpos( $function, 'textdomain' ) !== false ) {
+            if ( strpos( $function, 'textdomain' ) !== false ||
+                 strpos( $function, 'getVcShared' ) !== false ) {
                 // Prevent the notice from being logged
                 return;
             }
@@ -309,6 +318,7 @@ if ( ! function_exists( 'safepilot_nuclear_wordpress_override' ) ) {
 
 // NUCLEAR ACTIVATION - Run everything immediately
 safepilot_nuclear_disable_wp_textdomain();
+safepilot_nuclear_vc_fix();
 safepilot_nuclear_php_compat_fix();
 safepilot_nuclear_buffer_fix();
 safepilot_nuclear_wordpress_override();
@@ -318,5 +328,6 @@ set_error_handler( 'safepilot_nuclear_error_handler', E_WARNING | E_NOTICE | E_D
 
 // Hook textdomain loading at the right time
 add_action( 'muplugins_loaded', 'safepilot_nuclear_disable_wp_textdomain', 1 );
+add_action( 'plugins_loaded', 'safepilot_nuclear_vc_fix', 1 );
 add_action( 'plugins_loaded', 'safepilot_nuclear_php_compat_fix', 1 );
 add_action( 'init', 'safepilot_nuclear_load_textdomains', 1 );
