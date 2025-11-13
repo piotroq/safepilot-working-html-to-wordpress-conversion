@@ -6,9 +6,9 @@
     --body: #ffffff;
     --black: #000000;
     --white: #ffffff;
-    --theme: #4fb9ad;
+    --theme: #85d1d7;
     --theme2: #213543;
-    --theme-color3: #41857d;
+    --theme-color3: #08202b;
     --header: #19222a;
     --text: #213543;
     --text-2: #ffffff;
@@ -17,7 +17,7 @@
     --border3: #4fb9ad;
     --bg: #ffffff;
     --bg2: #19222a;
-    --bg3: #4fb9ad1a;  
+    --bg3: #85d1d7;  
     --title-color: #213543;
     --body-color: #ffffff;
     --smoke-color: #f5f9f8;
@@ -35,7 +35,7 @@
     /* ========================== */
     /* SafePilot Brand Colors     */
     /* ========================== */
-    --primary-teal: #4fb9ad;
+    --primary-teal: #85d1d7;
     --secondary-navy: #213543;
     --tertiary-dark: #19222a;
     --accent-beige: #d8d5c8;
