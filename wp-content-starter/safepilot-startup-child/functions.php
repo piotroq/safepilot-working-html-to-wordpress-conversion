@@ -999,7 +999,7 @@ safepilot_register_template_shortcode(
     'template-shortcode-extech/index1/index1-about-section.php'
 );
 
-// 6. Rejestracja shortcode'u dla sekcji "Projekty"
+// 6. Rejestracja shortcode'u dla sekcji "Projekty" nie działa
 safepilot_register_template_shortcode(
     'sekcja_projekty', 
     'template-shortcode-extech/index1/index1-project-section.php'
@@ -1041,7 +1041,7 @@ safepilot_register_template_shortcode(
     'template-shortcode-extech/index1/index1-testimonial-section.php'
 );
 
-// 13. Rejestracja shortcode'u dla sekcji "Blog"
+// 13. Rejestracja shortcode'u dla sekcji "Blog" nie działa
 safepilot_register_template_shortcode(
     'sekcja_blog', 
     'template-shortcode-extech/index1/index1-blog-section.php'
@@ -1053,3 +1053,232 @@ safepilot_register_template_shortcode(
     'template-shortcode-extech/index1/index1-cta-section-2.php'
 );
 
+// =========================================================================
+// Rejestracja shortcode'ów dla szablonu strony głównej nr 2
+// =========================================================================
+
+// Shortcode dla sekcji "Hero" (wersja 2) nie działa
+safepilot_register_template_shortcode(
+    'sekcja_hero_v2', 
+    'template-shortcode-extech/index2/index2-hero-section.php'
+);
+
+// Shortcode dla sekcji "Why Choose Us" (wersja 2) nie działa
+safepilot_register_template_shortcode(
+    'sekcja_wcu_v2', 
+    'template-shortcode-extech/index2/index2-wcu-section.php'
+);
+
+// Shortcode dla sekcji "O nas" (wersja 2) nie działa
+safepilot_register_template_shortcode(
+    'sekcja_o_nas_v2', 
+    'template-shortcode-extech/index2/index2-about-section.php'
+);
+
+// Shortcode dla sekcji "Usługi" (wersja 2)
+safepilot_register_template_shortcode(
+    'sekcja_uslugi_v2', 
+    'template-shortcode-extech/index2/index2-service-section.php'
+);
+
+// Shortcode dla sekcji "Proces Pracy" (wersja 2) nie działa
+safepilot_register_template_shortcode(
+    'sekcja_proces_pracy_v2', 
+    'template-shortcode-extech/index2/index2-work-process-section.php'
+);
+
+// Shortcode dla sekcji "Projekty" (wersja 2) nie działa
+safepilot_register_template_shortcode(
+    'sekcja_projekty_v2', 
+    'template-shortcode-extech/index2/index2-project-section.php'
+);
+
+// Shortcode dla sekcji "Cennik" (wersja 2) nie działa
+safepilot_register_template_shortcode(
+    'sekcja_cennik_v2', 
+    'template-shortcode-extech/index2/index2-pricing-section.php'
+);
+
+// Shortcode dla sekcji "Zespół" (wersja 2) nie działa
+safepilot_register_template_shortcode(
+    'sekcja_zespol_v2', 
+    'template-shortcode-extech/index2/index2-team-section.php'
+);
+
+// Shortcode dla sekcji "Blog" (wersja 2) nie działa
+safepilot_register_template_shortcode(
+    'sekcja_blog_v2', 
+    'template-shortcode-extech/index2/index2-blog-section.php'
+);
+
+// Shortcode dla sekcji "Blog" (wersja 2) nie działa
+safepilot_register_template_shortcode(
+    'sekcja_footer_top_contact_cta', 
+    'template-shortcode-extech/index2/footer-top-contact-cta.php'
+);
+
+// =========================================================================
+// Rejestracja shortcode'ów dla szablonu strony głównej nr 3 (index-3.html)
+// =========================================================================
+
+// Shortcode dla sekcji "Hero" (wersja 3)
+safepilot_register_template_shortcode(
+    'sekcja_hero_v3', 
+    'template-shortcode-extech/index3/index3-hero-section.php'
+);
+
+// Shortcode dla sekcji "O nas" (wersja 3) nie działa
+safepilot_register_template_shortcode(
+    'sekcja_o_nas_v3', 
+    'template-shortcode-extech/index3/index3-about-section.php'
+);
+
+// Shortcode dla sekcji "Usługi" (wersja 3)
+safepilot_register_template_shortcode(
+    'sekcja_uslugi_v3', 
+    'template-shortcode-extech/index3/index3-service-section.php'
+);
+
+// Shortcode dla sekcji "Proces Pracy" (wersja 3) nie działa
+safepilot_register_template_shortcode(
+    'sekcja_proces_pracy_v3', 
+    'template-shortcode-extech/index3/index3-work-process-section.php'
+);
+
+// Shortcode dla sekcji "Osiągnięcia" (wersja 3) nie działa
+safepilot_register_template_shortcode(
+    'sekcja_osiagniecia_v3', 
+    'template-shortcode-extech/index3/index3-achievement-section.php'
+);
+
+// Shortcode dla sekcji "Projekty" (wersja 3) nie działa
+safepilot_register_template_shortcode(
+    'sekcja_projekty_v3', 
+    'template-shortcode-extech/index3/index3-project-section.php'
+);
+
+// Shortcode dla sekcji "Zespół" (wersja 3) nie działa
+safepilot_register_template_shortcode(
+    'sekcja_zespol_v3', 
+    'template-shortcode-extech/index3/index3-team-section.php'
+);
+
+// Shortcode dla sekcji "Opinie" (wersja 3) nie działa
+safepilot_register_template_shortcode(
+    'sekcja_opinie_v3', 
+    'template-shortcode-extech/index3/index3-testimonial-section.php'
+);
+
+// Shortcode dla sekcji "Aktualności" (wersja 3) nie działa
+safepilot_register_template_shortcode(
+    'sekcja_aktualnosci_v3', 
+    'template-shortcode-extech/index3/index3-news-section.php'
+);
+
+// Shortcode dla sekcji "Aktualności" (wersja 3)
+safepilot_register_template_shortcode(
+    'sekcja_kontakt_template', 
+    'template-shortcode-extech/contact/contact-section.php'
+);
+
+// Shortcode dla sekcji "Aktualności" (wersja 3)
+safepilot_register_template_shortcode(
+    'sekcja_kontakt_map_bottom', 
+    'template-shortcode-extech/contact/contact-section-map-bottom.php'
+);
+
+// =========================================================================
+// Rejestracja shortcode'ów dla podstrony Usługi (service.html)
+// =========================================================================
+
+// Shortcode dla siatki usług
+safepilot_register_template_shortcode(
+    'sekcja_uslugi_grid', 
+    'template-shortcode-extech/service/service-services-section.php'
+);
+
+// Shortcode dla sekcji FAQ
+safepilot_register_template_shortcode(
+    'sekcja_faq_uslugi', 
+    'template-shortcode-extech/service/service-faq-section.php'
+);
+
+// Shortcode dla sekcji kontaktowej
+safepilot_register_template_shortcode(
+    'sekcja_kontakt_uslugi', 
+    'template-shortcode-extech/service/service-contact-section.php'
+);
+
+// Shortcode dla sekcji kontaktowej
+safepilot_register_template_shortcode(
+    'contact-cta3', 
+    'template-shortcode-extech/index3/contact-cta3.php'
+);
+
+function delete_post_type(){
+  unregister_post_type( 'portfolio' );
+  unregister_post_type( 'gf_content' );
+  unregister_post_type( 'gf_template' );
+  unregister_post_type( 'gf_preset' );
+}
+add_action('init','delete_post_type', 100);
+
+/**
+ * Wczytaj pliki CSS i JS z katalogu /custom/ w katalogu głównym WordPressa
+ */
+function enqueue_custom_assets_from_custom_folder() {
+    $custom_base_url = get_site_url() . '/custom';
+
+    // CSS
+    wp_enqueue_style(
+        'cookieconsent',
+        $custom_base_url . '/cookieconsent.min.css',
+        array(),
+        null
+    );
+
+    wp_enqueue_style(
+        'iframemanager-css',
+        $custom_base_url . '/iframemanager.min.css',
+        array(),
+        null
+    );
+
+    // JS
+
+    wp_enqueue_script(
+        'iframemanager-js',
+        $custom_base_url . '/iframemanager.js',
+        array(),
+        null,
+        true
+    );
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_custom_assets_from_custom_folder' );
+
+/**
+ * Wczytaj cookieconsent-config.js jako moduł (type="module")
+ */
+function enqueue_cookieconsent_module_script() {
+    $custom_base_url = get_site_url() . '/custom';
+
+    wp_enqueue_script(
+        'cookieconsent-config',
+        $custom_base_url . '/cookieconsent-config.js',
+        array(),
+        null,
+        true // wczytaj w footerze
+    );
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_cookieconsent_module_script' );
+
+/**
+ * Dodaj type="module" do cookieconsent-config.js
+ */
+function add_type_module_to_cookieconsent( $tag, $handle, $src ) {
+    if ( 'cookieconsent-config' === $handle ) {
+        return '<script type="module" src="' . esc_url( $src ) . '"></script>';
+    }
+    return $tag;
+}
+add_filter( 'script_loader_tag', 'add_type_module_to_cookieconsent', 10, 3 );
