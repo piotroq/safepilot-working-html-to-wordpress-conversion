@@ -2,7 +2,7 @@
 /**
  * SafePilot - Template wyświetlania wpisów masonry
  * @package SafePilot
- * @version 2.0
+ * @version 2.1
  */
 
 $size = 'full';
@@ -10,7 +10,7 @@ $excerpt = get_the_excerpt();
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('sp-post-masonry gf-item-wrap clearfix'); ?>>
-    
+        
     <!-- Obrazek wyróżniający -->
     <?php if (has_post_thumbnail()): ?>
         <div class="sp-post-thumbnail">
@@ -25,6 +25,15 @@ $excerpt = get_the_excerpt();
                 }
                 ?>
             </div>
+        </div>
+    <?php else: ?>
+        <div class="sp-post-thumbnail sp-no-image">
+            <a href="<?php the_permalink(); ?>">
+                <div class="sp-placeholder-image">
+                    <i class="fa-regular fa-image"></i>
+                    <span>Brak obrazka</span>
+                </div>
+            </a>
         </div>
     <?php endif; ?>
     

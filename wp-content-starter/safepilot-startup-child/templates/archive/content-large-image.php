@@ -2,17 +2,39 @@
 /**
  * SafePilot - Template wyświetlania wpisów z dużym obrazkiem
  * @package SafePilot
- * @version 2.0
+ * @version 2.2
  */
 
-$size = 'large-image';
 $excerpt = get_the_excerpt();
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('sp-post-large-image clearfix'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('sp-post-large-image clearfix margin-extech-shortcode py-5 mb-60 mt-60'); ?>>
     
     <!-- Obrazek wyróżniający -->
-    <?php g5plus_get_post_thumbnail($size); ?>
+    <?php if (has_post_thumbnail()): ?>
+        <div class="sp-post-thumbnail">
+            <a href="<?php the_permalink(); ?>">
+                <?php 
+                // Użyj wp_get_attachment_image zamiast the_post_thumbnail
+                $thumbnail_id = get_post_thumbnail_id();
+                echo wp_get_attachment_image($thumbnail_id, 'sp-large', false, array(
+                    'class' => 'img-fluid sp-featured-img',
+                    'alt' => get_the_title(),
+                    'loading' => 'lazy'
+                ));
+                ?>
+            </a>
+        </div>
+    <?php else: ?>
+        <div class="sp-post-thumbnail sp-no-image">
+            <a href="<?php the_permalink(); ?>">
+                <div class="sp-placeholder-image sp-placeholder-large">
+                    <i class="fa-regular fa-image"></i>
+                    <span>Brak obrazka</span>
+                </div>
+            </a>
+        </div>
+    <?php endif; ?>
     
     <div class="sp-entry-content-wrap clearfix">
         

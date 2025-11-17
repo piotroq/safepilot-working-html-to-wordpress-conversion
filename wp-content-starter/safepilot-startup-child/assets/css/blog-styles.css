@@ -1,0 +1,1253 @@
+/* ==========================================================================
+   SafePilot - Style dla wpisów blogowych
+   Wersja: 2.0
+   ========================================================================== */
+
+/* ZMIENNE KOLORÓW */
+:root {
+    --sp-primary: #4fb9ad;
+    --sp-secondary: #213543;
+    --sp-bg-header: #d8d5c8;
+    --sp-tertiary: #19222a;
+    --sp-hover: #41857d;
+}
+
+/* ==========================================================================
+   WSPÓLNE STYLE DLA WSZYSTKICH POSTÓW
+   ========================================================================== */
+
+.sp-post-large-image,
+.sp-post-grid,
+.sp-post-masonry,
+.sp-search-item {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(33, 53, 67, 0.08);
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.sp-post-large-image:hover,
+.sp-post-grid:hover,
+.sp-post-masonry:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(79, 185, 173, 0.15);
+}
+
+/* Tytuły wpisów */
+.sp-entry-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.sp-entry-title a {
+    color: var(--sp-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sp-entry-title a:hover {
+    color: var(--sp-primary);
+}
+
+/* Meta informacje */
+.sp-post-meta,
+.sp-entry-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 15px;
+}
+
+.sp-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sp-meta-item i {
+    color: var(--sp-primary);
+    font-size: 14px;
+}
+
+.sp-meta-item a {
+    color: #6c757d;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sp-meta-item a:hover {
+    color: var(--sp-primary);
+}
+
+/* Zajawki */
+.sp-entry-excerpt {
+    color: #6c757d;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+/* ==========================================================================
+   LARGE IMAGE LAYOUT
+   ========================================================================== */
+
+.sp-post-large-image .sp-entry-content-wrap {
+    padding: 30px;
+}
+
+.sp-post-large-image .sp-entry-info {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.sp-post-large-image .sp-entry-date-wrap {
+    flex-shrink: 0;
+}
+
+.sp-post-large-image .sp-entry-date {
+    width: 70px;
+    height: 70px;
+    background: var(--sp-primary);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.sp-post-large-image .sp-entry-date .day {
+    font-size: 24px;
+    line-height: 1;
+}
+
+.sp-post-large-image .sp-entry-date .month {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.sp-btn-read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: var(--sp-primary);
+    color: #ffffff;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.sp-btn-read-more:hover {
+    background: var(--sp-hover);
+    transform: translateX(5px);
+}
+
+/* ==========================================================================
+   GRID LAYOUT
+   ========================================================================== */
+
+.sp-post-grid {
+    height: 100%;
+}
+
+.sp-post-grid .sp-post-thumbnail {
+    position: relative;
+    overflow: hidden;
+}
+
+.sp-post-grid .sp-post-thumbnail img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.sp-post-grid:hover .sp-post-thumbnail img {
+    transform: scale(1.1);
+}
+
+.sp-post-grid .sp-post-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(79, 185, 173, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sp-post-grid:hover .sp-post-overlay {
+    opacity: 1;
+}
+
+.sp-overlay-link {
+    width: 50px;
+    height: 50px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sp-primary);
+    font-size: 20px;
+    transform: scale(0);
+    transition: transform 0.3s ease 0.1s;
+}
+
+.sp-post-grid:hover .sp-overlay-link {
+    transform: scale(1);
+}
+
+.sp-post-grid .sp-entry-content-wrap {
+    padding: 25px;
+}
+
+.sp-post-date {
+    color: var(--sp-primary);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.sp-link-more {
+    color: var(--sp-primary);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.3s ease;
+}
+
+.sp-link-more:hover {
+    gap: 10px;
+}
+
+/* ==========================================================================
+   MASONRY LAYOUT
+   ========================================================================== */
+
+.sp-post-masonry .sp-post-thumbnail {
+    position: relative;
+}
+
+.sp-post-masonry .sp-post-category {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+}
+
+.sp-cat-badge {
+    background: var(--sp-primary);
+    color: #ffffff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sp-post-masonry .sp-entry-content-wrap {
+    padding: 25px;
+}
+
+.sp-btn-more {
+    display: inline-block;
+    padding: 10px 24px;
+    background: transparent;
+    color: var(--sp-primary);
+    border: 2px solid var(--sp-primary);
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.sp-btn-more:hover {
+    background: var(--sp-primary);
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   NO RESULTS
+   ========================================================================== */
+
+.sp-no-results {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.sp-no-results-icon {
+    font-size: 80px;
+    color: #dee2e6;
+    margin-bottom: 30px;
+}
+
+.sp-no-results-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--sp-secondary);
+    margin-bottom: 20px;
+}
+
+.sp-no-results-text {
+    color: #6c757d;
+    font-size: 16px;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sp-search-form-wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   SEARCH RESULTS
+   ========================================================================== */
+
+.sp-search-item {
+    display: flex;
+    gap: 25px;
+    padding: 25px;
+    align-items: flex-start;
+}
+
+.sp-search-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: rgba(79, 185, 173, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--sp-primary);
+}
+
+.sp-search-content {
+    flex: 1;
+}
+
+.sp-search-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.sp-search-title a {
+    color: var(--sp-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sp-search-title a:hover {
+    color: var(--sp-primary);
+}
+
+.sp-search-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.sp-search-date {
+    font-size: 13px;
+    color: #6c757d;
+}
+
+.sp-search-excerpt {
+    color: #6c757d;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   RESPONSYWNOŚĆ
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .sp-entry-title {
+        font-size: 20px;
+    }
+    
+    .sp-post-large-image .sp-entry-info {
+        flex-direction: column;
+    }
+    
+    .sp-post-meta,
+    .sp-entry-meta {
+        font-size: 12px;
+        gap: 15px;
+    }
+    
+    .sp-search-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .sp-search-icon {
+        margin: 0 auto;
+    }
+    
+    .sp-btn-read-more {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .sp-post-large-image .sp-entry-content-wrap,
+    .sp-post-grid .sp-entry-content-wrap,
+    .sp-post-masonry .sp-entry-content-wrap {
+        padding: 20px;
+    }
+    
+    .sp-no-results {
+        padding: 60px 15px;
+    }
+}
+
+/* ==========================================================================
+   SafePilot - Poprawki dla obrazków
+   ========================================================================== */
+
+/* Obrazki wyróżniające - poprawki */
+.sp-post-thumbnail {
+    position: relative;
+    overflow: hidden;
+    background: #f8f9fa;
+    min-height: 200px;
+}
+
+.sp-post-thumbnail a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.sp-post-thumbnail img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Grid - konkretne wysokości */
+.sp-post-grid .sp-post-thumbnail {
+    height: 250px;
+}
+
+.sp-post-grid .sp-post-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Large image - konkretne wysokości */
+.sp-post-large-image .sp-post-thumbnail {
+    height: 400px;
+    max-height: 500px;
+}
+
+.sp-post-large-image .sp-post-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Masonry - auto wysokość */
+.sp-post-masonry .sp-post-thumbnail {
+    height: auto;
+    min-height: 200px;
+}
+
+.sp-post-masonry .sp-post-thumbnail img {
+    width: 100%;
+    height: auto;
+}
+
+/* Placeholder dla brakujących obrazków */
+.sp-placeholder-image {
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+}
+
+.sp-placeholder-image i {
+    font-size: 48px;
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+.sp-placeholder-image span {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sp-placeholder-large {
+    min-height: 400px;
+}
+
+.sp-placeholder-large i {
+    font-size: 64px;
+}
+
+/* Responsywność obrazków */
+@media (max-width: 768px) {
+    .sp-post-grid .sp-post-thumbnail {
+        height: 200px;
+    }
+    
+    .sp-post-large-image .sp-post-thumbnail {
+        height: 250px;
+    }
+    
+    .sp-placeholder-image {
+        min-height: 200px;
+    }
+    
+    .sp-placeholder-large {
+        min-height: 250px;
+    }
+}
+
+/* Lazy loading support */
+.sp-post-thumbnail img[loading="lazy"] {
+    background: #f0f0f0;
+}
+
+/* Fix dla WordPress domyślnych klas */
+.wp-post-image {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Override dla img-fluid */
+.sp-post-thumbnail .img-fluid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   SafePilot - Naprawione style obrazków
+   ========================================================================== */
+
+/* Fix dla width="1" height="1" */
+.sp-post-thumbnail img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100%;
+    display: block;
+}
+
+/* Large image specific */
+.sp-post-large-image .sp-post-thumbnail {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    background: #f5f5f5;
+}
+
+.sp-post-large-image .sp-post-thumbnail img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* Grid specific */
+.sp-post-grid .sp-post-thumbnail {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background: #f5f5f5;
+}
+
+.sp-post-grid .sp-post-thumbnail img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* Masonry */
+.sp-post-masonry .sp-post-thumbnail img {
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+/* Related posts */
+.post-related-wrap .sp-post-thumbnail {
+    height: 200px;
+    overflow: hidden;
+}
+
+.post-related-wrap .sp-post-thumbnail img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* Fix dla single post */
+.post-single .sp-post-thumbnail img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 600px;
+    object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sp-post-large-image .sp-post-thumbnail {
+        height: 250px;
+    }
+    
+    .sp-post-grid .sp-post-thumbnail {
+        height: 200px;
+    }
+}
+
+/* Override dla img-fluid */
+.img-fluid.sp-featured-img,
+.img-fluid.sp-blog-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* Fix dla WordPress defaultowych klas */
+.wp-post-image {
+    width: 100% !important;
+    height: auto !important;
+}
+
+.sp-post-thumbnail .wp-post-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* Placeholder styles update */
+.sp-placeholder-image {
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #dee2e6;
+    border-radius: 8px;
+}
+
+.sp-placeholder-large {
+    min-height: 400px;
+}
+
+/* Fix dla archive shortcode */
+.sp-archive-wrap .sp-post-thumbnail img,
+.archive-inner .sp-post-thumbnail img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* ==========================================================================
+   SafePilot - Archive Page Styles
+   ========================================================================== */
+
+/* Page Wrapper */
+.sp-archive-page {
+    background: #f8f9fa;
+    min-height: 100vh;
+}
+
+/* Breadcrumbs */
+.sp-breadcrumbs-section {
+    background: #ffffff;
+    padding: 20px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.sp-breadcrumbs-section .breadcrumb {
+    margin: 0;
+    background: transparent;
+    padding: 0;
+}
+
+.sp-breadcrumbs-section .breadcrumb-item a {
+    color: #4fb9ad;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sp-breadcrumbs-section .breadcrumb-item a:hover {
+    color: #213543;
+}
+
+.sp-breadcrumbs-section .breadcrumb-item.active {
+    color: #6c757d;
+}
+
+/* Page Header */
+.sp-page-header {
+    background: linear-gradient(135deg, #213543 0%, #19222a 100%);
+    padding: 80px 0 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.sp-page-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(79, 185, 173, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.sp-page-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.sp-category-description {
+    max-width: 700px;
+    margin: 20px auto 0;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 16px;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+}
+
+/* Archive Content */
+.sp-archive-content {
+    padding: 60px 0;
+}
+
+.sp-posts-grid {
+    margin-bottom: 60px;
+}
+
+/* Post Card */
+.sp-post-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(33, 53, 67, 0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sp-post-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(79, 185, 173, 0.15);
+}
+
+/* Post Image */
+.sp-post-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.sp-post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.sp-post-card:hover .sp-post-image img {
+    transform: scale(1.08);
+}
+
+.sp-post-category {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+}
+
+.sp-post-category a {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #4fb9ad;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.sp-post-category a:hover {
+    background: #213543;
+}
+
+/* Placeholder */
+.sp-post-image.sp-no-image {
+    background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+}
+
+.sp-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sp-placeholder i {
+    font-size: 64px;
+    color: #ccc;
+}
+
+/* Post Content */
+.sp-post-content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Meta */
+.sp-post-meta {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    color: #6c757d;
+}
+
+.sp-post-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sp-post-meta i {
+    color: #4fb9ad;
+}
+
+/* Title */
+.sp-post-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.sp-post-title a {
+    color: #213543;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sp-post-title a:hover {
+    color: #4fb9ad;
+}
+
+/* Excerpt */
+.sp-post-excerpt {
+    color: #6c757d;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+/* Read More */
+.sp-read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: rgba(79, 185, 173, 0.1);
+    color: #4fb9ad;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+.sp-read-more:hover {
+    background: #4fb9ad;
+    color: #ffffff;
+    gap: 12px;
+}
+
+/* Pagination */
+.sp-pagination {
+    margin-top: 60px;
+}
+
+.sp-pagination .pagination {
+    gap: 10px;
+}
+
+.sp-pagination .page-item {
+    margin: 0;
+}
+
+.sp-pagination .page-link {
+    padding: 12px 20px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    color: #213543;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.sp-pagination .page-link:hover {
+    background: #4fb9ad;
+    color: #ffffff;
+    border-color: #4fb9ad;
+}
+
+.sp-pagination .page-item.active .page-link {
+    background: #4fb9ad;
+    border-color: #4fb9ad;
+    color: #ffffff;
+}
+
+.sp-pagination .page-link i {
+    margin: 0 5px;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .sp-page-header {
+        padding: 60px 0 40px;
+    }
+    
+    .sp-page-title {
+        font-size: 36px;
+    }
+    
+    .sp-archive-content {
+        padding: 40px 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .sp-page-title {
+        font-size: 28px;
+    }
+    
+    .sp-post-image {
+        height: 200px;
+    }
+    
+    .sp-post-content {
+        padding: 20px;
+    }
+    
+    .sp-post-title {
+        font-size: 20px;
+    }
+}
+
+/* ==========================================================================
+   SafePilot - Related Posts Styles
+   ========================================================================== */
+
+.sp-related-posts {
+    background: #f8f9fa;
+    padding: 80px 0;
+    margin-top: 80px;
+    border-top: 3px solid #4fb9ad;
+}
+
+/* Section Header */
+.sp-section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.sp-section-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #213543;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.sp-title-icon {
+    width: 50px;
+    height: 50px;
+    background: #4fb9ad;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sp-title-icon i {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.sp-section-subtitle {
+    font-size: 16px;
+    color: #6c757d;
+    margin: 0;
+}
+
+/* Related Card */
+.sp-related-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(33, 53, 67, 0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sp-related-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(79, 185, 173, 0.2);
+}
+
+/* Image */
+.sp-related-image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.sp-related-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.sp-related-card:hover .sp-related-image img {
+    transform: scale(1.1);
+}
+
+.sp-no-image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+}
+
+.sp-no-image-placeholder i {
+    font-size: 48px;
+    color: #ccc;
+}
+
+/* Category Badge */
+.sp-category-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 6px 14px;
+    background: #4fb9ad;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 20px;
+    z-index: 10;
+}
+
+/* Content */
+.sp-related-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Meta */
+.sp-related-meta {
+    margin-bottom: 12px;
+}
+
+.sp-meta-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #6c757d;
+}
+
+.sp-meta-date i {
+    color: #4fb9ad;
+}
+
+/* Title */
+.sp-related-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.sp-related-title a {
+    color: #213543;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sp-related-title a:hover {
+    color: #4fb9ad;
+}
+
+/* Excerpt */
+.sp-related-excerpt {
+    color: #6c757d;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+/* Link */
+.sp-related-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #4fb9ad;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.sp-related-link:hover {
+    gap: 12px;
+    color: #213543;
+}
+
+/* Footer */
+.sp-related-footer {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.sp-btn-view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: #4fb9ad;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(79, 185, 173, 0.3);
+}
+
+.sp-btn-view-all:hover {
+    background: #213543;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(79, 185, 173, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .sp-related-posts {
+        padding: 60px 0;
+        margin-top: 60px;
+    }
+
+    .sp-section-title {
+        font-size: 30px;
+    }
+
+    .sp-related-image {
+        height: 200px;
+    }
+}
+
+@media (max-width: 767px) {
+    .sp-related-posts {
+        padding: 40px 0;
+        margin-top: 40px;
+    }
+
+    .sp-section-title {
+        font-size: 26px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .sp-related-image {
+        height: 180px;
+    }
+
+    .sp-related-content {
+        padding: 20px;
+    }
+
+    .sp-related-title {
+        font-size: 18px;
+    }
+}

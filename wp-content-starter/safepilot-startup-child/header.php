@@ -29,7 +29,7 @@ $header_responsive = g5plus_get_option('header_responsive_breakpoint', '991px');
 <body <?php body_class(); ?> data-responsive="<?php echo esc_attr($header_responsive) ?>"
                              data-header="<?php echo esc_attr($header_layout) ?>">
     
-<?php wp_body_open(); ?>
+<?php wp_body_open_gtm_code_schema(); ?>
 
 <?php
 if (function_exists('wp_body_open')) {

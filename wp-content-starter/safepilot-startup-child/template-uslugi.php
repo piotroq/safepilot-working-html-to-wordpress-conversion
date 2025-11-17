@@ -422,7 +422,7 @@ get_header(); // Wczytuje plik header.php
 
 <!-- Główna siatka usług -->
 <section class="sp-service-grid-section">
-    <div class="container padding-extech-shortcode-footer2">
+    <div class="container padding-extech-shortcode-footer">
         <div class="row g-4">
 
             <!-- Karta 1: Dokumentacja BHP -->
@@ -520,7 +520,7 @@ get_header(); // Wczytuje plik header.php
 </section>
 
 <!-- Sekcja "Dlaczego Warto" -->
-<section class="sp-service-why-us margin-extech-shortcode-footer">
+<section class="sp-service-why-us margin-extech-shortcode">
     <div class="container">
         <div class="row align-items-center g-5">
             <div class="col-lg-6" data-wow-delay=".3s">
@@ -576,7 +576,7 @@ get_header(); // Wczytuje plik header.php
     Opis: Sekcja z dużą ilością tekstu pozycjonującego, przedstawiająca etapy współpracy.
 -->
 <section class="sp-process-section">
-    <div class="container padding-extech-shortcode-footer2">
+    <div class="container padding-extech-shortcode-footer">
         <div class="sp-process-section-title text-center">
             <p class="sp-process-subtitle" data-wow-delay=".2s">JAK DZIAŁAMY?</p>
             <h2 class="sp-process-title-main" data-wow-delay=".4s">Nasz proces współpracy – od audytu po stały nadzór</h2>
@@ -632,7 +632,7 @@ get_header(); // Wczytuje plik header.php
     Opis: Karuzela z opiniami klientów, budująca zaufanie.
 -->
 <section class="sp-testimonials-section">
-    <div class="container">
+    <div class="container padding-extech-shortcode-footer">
         <div class="sp-process-section-title text-center">
             <p class="sp-process-subtitle" data-wow-delay=".2s">ZAUFALI NAM</p>
             <h2 class="sp-process-title-main" data-wow-delay=".4s">Co mówią nasi klienci?</h2>

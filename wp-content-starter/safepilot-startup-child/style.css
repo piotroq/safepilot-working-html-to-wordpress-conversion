@@ -103,3 +103,1706 @@ Put your custom CSS below this block :)
     z-index: 100000;
 }
 
+/* Poniżej dodana zawartość z Wygląd > Dostosuj > Dodatkowy CSS*/
+.main-header {
+	max-width: 100%;
+  margin: auto;
+  position: relative;
+}
+
+.header-wrapper {
+	max-width: 1200px;
+  margin: auto;
+  position: relative;
+}
+
+#wrapper-content {
+	max-width: 1200px;
+  margin: auto;
+  position: relative;
+}
+
+.footer-inner {
+	max-width: 1200px;
+  margin: auto;
+  position: relative;
+}
+
+.is-sticky .x-nav-menu > .x-menu-item > .x-menu-a-text {
+	color: #000;
+}
+
+#wrapper > header.header-mobile.header-mobile-2 > div > div > div > div.header-mobile-container-inner.clearfix > div.logo-mobile-wrapper > a > img {
+	height: 4rem;
+}
+
+.is-sticky .header-customize-right i {
+	color: #000;
+}
+
+.canvas-sidebar-inner {
+	margin-top: -5rem;
+}
+
+.margin-extech-shortcode-footer {
+	margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+.padding-extech-shortcode-footer {
+	padding-left: 10rem;
+  padding-right: 10rem;
+}
+
+.padding-extech-shortcode-footer2 {
+	padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.margin-extech-shortcode {
+	margin-left: 10rem;
+  margin-right: 10rem;
+}
+
+.gt-btn.style4:hover {
+	background: var(--hover-teal);
+}
+
+.contact-info-area {
+	background: #85d1d7;
+}
+
+.gf-page-title.gf-page-title-default {
+    background-color: #85d1d7;
+}
+
+.breadcrumbs li a, .breadcrumbs li span {
+    color: #fff;
+}
+
+.lead {
+	color: var(--white);
+}
+
+.display-4 {
+	color: var(--white);
+}
+
+.bs-gutter-x {
+    --bs-gutter-x: 0rem;
+}
+
+#primary-content .container {
+	--bs-gutter-x: 0rem;
+}
+
+.x-sub-menu {
+	margin-top: -5rem;
+}
+
+.widget-logo {
+	background: var(--light-mint, #e8f7f5);
+}
+
+/* ==========================================================================
+   SafePilot - Premium Hero Slider dla Strony Głównej
+   Prefiks: sp-hero-home-
+   Wersja: 2.0 - Z funkcją slidera
+   ========================================================================== */
+
+.sp-hero-home-section {
+    position: relative;
+    padding: 6rem 0 6rem;
+    background: var(--theme);
+    overflow: hidden;
+}
+
+/* Animowane tło z subtelnymi kształtami */
+.sp-hero-home-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(79, 185, 173, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: sp-hero-float 20s ease-in-out infinite;
+}
+
+.sp-hero-home-section::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(216, 213, 200, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: sp-hero-float-reverse 25s ease-in-out infinite;
+}
+
+@keyframes sp-hero-float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-30px, -30px) scale(1.1); }
+}
+
+@keyframes sp-hero-float-reverse {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, 30px) scale(1.05); }
+}
+
+/* ===== SLIDER CONTAINER ===== */
+.sp-hero-slider-wrapper {
+    position: relative;
+    z-index: 10;
+}
+
+.sp-hero-slider {
+    overflow: hidden;
+}
+
+.sp-hero-slide {
+    display: none;
+    animation: sp-slide-fade-in 0.8s ease-out;
+}
+
+.sp-hero-slide.active {
+    display: block;
+}
+
+@keyframes sp-slide-fade-in {
+    0% {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ===== NAWIGACJA SLIDERA ===== */
+.sp-hero-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    background: rgba(79, 185, 173, 0.2);
+    border: 2px solid rgba(79, 185, 173, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.sp-hero-nav:hover {
+    background: #4fb9ad;
+    border-color: #4fb9ad;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.sp-hero-nav i {
+    color: #ffffff;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.sp-hero-nav:hover i {
+    transform: translateX(3px);
+}
+
+.sp-hero-nav.prev:hover i {
+    transform: translateX(-3px);
+}
+
+.sp-hero-nav.prev {
+    left: 30px;
+}
+
+.sp-hero-nav.next {
+    right: 30px;
+}
+
+/* ===== WSKAŹNIKI SLAJDÓW (DOTS) ===== */
+.sp-hero-dots {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 100;
+}
+
+.sp-hero-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sp-hero-dot:hover {
+    background: rgba(79, 185, 173, 0.6);
+}
+
+.sp-hero-dot.active {
+    background: #4fb9ad;
+    width: 40px;
+    border-radius: 10px;
+}
+
+/* ===== GŁÓWNA TREŚĆ HERO ===== */
+.sp-hero-home-content {
+    position: relative;
+    z-index: 10;
+}
+
+.sp-hero-home-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: rgba(79, 185, 173, 0.15);
+    border: 1px solid rgba(79, 185, 173, 0.3);
+    border-radius: 50px;
+    color: #4fb9ad;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    animation: sp-hero-badge-in 0.8s ease-out;
+}
+
+.sp-hero-home-badge i {
+    font-size: 16px;
+    animation: sp-hero-pulse 2s ease-in-out infinite;
+}
+
+@keyframes sp-hero-badge-in {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sp-hero-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+.sp-hero-home-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 62px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #ffffff;
+    margin-bottom: 25px;
+    animation: sp-hero-title-in 1s ease-out 0.2s both;
+}
+
+.sp-hero-home-title span {
+    color: #4fb9ad;
+    position: relative;
+    display: inline-block;
+}
+
+.sp-hero-home-title span::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #4fb9ad 0%, transparent 100%);
+}
+
+@keyframes sp-hero-title-in {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.sp-hero-home-description {
+    font-size: 18px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 600px;
+    margin-bottom: 40px;
+    animation: sp-hero-desc-in 1s ease-out 0.4s both;
+}
+
+@keyframes sp-hero-desc-in {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== PRZYCISKI CTA ===== */
+.sp-hero-home-cta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    animation: sp-hero-cta-in 1s ease-out 0.6s both;
+}
+
+@keyframes sp-hero-cta-in {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.sp-hero-home-cta .btn-primary {
+    padding: 18px 40px;
+    background: #4fb9ad;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 50px;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(79, 185, 173, 0.3);
+    text-decoration: none;
+}
+
+.sp-hero-home-cta .btn-primary:hover {
+    background: #41857d;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(79, 185, 173, 0.4);
+}
+
+.sp-hero-home-cta .btn-secondary {
+    padding: 18px 40px;
+    background: transparent;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.sp-hero-home-cta .btn-secondary:hover {
+    border-color: #4fb9ad;
+    color: #4fb9ad;
+    background: rgba(79, 185, 173, 0.1);
+}
+
+/* ===== STATYSTYKI ===== */
+.sp-hero-home-stats {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    animation: sp-hero-stats-in 1s ease-out 0.8s both;
+}
+
+@keyframes sp-hero-stats-in {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.sp-hero-home-stat-item {
+    text-align: left;
+}
+
+.sp-hero-home-stat-number {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: #4fb9ad;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.sp-hero-home-stat-label {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ===== OBRAZEK ===== */
+.sp-hero-home-image {
+    position: relative;
+    z-index: 10;
+    animation: sp-hero-image-in 1.2s ease-out 0.4s both;
+}
+
+@keyframes sp-hero-image-in {
+    0% { opacity: 0; transform: translateX(50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+.sp-hero-home-image img {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.3));
+    animation: sp-hero-image-float 6s ease-in-out infinite;
+}
+
+@keyframes sp-hero-image-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* ===== DEKORACJE ===== */
+.sp-hero-home-decoration {
+    position: absolute;
+    z-index: 5;
+}
+
+.sp-hero-home-decoration.deco-1 {
+    top: 15%;
+    left: 10%;
+    width: 80px;
+    height: 80px;
+    background: rgba(79, 185, 173, 0.1);
+    border-radius: 50%;
+    animation: sp-hero-deco-float 8s ease-in-out infinite;
+}
+
+.sp-hero-home-decoration.deco-2 {
+    bottom: 20%;
+    right: 15%;
+    width: 60px;
+    height: 60px;
+    background: rgba(216, 213, 200, 0.08);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: sp-hero-deco-float 10s ease-in-out infinite reverse;
+}
+
+@keyframes sp-hero-deco-float {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(20px, -20px) rotate(180deg); }
+}
+
+/* ===== RESPONSYWNOŚĆ ===== */
+@media (max-width: 991px) {
+    .sp-hero-home-section {
+        padding: 100px 0 80px;
+    }
+    
+    .sp-hero-home-title {
+        font-size: 48px;
+    }
+    
+    .sp-hero-home-description {
+        font-size: 16px;
+    }
+    
+    .sp-hero-home-stats {
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+    
+    .sp-hero-home-image {
+        margin-top: 50px;
+        text-align: center;
+    }
+    
+    .sp-hero-nav {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .sp-hero-nav.prev {
+        left: 15px;
+    }
+    
+    .sp-hero-nav.next {
+        right: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .sp-hero-home-section {
+        padding: 80px 0 60px;
+    }
+    
+    .sp-hero-home-title {
+        font-size: 36px;
+    }
+    
+    .sp-hero-home-cta {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .sp-hero-home-cta .btn-primary,
+    .sp-hero-home-cta .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .sp-hero-home-stats {
+        flex-direction: column;
+        gap: 25px;
+        align-items: flex-start;
+    }
+    
+    .sp-hero-home-stat-number {
+        font-size: 36px;
+    }
+    
+    .sp-hero-nav {
+        display: none;
+    }
+    
+    .sp-hero-dots {
+        bottom: 20px;
+    }
+}
+
+/* ==========================================================================
+   SafePilot - Sekcja Usługi na Stronie Głównej (PL)
+   Prefiks: sp-services-home-
+   ========================================================================== */
+
+.sp-services-home {
+    background: #f5f9f8;
+    position: relative;
+}
+
+/* Ikony - zamiana na Font Awesome */
+.sp-services-home .service-card .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    border: 1px solid rgba(79, 185, 173, 0.2);
+    background: linear-gradient(135deg, rgba(79, 185, 173, 0.1) 0%, rgba(79, 185, 173, 0.05) 100%);
+    margin-bottom: 25px;
+    transition: all 0.4s ease;
+}
+
+.sp-services-home .service-card .icon i {
+    font-size: 36px;
+    color: #4fb9ad;
+    transition: all 0.4s ease;
+}
+
+.sp-services-home .service-card:hover .icon {
+    background: #4fb9ad;
+    border-color: #4fb9ad;
+    transform: rotateY(360deg);
+}
+
+.sp-services-home .service-card:hover .icon i {
+    color: var(--theme);
+}
+
+/* Nagłówek sekcji */
+.sp-services-home .section-title .subtitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #4fb9ad;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.sp-services-home .section-title .title {
+    color: #213543;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.sp-services-home .desc {
+    color: #213543;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* Karty usług */
+.sp-services-home .service-card.style2 {
+    padding: 35px;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid rgba(79, 185, 173, 0.1);
+    box-shadow: 0 8px 30px rgba(33, 53, 67, 0.06);
+    transition: all 0.4s ease;
+    height: 100%;
+}
+
+.sp-services-home .service-card.style2:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 50px rgba(79, 185, 173, 0.15);
+    border-color: #4fb9ad;
+}
+
+.sp-services-home .service-card .body h3 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.sp-services-home .service-card .body h3 a {
+    color: #213543;
+    transition: color 0.3s ease;
+}
+
+.sp-services-home .service-card .body h3 a:hover {
+    color: #4fb9ad;
+}
+
+.sp-services-home .service-card .body p {
+    color: #213543;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.sp-services-home .service-card .link-btn.style1 {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: rgba(79, 185, 173, 0.1);
+    color: #4fb9ad;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.sp-services-home .service-card .link-btn.style1:hover {
+    background: #4fb9ad;
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+/* Karta CTA (Contact) */
+.sp-services-home .sp-cta-card {
+    background: linear-gradient(135deg, #4fb9ad 0%, #41857d 100%);
+    border-color: #4fb9ad;
+}
+
+.sp-services-home .sp-cta-card .icon {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.sp-services-home .sp-cta-card .icon i {
+    color: #ffffff;
+}
+
+.sp-services-home .sp-cta-card .body h3,
+.sp-services-home .sp-cta-card .body p {
+    color: #ffffff;
+}
+
+.sp-services-home .sp-cta-card .sp-cta-btn {
+    background: #ffffff;
+    color: #4fb9ad;
+}
+
+.sp-services-home .sp-cta-card .sp-cta-btn:hover {
+    background: #213543;
+    color: #ffffff;
+}
+
+/* Thumb z obrazkiem */
+.sp-services-home .service-card-thumb.style1 {
+    position: relative;
+    height: 100%;
+    min-height: 400px;
+    background: var(--theme);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.sp-services-home .service-card-thumb .thumb {
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+}
+
+.sp-services-home .service-card-thumb .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Animacje kształtów */
+.sp-services-home .service-card-thumb .shape1_2 {
+    animation: jump 3s ease-in-out infinite;
+}
+
+@keyframes jump {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Responsywność */
+@media (max-width: 1199px) {
+    .sp-services-home .section-title .title {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 991px) {
+    .sp-services-home .section-title .title {
+        font-size: 32px;
+    }
+    
+    .sp-services-home .service-card.style2 {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .sp-services-home .section-title .title {
+        font-size: 28px;
+    }
+    
+    .sp-services-home .service-card-thumb.style1 {
+        min-height: 300px;
+    }
+}
+
+/* ==========================================================================
+   SafePilot - Sekcja O Nas (About) - Strona Główna (PL)
+   Prefiks: sp-about-home-
+   ========================================================================== */
+
+.sp-about-home.about-section {
+    background: linear-gradient(135deg, #213543 0%, #19222a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ikony - Font Awesome zamiast SVG */
+.sp-about-home .fancy-box.style2 .item .icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(79, 185, 173, 0.2);
+    border-radius: 10px;
+    transition: all 0.4s ease;
+}
+
+.sp-about-home .fancy-box.style2 .item .icon i {
+    font-size: 28px;
+    color: #ffffff;
+    transition: all 0.4s ease;
+}
+
+.sp-about-home .fancy-box.style2:hover .item .icon {
+    background: #4fb9ad;
+    transform: scale(1.1);
+}
+
+.sp-about-home .fancy-box.style2:hover .item .icon i {
+    transform: rotateY(360deg);
+}
+
+/* Tytuły i tekst */
+.sp-about-home .section-title .subtitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.sp-about-home .section-title .subtitle span {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.sp-about-home .section-title .title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0;
+}
+
+/* Liczniki - kolory SafePilot */
+.sp-about-home .counter-box.style1 h3 {
+    color: #4fb9ad;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.sp-about-home .counter-box.style1 h6 {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Obrazki - efekt hover */
+.sp-about-home .about-thumb .thumb1,
+.sp-about-home .about-thumb .thumb2 {
+    transition: all 0.4s ease;
+}
+
+.sp-about-home .about-thumb:hover .thumb1 {
+    transform: translateY(-5px);
+}
+
+.sp-about-home .about-thumb:hover .thumb2 {
+    transform: translateY(5px);
+}
+
+/* Rotating shape - animacja */
+.sp-about-home .about-thumb .shape a:hover img {
+    animation-play-state: paused;
+}
+
+/* Fancy box - responsywność */
+.sp-about-home .fancy-box-wrapper.style2 {
+    margin-top: 35px;
+}
+
+.sp-about-home .fancy-box.style2 {
+    padding: 20px;
+    background: rgba(79, 185, 173, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.sp-about-home .fancy-box.style2:hover {
+    background: rgba(79, 185, 173, 0.15);
+}
+
+.sp-about-home .fancy-box.style2 .item h6 {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Counter box wrapper */
+.sp-about-home .counter-box-wrapper.style1 {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsywność */
+@media (max-width: 1199px) {
+    .sp-about-home .section-title .title {
+        font-size: 42px;
+    }
+    
+    .sp-about-home .counter-box.style1 h3 {
+        font-size: 38px;
+    }
+}
+
+@media (max-width: 991px) {
+    .sp-about-home .section-title .title {
+        font-size: 36px;
+    }
+    
+    .sp-about-home .about-thumb {
+        margin-bottom: 40px;
+    }
+    
+    .sp-about-home .fancy-box-wrapper.style2 {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .sp-about-home .section-title .title {
+        font-size: 32px;
+    }
+    
+    .sp-about-home .counter-box.style1 h3 {
+        font-size: 32px;
+    }
+    
+    .sp-about-home .counter-box.style1 h6 {
+        font-size: 13px;
+    }
+    
+    .sp-about-home .about-thumb .thumb2 {
+        width: 150px;
+        bottom: -30px;
+        right: 10px;
+    }
+}
+
+/* ==========================================================================
+   SafePilot - Sekcja FAQ - Strona Główna (PL)
+   Prefiks: sp-faq-home-
+   ========================================================================== */
+
+.sp-faq-home.faq-section {
+    background: #ffffff;
+    position: relative;
+}
+
+/* Obrazek FAQ */
+.sp-faq-home .faq-thumb {
+    position: relative;
+}
+
+.sp-faq-home .faq-thumb .thumb1 {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(33, 53, 67, 0.1);
+}
+
+.sp-faq-home .faq-thumb .thumb2 {
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    padding: 20px;
+    animation: sp-faq-float 4s ease-in-out infinite;
+}
+
+.sp-faq-home .faq-thumb .thumb2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@keyframes sp-faq-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Nagłówek sekcji */
+.sp-faq-home .section-title .subtitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #4fb9ad;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.sp-faq-home .section-title .title {
+    color: #213543;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 40px;
+}
+
+/* Akordeon FAQ */
+.sp-faq-home .faq-content.style1 {
+    margin-top: 30px;
+}
+
+.sp-faq-home .accordion-item {
+    background: #ffffff;
+    border: 1px solid rgba(79, 185, 173, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.sp-faq-home .accordion-item:hover {
+    border-color: #4fb9ad;
+    box-shadow: 0 8px 30px rgba(79, 185, 173, 0.1);
+}
+
+.sp-faq-home .accordion-header {
+    margin: 0;
+}
+
+.sp-faq-home .accordion-button {
+    padding: 20px 25px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #213543;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    transition: all 0.3s ease;
+}
+
+.sp-faq-home .accordion-button:not(.collapsed) {
+    color: #4fb9ad;
+    background: rgba(79, 185, 173, 0.05);
+    border-bottom: 1px solid rgba(79, 185, 173, 0.15);
+}
+
+.sp-faq-home .accordion-button:focus {
+    outline: 2px solid #4fb9ad;
+    outline-offset: 2px;
+    box-shadow: none;
+}
+
+.sp-faq-home .accordion-button::after {
+    width: 24px;
+    height: 24px;
+    background-color: #4fb9ad;
+    border-radius: 50%;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 12px;
+    transition: all 0.3s ease;
+}
+
+.sp-faq-home .accordion-button:not(.collapsed)::after {
+    transform: rotate(-180deg);
+}
+
+.sp-faq-home .accordion-body {
+    padding: 20px 25px 25px;
+    color: #213543;
+    font-size: 15px;
+    line-height: 1.7;
+    background: #ffffff;
+}
+
+/* Przycisk CTA */
+.sp-faq-cta {
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(79, 185, 173, 0.1) 0%, rgba(79, 185, 173, 0.05) 100%);
+    border-radius: 12px;
+    border: 2px solid rgba(79, 185, 173, 0.2);
+    text-align: center;
+}
+
+.sp-faq-cta p {
+    color: #213543;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.sp-faq-cta p strong {
+    color: #4fb9ad;
+}
+
+.sp-faq-cta .btn-primary {
+    padding: 16px 35px;
+    background: #4fb9ad;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 50px;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(79, 185, 173, 0.3);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sp-faq-cta .btn-primary:hover {
+    background: #41857d;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(79, 185, 173, 0.4);
+}
+
+/* Responsywność */
+@media (max-width: 1199px) {
+    .sp-faq-home .section-title .title {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 991px) {
+    .sp-faq-home .section-title .title {
+        font-size: 32px;
+    }
+    
+    .sp-faq-home .faq-thumb {
+        margin-bottom: 50px;
+    }
+    
+    .sp-faq-home .faq-thumb .thumb2 {
+        width: 140px;
+        height: 140px;
+        bottom: -20px;
+        right: -20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .sp-faq-home .section-title .title {
+        font-size: 28px;
+    }
+    
+    .sp-faq-home .accordion-button {
+        font-size: 16px;
+        padding: 18px 20px;
+    }
+    
+    .sp-faq-home .accordion-body {
+        padding: 18px 20px 20px;
+        font-size: 14px;
+    }
+    
+    .sp-faq-home .faq-thumb .thumb2 {
+        display: none;
+    }
+    
+    .sp-faq-cta {
+        padding: 25px 20px;
+    }
+}
+
+/* ==========================================================================
+   SafePilot - Sekcja CTA - Strona Główna (PL)
+   Prefiks: sp-cta-home-
+   ========================================================================== */
+
+.sp-cta-home.cta-section {
+    position: relative;
+}
+
+.sp-cta-home .cta-wrap.style1 {
+    background: linear-gradient(135deg, #4fb9ad 0%, #41857d 100%);
+    border-radius: 20px;
+    padding: 60px 70px;
+    position: relative;
+    overflow: hidden;
+}
+
+.sp-cta-home .cta-wrap .shape {
+    position: absolute;
+    bottom: 0;
+    right: 15%;
+    z-index: 1;
+    opacity: 0.1;
+}
+
+/* Obrazek */
+.sp-cta-home .cta-thumb {
+    position: relative;
+    z-index: 5;
+}
+
+.sp-cta-home .cta-thumb img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
+}
+
+/* Tytuły */
+.sp-cta-home .section-title .subtitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.sp-cta-home .section-title .subtitle span {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.sp-cta-home .section-title .title {
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0;
+}
+
+/* Przycisk */
+.sp-cta-home .gt-btn.style5 {
+    background: #ffffff;
+    color: #4fb9ad;
+    padding: 20px 36px;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: capitalize;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+}
+
+.sp-cta-home .gt-btn.style5:hover {
+    background: #213543;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.sp-cta-home .gt-btn.style5 i {
+    transition: transform 0.3s ease;
+}
+
+.sp-cta-home .gt-btn.style5:hover i {
+    transform: translateX(5px);
+}
+
+/* Responsywność */
+@media (max-width: 1199px) {
+    .sp-cta-home .cta-wrap.style1 {
+        padding: 50px 40px;
+    }
+    
+    .sp-cta-home .section-title .title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 991px) {
+    .sp-cta-home .cta-wrap.style1 {
+        padding: 40px 30px;
+    }
+    
+    .sp-cta-home .section-title .title {
+        font-size: 28px;
+        text-align: center;
+    }
+    
+    .sp-cta-home .cta-thumb {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .sp-cta-home .btn-wrapper {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .sp-cta-home .gt-btn.style5 {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .sp-cta-home .cta-wrap.style1 {
+        padding: 35px 25px;
+    }
+    
+    .sp-cta-home .section-title .title {
+        font-size: 24px;
+    }
+    
+    .sp-cta-home .gt-btn.style5 {
+        padding: 18px 30px;
+        font-size: 15px;
+    }
+}
+
+/* ==========================================================================
+   SafePilot - Sekcja Usługi z Tłem - Strona Główna (PL)
+   Prefiks: sp-services-bg-home-
+   ========================================================================== */
+
+.sp-services-bg-home.service-section-3 {
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.sp-services-bg-home.service-section-3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(33, 53, 67, 0.92) 0%, rgba(25, 34, 42, 0.88) 100%);
+    z-index: 1;
+}
+
+.sp-services-bg-home .container {
+    position: relative;
+    z-index: 10;
+}
+
+/* Nagłówek */
+.sp-services-bg-home .section-title .subtitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.sp-services-bg-home .section-title .subtitle span {
+    color: #4fb9ad;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.sp-services-bg-home .section-title .title {
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.sp-services-bg-home .theme-btn {
+    padding: 18px 35px;
+    background: #4fb9ad;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 50px;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(79, 185, 173, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sp-services-bg-home .theme-btn:hover {
+    background: #41857d;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(79, 185, 173, 0.4);
+}
+
+/* Karty usług */
+.sp-services-bg-home .service-card-items {
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.sp-services-bg-home .service-card-items:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(79, 185, 173, 0.2);
+}
+
+.sp-services-bg-home .service-card-items .service-image {
+    height: 240px;
+    overflow: hidden;
+}
+
+.sp-services-bg-home .service-card-items .service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.sp-services-bg-home .service-card-items:hover .service-image img {
+    transform: scale(1.1);
+}
+
+.sp-services-bg-home .service-card-items .icon-2 {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    opacity: 0.08;
+    z-index: 1;
+}
+
+.sp-services-bg-home .service-card-items .icon-2 i {
+    font-size: 120px;
+    color: #4fb9ad;
+}
+
+.sp-services-bg-home .service-card-items .service-content {
+    padding: 35px 30px;
+    position: relative;
+    z-index: 10;
+}
+
+.sp-services-bg-home .service-card-items .service-content .icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #4fb9ad;
+    border-radius: 12px;
+    margin-top: -70px;
+    margin-bottom: 25px;
+    transition: all 0.4s ease;
+}
+
+.sp-services-bg-home .service-card-items .service-content .icon i {
+    font-size: 32px;
+    color: #ffffff;
+}
+
+.sp-services-bg-home .service-card-items:hover .service-content .icon {
+    transform: rotateY(360deg);
+    background: #213543;
+}
+
+.sp-services-bg-home .service-card-items .service-content h4 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.sp-services-bg-home .service-card-items .service-content h4 a {
+    color: #213543;
+    transition: color 0.3s ease;
+}
+
+.sp-services-bg-home .service-card-items .service-content h4 a:hover {
+    color: #4fb9ad;
+}
+
+.sp-services-bg-home .service-card-items .service-content p {
+    color: #213543;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+.sp-services-bg-home .service-card-items .service-content .theme-btn-2 {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--theme);
+    color: #4fb9ad;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.sp-services-bg-home .service-card-items .service-content .theme-btn-2:hover {
+    background: #4fb9ad;
+    color: #ffffff;
+}
+
+/* Responsywność */
+@media (max-width: 1199px) {
+    .sp-services-bg-home .section-title .title {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 991px) {
+    .sp-services-bg-home.service-section-3::before {
+        background: linear-gradient(135deg, rgba(33, 53, 67, 0.95) 0%, rgba(25, 34, 42, 0.92) 100%);
+    }
+    
+    .sp-services-bg-home .section-title .title {
+        font-size: 32px;
+    }
+    
+    .sp-services-bg-home .btn-wrapper {
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    .sp-services-bg-home .theme-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .sp-services-bg-home .section-title .title {
+        font-size: 28px;
+    }
+    
+    .sp-services-bg-home .service-card-items .service-image {
+        height: 200px;
+    }
+    
+    .sp-services-bg-home .service-card-items .service-content {
+        padding: 30px 25px;
+    }
+}
+
+/* ==========================================================================
+   SafePilot - Sekcja CTA 2 - Strona Główna (PL)
+   Prefiks: sp-cta-2-home-
+   ========================================================================== */
+
+.sp-cta-2-home.cta-section {
+    position: relative;
+    z-index: 5;
+}
+
+.sp-cta-2-home .cta-wrap.style2 {
+    position: relative;
+    padding: 64px 73px 62px;
+    background: linear-gradient(135deg, #4fb9ad 0%, #41857d 100%);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 47px;
+    flex-direction: column;
+    z-index: 9;
+    overflow: hidden;
+}
+
+/* Kształty dekoracyjne */
+.sp-cta-2-home .shape1_1 {
+    position: absolute;
+    bottom: 0;
+    left: 43px;
+    z-index: 1;
+}
+
+.sp-cta-2-home .shape1_2 {
+    position: absolute;
+    top: 0;
+    left: 200px;
+    z-index: 1;
+}
+
+.sp-cta-2-home .shape1_3 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.sp-cta-2-home .shape1_4 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.sp-cta-2-home .cta-thumb {
+    position: absolute;
+    bottom: 0;
+    left: 73px;
+    z-index: 10;
+}
+
+.sp-cta-2-home .cta-thumb img {
+    max-width: 300px;
+    height: auto;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
+}
+
+/* Tytuł */
+.sp-cta-2-home .cta-title {
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.3;
+    max-width: 700px;
+    text-align: center;
+    margin: 0 auto 30px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Przycisk */
+.sp-cta-2-home .gt-btn.style5 {
+    background: #ffffff;
+    color: #4fb9ad;
+    padding: 20px 36px;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: capitalize;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    z-index: 10;
+}
+
+.sp-cta-2-home .gt-btn.style5:hover {
+    background: #213543;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.sp-cta-2-home .gt-btn.style5 i {
+    transition: transform 0.3s ease;
+}
+
+.sp-cta-2-home .gt-btn.style5:hover i {
+    transform: translateX(5px);
+}
+
+/* Responsywność */
+@media (max-width: 1199px) {
+    .sp-cta-2-home .cta-wrap.style2 {
+        padding: 55px 35px 40px;
+    }
+    
+    .sp-cta-2-home .cta-title {
+        font-size: 36px;
+    }
+    
+    .sp-cta-2-home .cta-thumb img {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 991px) {
+    .sp-cta-2-home .cta-wrap.style2 {
+        padding: 40px 15px 40px;
+        gap: 25px;
+    }
+    
+    .sp-cta-2-home .cta-title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 767px) {
+    .sp-cta-2-home .cta-wrap.style2 {
+        padding: 35px 20px;
+    }
+    
+    .sp-cta-2-home .cta-title {
+        font-size: 26px;
+    }
+    
+    .sp-cta-2-home .gt-btn.style5 {
+        padding: 18px 30px;
+        font-size: 15px;
+        width: 100%;
+        justify-content: center;
+    }
+}

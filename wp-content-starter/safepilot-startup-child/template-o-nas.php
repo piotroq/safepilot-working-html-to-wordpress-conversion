@@ -425,7 +425,7 @@ get_header(); // Wczytuje plik header.php
 </section>
 
 <!-- Nasza Filozofia i Misja -->
-<section class="sp-about-philosophy section-padding margin-extech-shortcode-footer">
+<section class="sp-about-philosophy section-padding margin-extech-shortcode">
     <div class="container">
         <div class="sp-about-section-title text-center">
             <p class="sp-about-subtitle" data-wow-delay=".2s">DLACZEGO SAFEPILOT?</p>
@@ -479,7 +479,7 @@ get_header(); // Wczytuje plik header.php
 <?php echo do_shortcode('[contact-cta3]'); ?>
 
 <!-- Co nas wyróżnia? -->
-<section class="sp-about-distinction section-padding padding-extech-shortcode-footer2">
+<section class="sp-about-distinction section-padding padding-extech-shortcode-footer">
     <div class="container">
         <div class="row align-items-center g-5">
             <div class="col-lg-6">
@@ -528,7 +528,7 @@ get_header(); // Wczytuje plik header.php
 </section>
 
 <!-- Nasze Specjalizacje -->
-<section class="sp-about-specialties section-padding margin-extech-shortcode-footer">
+<section class="sp-about-specialties section-padding margin-extech-shortcode">
     <div class="container">
         <div class="sp-about-section-title text-center">
             <p class="sp-about-subtitle" data-wow-delay=".2s">NASZE SPECJALIZACJE</p>
@@ -625,7 +625,7 @@ get_header(); // Wczytuje plik header.php
 </section>
 
 <!-- Nasze Wartości -->
-<section class="sp-about-values section-padding padding-extech-shortcode-footer2">
+<section class="sp-about-values section-padding padding-extech-shortcode-footer">
     <div class="container">
         <div class="sp-about-section-title text-center">
             <p class="sp-about-subtitle" data-wow-delay=".2s">FUNDAMENTY NASZEJ PRACY</p>

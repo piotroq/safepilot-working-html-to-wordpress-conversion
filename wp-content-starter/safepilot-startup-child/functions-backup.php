@@ -258,7 +258,7 @@ add_action('wp_enqueue_scripts', 'safepilot_enqueue_image_fix');
 function safepilot_enqueue_image_fix() {
     wp_enqueue_script(
         'safepilot-image-fix',
-        get_stylesheet_directory_uri() . '/assets/js/js-image-fix.js',
+        get_stylesheet_directory_uri() . '/assets/js/image-fix.js',
         array('jquery'),
         '1.0',
         true
@@ -1467,19 +1467,10 @@ function safepilot_regenerate_thumbnails_notice() {
 // Napraw rozmiary obrazków
 add_filter('wp_get_attachment_image_attributes', 'safepilot_fix_image_dimensions', 999, 3);
 function safepilot_fix_image_dimensions($attr, $attachment, $size) {
-    // Sprawdź czy $attachment jest obiektem lub ID
-    if (is_object($attachment) && isset($attachment->ID)) {
-        $attachment_id = $attachment->ID;
-    } elseif (is_numeric($attachment)) {
-        $attachment_id = $attachment;
-    } else {
-        return $attr; // Zwróć bez zmian jeśli nie możemy określić ID
-    }
-    
     // Jeśli width lub height = 1, napraw to
     if (isset($attr['width']) && $attr['width'] == 1) {
-        $image_meta = wp_get_attachment_metadata($attachment_id);
-        if ($image_meta && isset($image_meta['width']) && isset($image_meta['height'])) {
+        $image_meta = wp_get_attachment_metadata($attachment->ID);
+        if ($image_meta) {
             $attr['width'] = $image_meta['width'];
             $attr['height'] = $image_meta['height'];
         } else {
@@ -1554,61 +1545,39 @@ if (!function_exists('g5plus_get_post_thumbnail')) {
         
         if (has_post_thumbnail()) {
             $thumbnail_id = get_post_thumbnail_id();
-            
-            // Sprawdź czy thumbnail_id jest poprawny
-            if (!$thumbnail_id) {
-                safepilot_show_placeholder($size, $is_single);
-                return;
-            }
-            
+            $image_url = wp_get_attachment_image_url($thumbnail_id, $size);
             $image_alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
-            if (empty($image_alt)) {
-                $image_alt = get_the_title();
-            }
             
             echo '<div class="sp-post-thumbnail">';
             if (!$is_single) {
-                echo '<a href="' . esc_url(get_permalink()) . '">';
+                echo '<a href="' . get_permalink() . '">';
             }
             
             // Użyj wp_get_attachment_image z poprawnymi atrybutami
-            $image = wp_get_attachment_image($thumbnail_id, $size, false, array(
+            echo wp_get_attachment_image($thumbnail_id, $size, false, array(
                 'class' => 'img-fluid sp-blog-img',
-                'alt' => esc_attr($image_alt),
+                'alt' => $image_alt ? $image_alt : get_the_title(),
                 'loading' => 'lazy'
             ));
-            
-            if ($image) {
-                echo $image;
-            } else {
-                // Fallback jeśli nie można pobrać obrazka
-                echo '<img src="' . esc_url(wp_get_attachment_url($thumbnail_id)) . '" class="img-fluid sp-blog-img" alt="' . esc_attr($image_alt) . '" loading="lazy">';
-            }
             
             if (!$is_single) {
                 echo '</a>';
             }
             echo '</div>';
         } else {
-            safepilot_show_placeholder($size, $is_single);
+            // Placeholder
+            echo '<div class="sp-post-thumbnail sp-no-image">';
+            if (!$is_single) {
+                echo '<a href="' . get_permalink() . '">';
+            }
+            echo '<div class="sp-placeholder-image">';
+            echo '<i class="fa-regular fa-image"></i>';
+            echo '<span>Brak obrazka</span>';
+            echo '</div>';
+            if (!$is_single) {
+                echo '</a>';
+            }
+            echo '</div>';
         }
-    }
-}
-
-// Funkcja pomocnicza dla placeholder
-if (!function_exists('safepilot_show_placeholder')) {
-    function safepilot_show_placeholder($size = 'large', $is_single = false) {
-        echo '<div class="sp-post-thumbnail sp-no-image">';
-        if (!$is_single) {
-            echo '<a href="' . esc_url(get_permalink()) . '">';
-        }
-        echo '<div class="sp-placeholder-image sp-placeholder-' . esc_attr($size) . '">';
-        echo '<i class="fa-regular fa-image"></i>';
-        echo '<span>Brak obrazka</span>';
-        echo '</div>';
-        if (!$is_single) {
-            echo '</a>';
-        }
-        echo '</div>';
     }
 }

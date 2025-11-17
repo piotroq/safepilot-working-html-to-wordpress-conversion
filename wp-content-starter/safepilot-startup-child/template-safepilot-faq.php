@@ -406,7 +406,7 @@ get_header(); // Wczytuje plik header.php
     Design premium by GitHub Copilot
 ========================================================================== 
 -->
-<section class="sp-invest-section margin-extech-shortcode-footer">
+<section class="sp-invest-section margin-extech-shortcode">
     <div class="container">
         <!-- Tytuł sekcji -->
         <div class="sp-invest-section-title text-center mb-5">
