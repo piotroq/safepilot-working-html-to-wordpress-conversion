@@ -10,7 +10,7 @@
          </div>
          <div class="container">
             <div class="hero-main-container style1 border-radius">
-               <div class="container">
+               <div class="container px-5">
                   <div class="row d-flex align-items-center align-items-xl-start">
                      <div class="col-xl-6 order-2 order-xl-1">
                         <div class="hero-content style1">
@@ -36,7 +36,7 @@
                            <div class="contact-meta">
                               <div class="btn-wrapper">
                                  <a href="contact.html" class="gt-btn style4">get Started <i
-                                       class="fa-sharp fa-regular fa-arrow-right-long"></i></a>
+                                       class="fa-solid fa-right-long"></i></a>
                               </div>
                            </div>
 

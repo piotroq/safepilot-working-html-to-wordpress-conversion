@@ -1,4 +1,4 @@
-<section class="cta-section space pb-0">
+<section class="cta-section space mb-100 px-4">
       <div class="container">
          <div class="cta-wrap style1 fix">
             <div class="shape"><img src="assets/img/shape/ctaShape1_1.png" alt="shape"></div>
@@ -19,7 +19,7 @@
                <div class="col-xl-3 d-flex align-items-center">
                   <div class="btn-wrapper">
                      <a class="gt-btn style5" href="contact.html">Talk to a Specialist<i
-                           class="fa-sharp fa-regular fa-arrow-right-long"></i></a>
+                           class="fa-solid fa-right-long"></i></a>
                   </div>
                </div>
             </div>

@@ -1,5 +1,5 @@
 <section class="service-section fix section-padding">
-        <div class="container">
+        <div class="container margin-extech-shortcode-footer">
             <div class="section-title title-area  mx-auto mb-20">
                 <div class="subtitle d-flex justify-content-center"> <img src="assets/img/icon/arrowLeft.svg"
                         alt="icon"> <span> OUR SERVICES

@@ -1,4 +1,4 @@
-<section class="hero-section fix hero-3">
+<section class="hero-section fix hero-3 margin-extech-shortcode-footer">
         <div class="bottom-shape">
             <img src="assets/img/hero/bottom-shape.png" alt="shape-img">
         </div>
@@ -23,7 +23,7 @@
                             <img src="assets/img/frame.png" alt="shape-img">
                         </div>
                     </div>
-                    <div class="container">
+                    <div class="container px-5">
                         <div class="row g-4 align-items-center">
                             <div class="col-lg-8">
                                 <div class="hero-content">

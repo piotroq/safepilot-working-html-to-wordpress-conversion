@@ -1,6 +1,6 @@
 <section class="service-section-3 pb-0 fix section-padding bg-cover"
         style="background-image: url('assets/img/service/service-bg-3.jpg');">
-        <div class="container">
+        <div class="container margin-extech-shortcode-footer">
             <div class="row d-flex align-items-end justify-content-between mb-20">
                 <div class="col-xl-7">
                     <div class="section-title mxw-650">
@@ -117,30 +117,6 @@
                             </a>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="cta-banner-2 section-padding">
-            <div class="container">
-                <div class="cta-wrapper-2 border-radius">
-                    <h3>
-                        Stay Connected With <br> Cutting Edge IT
-                    </h3>
-                    <div class="author-icon">
-                        <div class="icon">
-                            <i class="fa-solid fa-phone"></i>
-                        </div>
-                        <div class="content">
-                            <span>Call Us Now</span>
-                            <h4>
-                                <a href="tel:+2085550112">+208-555-0112</a>
-                            </h4>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="theme-btn bg-white">
-                        get A Quote
-                        <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
                 </div>
             </div>
         </div>

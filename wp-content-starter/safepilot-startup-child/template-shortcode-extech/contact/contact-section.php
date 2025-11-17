@@ -1,10 +1,138 @@
+<style>
+/* ---------------------------------- */
+/* 2. Kontakt - Sekcja Główna         */
+/* ---------------------------------- */
+.sp-contact-main-section {
+    padding: 100px 0;
+    background-color: var(--smoke-color, #f5f9f8);
+}
+
+.sp-contact-info-card {
+    background: var(--white-color, #ffffff);
+    border: 1px solid var(--border-color, #e8e8e8);
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 25px rgba(33, 53, 67, 0.05);
+    margin-bottom: 25px;
+}
+
+.sp-contact-info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(33, 53, 67, 0.1);
+    border-left: 5px solid var(--primary-teal, #4fb9ad);
+}
+
+.sp-contact-info-icon {
+    font-size: 24px;
+    color: var(--primary-teal, #4fb9ad);
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #e8f7f5;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.sp-contact-info-title {
+    font-weight: 700;
+    color: var(--secondary-navy, #213543);
+    margin-bottom: 5px;
+}
+
+.sp-contact-info-link {
+    color: var(--text-color2, #4a5568);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.sp-contact-info-link:hover {
+    color: var(--primary-teal, #4fb9ad);
+}
+
+/* Formularz kontaktowy */
+.sp-contact-form-wrapper {
+    background: var(--white-color, #ffffff);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color, #e8e8e8);
+    box-shadow: 0 5px 25px rgba(33, 53, 67, 0.05);
+}
+
+.sp-contact-form-title {
+    font-family: var(--title-font, "Rajdhani", sans-serif);
+    color: var(--secondary-navy, #213543);
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.sp-contact-form .form-label {
+    font-weight: 600;
+    color: var(--secondary-navy, #213543);
+}
+
+.sp-contact-form .wpcf7-textarea, .wpcf7-tel {
+    background-color: #f5f9f8;
+    border: 1px solid #e8e8e8;
+    padding: 12px 15px;
+    border-radius: 8px;
+}
+
+.sp-contact-form .wpcf7-textarea:focus, .wpcf7-tel:focus {
+    background-color: #ffffff;
+    border-color: var(--primary-teal, #4fb9ad);
+    box-shadow: 0 0 0 3px rgba(79, 185, 173, 0.2);
+}
+
+.sp-contact-form .wpcf7-tel {
+    background-color: #f5f9f8;
+    border: 1px solid #e8e8e8;
+    padding: 12px 15px;
+    border-radius: 8px;
+}
+
+.sp-contact-form .wpcf7-tel:focus {
+    background-color: #ffffff;
+    border-color: var(--primary-teal, #4fb9ad);
+    box-shadow: 0 0 0 3px rgba(79, 185, 173, 0.2);
+}
+
+.sp-contact-form .wpcf7-text {
+    background-color: #f5f9f8;
+    border: 1px solid #e8e8e8;
+    padding: 12px 15px;
+    border-radius: 8px;
+}
+
+.sp-contact-form .wpcf7-text:focus {
+    background-color: #ffffff;
+    border-color: var(--primary-teal, #4fb9ad);
+    box-shadow: 0 0 0 3px rgba(79, 185, 173, 0.2);
+}
+
+.sp-contact-form .wpcf7-submit {
+    width: 100%;
+    padding: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+}
+</style>
+
 <section class="contact-section fix section-padding">
-        <div class="container">
+        <div class="container margin-extech-shortcode">
             <div class="contact-wrapper-2">
                 <div class="row g-4 align-items-center">
                     <div class="col-lg-6">
                         <div class="contact-left-items">
                             <div class="contact-info-area-2">
+                                <div class="content text-center">
+                                        <img src="https://pbmediaonline.smarthost.pl/wordpress-test/wp-content/uploads/2025/11/cropped-safepilot-logo-png-dark.png" class="img-fluid" width="400px">
+                                    </div>
                                 <div class="contact-info-items mb-4">
                                     <div class="icon">
                                         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -14,9 +142,9 @@
 
                                     </div>
                                     <div class="content">
-                                        <p>Call Us 7/24</p>
+                                        <p>Zadzwoń na numer telefonu:</p>
                                         <h3>
-                                            <a href="tel:+2085550112">+208-555-0112</a>
+                                            <a href="tel:+48726739238">+48 726 739 238</a>
                                         </h3>
                                     </div>
                                 </div>
@@ -29,9 +157,9 @@
                                         </svg>
                                     </div>
                                     <div class="content">
-                                        <p>Make a Quote</p>
+                                        <p>Napisz wiadomość e-mail:</p>
                                         <h3>
-                                            <a href="mailto:infotech@gmail.com">Infotech@gmail.com</a>
+                                            <a href="mailto:biuro@safepilot.pl">biuro@safepilot.pl</a>
                                         </h3>
                                     </div>
                                 </div>
@@ -43,57 +171,22 @@
                                         </svg>
                                     </div>
                                     <div class="content">
-                                        <p>Location</p>
+                                        <p>Lokalizacja</p>
                                         <h3>
-                                            4517 Washington ave.
+                                            SafePilot,<br>ul. Kordiana 50B/65,<br>30-653 Kraków
                                         </h3>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="video-image">
-                                <img src="assets/img/video.jpg" alt="img">
-                                <div class="video-box">
-                                    <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" class="video-btn ripple popup-video">
-                                        <i class="fa-solid fa-play"></i>
-                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="contact-content">
-                            <h2>Ready to Get Started?</h2>
-                            <p>
-                                Nullam varius, erat quis iaculis dictum, eros urna varius eros, ut blandit felis odio in
-                                turpis. Quisque rhoncus, eros in auctor ultrices,
-                            </p>
-                            <form action="contact.php" id="contact-form" method="POST" class="contact-form-items">
-                                <div class="row g-4">
-                                    <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
-                                        <div class="form-clt">
-                                            <span>Your name*</span>
-                                            <input type="text" name="name" id="name" placeholder="Your Name">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-                                        <div class="form-clt">
-                                            <span>Your Email*</span>
-                                            <input type="text" name="email" id="email" placeholder="Your Email">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 wow fadeInUp" data-wow-delay=".7s" style="visibility: visible; animation-delay: 0.7s; animation-name: fadeInUp;">
-                                        <div class="form-clt">
-                                            <span>Write Message*</span>
-                                            <textarea name="message" id="message" placeholder="Write Message"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-7 wow fadeInUp" data-wow-delay=".9s" style="visibility: visible; animation-delay: 0.9s; animation-name: fadeInUp;">
-                                        <button type="submit" class="theme-btn">
-                                            Send Message <i class="fa-solid fa-arrow-right-long"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
+                            <h3>Potrzebujesz Wsparcia w Zakresie BHP, PPOŻ lub Pierwszej Pomocy? Jesteśmy Tu Dla Ciebie</h3>
+                            <p>Szukasz profesjonalnego partnera, który zadba o **bezpieczeństwo w Twojej firmie**? Potrzebujesz pilnej konsultacji w zakresie **szkoleń BHP w Krakowie** lub przygotowania dokumentacji? A może zależy Ci na kompleksowym **audycie BHP**, który zidentyfikuje potencjalne zagrożenia w Twojej organizacji? Niezależnie od tego, czego potrzebujesz, zespół SafePilot jest gotowy, aby Ci pomóc.</p>
+                            <p>Wierzymy, że **kontakt z ekspertem BHP** powinien być prosty, szybki i bezproblemowy. Dlatego oferujemy wiele sposobów komunikacji, abyś mógł wybrać ten, który jest dla Ciebie najwygodniejszy. Czy to rozmowa telefoniczna, email czy spotkanie osobiste w naszym biurze w Krakowie – zawsze jesteśmy do Twojej dyspozycji.</p>
+                            <h3>Formularz kontaktowy</h3>
+                            <?php echo do_shortcode('[contact-form-7 id="1c490f9" title="Formularz-kontaktowy"]'); ?>
                         </div>
                     </div>
                 </div>

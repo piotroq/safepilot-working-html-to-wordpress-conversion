@@ -1,5 +1,5 @@
 <section class="about-section space fix bg-theme-color">
-      <div class="about-container-wrapper style1">
+      <div class="about-container-wrapper style1 px-5">
          <div class="shape1"><img src="assets/img/shape/aboutShape1_1.png" alt="shape"></div>
          <div class="shape2"><img src="assets/img/shape/aboutShape1_2.png" alt="shape"></div>
          <div class="shape3"><img src="assets/img/shape/aboutShape1_3.png" alt="shape"></div>

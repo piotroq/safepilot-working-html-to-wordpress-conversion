@@ -1,5 +1,5 @@
 <section class="faq-section space pb-0 fix">
-      <div class="container">
+      <div class="container margin-extech-shortcode">
          <div class="faq-wrapper style1">
             <div class="row gy-5">
                <div class="col-xl-6">

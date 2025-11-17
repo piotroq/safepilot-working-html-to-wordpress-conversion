@@ -1215,6 +1215,12 @@ safepilot_register_template_shortcode(
     'template-shortcode-extech/index3/contact-cta3.php'
 );
 
+// Shortcode dla sekcji kontaktowej
+safepilot_register_template_shortcode(
+    'gallery-section-service', 
+    'template-shortcode-extech/gallery/gallery-section-service.php'
+);
+
 function delete_post_type(){
   unregister_post_type( 'portfolio' );
   unregister_post_type( 'gf_content' );

@@ -1,5 +1,5 @@
 <section class="service-section section-padding fix">
-      <div class="container">
+      <div class="container margin-extech-shortcode-footer">
          <div class="row d-flex align-items-center mb-45">
             <div class="col-xl-7">
                <div class="section-title mxw-560 mb-3 mb-xl-0">

@@ -7,7 +7,7 @@
                 <img src="assets/img/faq/shape.png" alt="shape-img">
             </div>
         </div>
-        <div class="container">
+        <div class="container margin-extech-shortcode-footer">
             <div class="faq-wrapper style2">
                 <div class="row g-4">
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay=".4s">

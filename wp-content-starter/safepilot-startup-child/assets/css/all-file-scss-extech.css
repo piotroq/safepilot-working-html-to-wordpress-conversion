@@ -1952,9 +1952,10 @@
 
 /* --- Elementy z informacjami kontaktowymi --- */
 .contact-info-area {
-    padding: 50px 60px;
+    padding: 2rem 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 4rem;
     border-bottom: 1px solid #242449;
     border-radius: 20px;
     background: var(--theme);
@@ -7596,7 +7597,7 @@
 }
 
 .section-padding {
-    padding: 120px 0;
+    padding: 60px 0;
 }
 
 

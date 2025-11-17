@@ -1,5 +1,5 @@
-      <div class="container">
-         <div class="contact-info-area">
+      <div class="container pt-80">
+         <div class="contact-info-area margin-extech-shortcode-footer">
             <div class="contact-info-items wow fadeInUp" data-wow-delay=".7s">
                <div class="icon">
                   <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -13,9 +13,9 @@
 
                </div>
                <div class="content">
-                  <p>Address</p>
+                  <p>Lokalizacja:</p>
                   <h3>
-                     4648 Rocky Road Philadelphia PA
+                     ul. Kordiana 50B/65,<br>30-653 Kraków
                   </h3>
                </div>
             </div>
@@ -34,9 +34,9 @@
                   </svg>
                </div>
                <div class="content">
-                  <p>Send Email</p>
+                  <p>Adres e-mail:</p>
                   <h3>
-                     <a href="mailto:infotech@gmail.com">info@exmple.com</a>
+                     <a href="mailto:biuro@safepilot.pl">biuro@safepilot.pl</a>
                   </h3>
                </div>
             </div>
@@ -52,9 +52,9 @@
                   </svg>
                </div>
                <div class="content">
-                  <p>Call Emergency</p>
+                  <p>Numer telefonu:</p>
                   <h3>
-                     <a href="tel:+2085550112">+88 0123 654 99</a>
+                     <a href="tel:+48726739238">+48 726 739 238</a>
                   </h3>
                </div>
             </div>

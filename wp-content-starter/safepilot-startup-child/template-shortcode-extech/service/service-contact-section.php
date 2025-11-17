@@ -1,5 +1,5 @@
 <section class="contact-section fix section-padding">
-        <div class="container">
+        <div class="container margin-extech-shortcode-footer">
             <div class="contact-wrapper">
                 <div class="arrow-shape">
                     <img src="assets/img/arrow-shape.png" alt="shape-img">
