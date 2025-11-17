@@ -166,14 +166,6 @@ function safepilot_child_enqueue_assets() {
         array( 'safepilot-brand-colors' ), // Zależność: ładuj PO pliku z kolorami
         '1.0.0'
     );
-    
-    // 9. Plik z niestandardowymi all scss style file extechu
-    wp_enqueue_style(
-        'safepilot-all-file-scss-extech', // Unikalna nazwa
-        get_stylesheet_directory_uri() . '/assets/css/all-file-scss-extech.css',
-        array( 'safepilot-brand-colors' ), // Zależność: ładuj PO pliku z kolorami
-        '1.0.0'
-    );
 
     // --- Krok 4: Dodaj niestandardowe pliki JavaScript ---
 
@@ -260,6 +252,18 @@ function safepilot_child_enqueue_assets() {
 
 }
 add_action( 'wp_enqueue_scripts', 'safepilot_child_enqueue_assets' );
+
+// Enqueue image fix script
+add_action('wp_enqueue_scripts', 'safepilot_enqueue_image_fix');
+function safepilot_enqueue_image_fix() {
+    wp_enqueue_script(
+        'safepilot-image-fix',
+        get_stylesheet_directory_uri() . '/assets/js/image-fix.js',
+        array('jquery'),
+        '1.0',
+        true
+    );
+}
 
 remove_action('wp_head', 'wp_generator');
 
@@ -763,17 +767,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 add_action('wp_head', 'wpl_gtm_head_code');
 
 /**
- * SafePilot wp_body_open Hook Implementation
+ * SafePilot wp_body_open_gtm_code_schema Hook Implementation
  */
 
-// Dodaj support dla wp_body_open (WordPress 5.2+)
-if ( ! function_exists( 'wp_body_open' ) ) {
+// Dodaj support dla wp_body_open_gtm_code_schema (WordPress 5.2+)
+if ( ! function_exists( 'wp_body_open_gtm_code_schema' ) ) {
     /**
-     * Fire the wp_body_open action.
+     * Fire the wp_body_open_gtm_code_schema action.
      * Added for backward compatibility for WordPress versions < 5.2
      */
-    function wp_body_open() {
-        do_action( 'wp_body_open' );
+    function wp_body_open_gtm_code_schema() {
+        do_action( 'wp_body_open_gtm_code_schema' );
     }
 }
 
@@ -825,7 +829,7 @@ function safepilot_add_organization_schema() {
         <?php
     }
 }
-add_action( 'wp_body_open', 'safepilot_add_organization_schema', 1 );
+add_action( 'wp_body_open_gtm_code_schema', 'safepilot_add_organization_schema', 1 );
 
 function wpl_gtm_body_code() { 
 ?>
@@ -836,7 +840,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <?php 
 }
 
-add_action( 'wp_body_open', 'wpl_gtm_body_code' );
+add_action( 'wp_body_open_gtm_code_schema', 'wpl_gtm_body_code' );
 
 // Dodaj style CSS do zaplecza admina dla wszystkich użytkowników z wyjątkiem user ID 1
 function my_custom_admin_css_for_users() {
@@ -980,6 +984,12 @@ function safepilot_register_template_shortcode( $tag, $template_path ) {
 }
 
 // --- Przykład użycia nowej funkcji ---
+
+// 2. Rejestracja shortcode'u dla sekcji "First Section"
+safepilot_register_template_shortcode(
+    'index1-first-section', 
+    'template-shortcode-extech/index1/index1-first-section.php'
+);
 
 // 3. Rejestracja shortcode'u dla sekcji "Hero"
 safepilot_register_template_shortcode(
@@ -1183,6 +1193,12 @@ safepilot_register_template_shortcode(
 
 // Shortcode dla sekcji "Aktualności" (wersja 3)
 safepilot_register_template_shortcode(
+    'sekcja_kontakt_template_homepage', 
+    'template-shortcode-extech/contact/contact-section-homepage-bottom.php'
+);
+
+// Shortcode dla sekcji "Aktualności" (wersja 3)
+safepilot_register_template_shortcode(
     'sekcja_kontakt_map_bottom', 
     'template-shortcode-extech/contact/contact-section-map-bottom.php'
 );
@@ -1263,6 +1279,38 @@ function enqueue_custom_assets_from_custom_folder() {
 add_action( 'wp_enqueue_scripts', 'enqueue_custom_assets_from_custom_folder' );
 
 /**
+ * Enqueue Hero Slider Script
+ */
+function safepilot_enqueue_hero_slider() {
+    if (is_front_page()) {
+        wp_enqueue_script(
+            'safepilot-hero-slider',
+            get_stylesheet_directory_uri() . '/assets/js/hero-slider.js',
+            array('jquery'),
+            '2.0',
+            true
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'safepilot_enqueue_hero_slider');
+
+/**
+ * Enqueue About Section Scripts
+ */
+function safepilot_about_counters_script() {
+    if (is_front_page()) {
+        wp_enqueue_script(
+            'safepilot-about-counters',
+            get_stylesheet_directory_uri() . '/assets/js/about-counters.js',
+            array('jquery'),
+            '1.0',
+            true
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'safepilot_about_counters_script');
+
+/**
  * Wczytaj cookieconsent-config.js jako moduł (type="module")
  */
 function enqueue_cookieconsent_module_script() {
@@ -1288,3 +1336,248 @@ function add_type_module_to_cookieconsent( $tag, $handle, $src ) {
     return $tag;
 }
 add_filter( 'script_loader_tag', 'add_type_module_to_cookieconsent', 10, 3 );
+
+/**
+ * SafePilot - Funkcje blogowe
+ * Dodaj ten kod do functions.php w motywie potomnym
+ */
+
+// Enqueue stylów dla bloga
+function safepilot_enqueue_blog_styles() {
+    if (is_home() || is_archive() || is_search() || is_single()) {
+        wp_enqueue_style(
+            'safepilot-blog-styles',
+            get_stylesheet_directory_uri() . '/assets/css/blog-styles.css',
+            array(),
+            '2.0'
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'safepilot_enqueue_blog_styles');
+
+// Modyfikacja excerpt length
+function safepilot_excerpt_length($length) {
+    if (is_home() || is_archive()) {
+        return 25;
+    }
+    return $length;
+}
+add_filter('excerpt_length', 'safepilot_excerpt_length');
+
+// Modyfikacja excerpt more
+function safepilot_excerpt_more($more) {
+    return '...';
+}
+add_filter('excerpt_more', 'safepilot_excerpt_more');
+
+// Dodanie obsługi thumbnails
+function safepilot_setup_thumbnails() {
+    add_image_size('large-image', 1200, 600, true);
+    add_image_size('medium-image', 600, 400, true);
+}
+add_action('after_setup_theme', 'safepilot_setup_thumbnails');
+
+// Funkcja pomocnicza do wyświetlania thumbnails
+if (!function_exists('g5plus_get_post_thumbnail')) {
+    function g5plus_get_post_thumbnail($size = 'large') {
+        if (has_post_thumbnail()) {
+            echo '<div class="sp-post-thumbnail">';
+            echo '<a href="' . get_permalink() . '">';
+            the_post_thumbnail($size, array('class' => 'img-fluid'));
+            echo '</a>';
+            echo '</div>';
+        }
+    }
+}
+
+/**
+ * SafePilot - Poprawki dla obrazków w blogach
+ * Dodaj ten kod do końca pliku functions.php
+ */
+
+// Rejestracja rozmiarów obrazków
+add_action('after_setup_theme', 'safepilot_fix_image_sizes');
+function safepilot_fix_image_sizes() {
+    // Usunięcie starych rozmiarów
+    remove_image_size('large-image');
+    remove_image_size('medium-image');
+    
+    // Dodanie nowych rozmiarów
+    add_image_size('sp-large', 1200, 600, true);
+    add_image_size('sp-medium', 600, 400, true);
+    add_image_size('sp-small', 400, 300, true);
+    
+    // Wsparcie dla obrazków wyróżniających
+    add_theme_support('post-thumbnails');
+    
+    // Ustawienie domyślnego rozmiaru
+    set_post_thumbnail_size(800, 450, true);
+}
+
+// Poprawka funkcji g5plus_get_post_thumbnail jeśli nie istnieje
+if (!function_exists('g5plus_get_post_thumbnail')) {
+    function g5plus_get_post_thumbnail($size = 'large') {
+        if (has_post_thumbnail()) {
+            echo '<div class="sp-post-thumbnail">';
+            echo '<a href="' . get_permalink() . '">';
+            the_post_thumbnail($size, array('class' => 'img-fluid'));
+            echo '</a>';
+            echo '</div>';
+        } else {
+            echo '<div class="sp-post-thumbnail sp-no-image">';
+            echo '<a href="' . get_permalink() . '">';
+            echo '<div class="sp-placeholder-image sp-placeholder-' . esc_attr($size) . '">';
+            echo '<i class="fa-regular fa-image"></i>';
+            echo '<span>Brak obrazka</span>';
+            echo '</div>';
+            echo '</a>';
+            echo '</div>';
+        }
+    }
+}
+
+// Filtr dla rozmiarów obrazków
+add_filter('intermediate_image_sizes_advanced', 'safepilot_filter_image_sizes');
+function safepilot_filter_image_sizes($sizes) {
+    // Usuń niepotrzebne rozmiary
+    unset($sizes['medium_large']);
+    unset($sizes['1536x1536']);
+    unset($sizes['2048x2048']);
+    
+    return $sizes;
+}
+
+// Regeneracja obrazków po zmianie rozmiarów
+add_action('admin_notices', 'safepilot_regenerate_thumbnails_notice');
+function safepilot_regenerate_thumbnails_notice() {
+    if (get_option('safepilot_regenerate_thumbs_notice') !== 'dismissed') {
+        ?>
+        <div class="notice notice-warning is-dismissible">
+            <p><?php _e('SafePilot: Zalecamy regenerację miniatur po zmianie rozmiarów. Zainstaluj wtyczkę "Regenerate Thumbnails".', 'safepilot'); ?></p>
+        </div>
+        <?php
+    }
+}
+
+/**
+ * SafePilot - Kompleksowa naprawa obrazków
+ * Dodaj na końcu functions.php
+ */
+
+// Napraw rozmiary obrazków
+add_filter('wp_get_attachment_image_attributes', 'safepilot_fix_image_dimensions', 999, 3);
+function safepilot_fix_image_dimensions($attr, $attachment, $size) {
+    // Jeśli width lub height = 1, napraw to
+    if (isset($attr['width']) && $attr['width'] == 1) {
+        $image_meta = wp_get_attachment_metadata($attachment->ID);
+        if ($image_meta) {
+            $attr['width'] = $image_meta['width'];
+            $attr['height'] = $image_meta['height'];
+        } else {
+            // Domyślne rozmiary
+            $attr['width'] = 800;
+            $attr['height'] = 450;
+        }
+    }
+    
+    // Dodaj klasy
+    if (!isset($attr['class'])) {
+        $attr['class'] = '';
+    }
+    $attr['class'] .= ' sp-responsive-img';
+    
+    return $attr;
+}
+
+// Napraw rozmiary obrazków dla the_post_thumbnail
+add_filter('post_thumbnail_html', 'safepilot_fix_thumbnail_html', 999, 5);
+function safepilot_fix_thumbnail_html($html, $post_id, $post_thumbnail_id, $size, $attr) {
+    // Napraw width="1" height="1"
+    $html = preg_replace('/width="1"/', 'width="800"', $html);
+    $html = preg_replace('/height="1"/', 'height="450"', $html);
+    
+    // Dodaj data-size attribute
+    $html = str_replace('<img', '<img data-size="' . esc_attr($size) . '"', $html);
+    
+    return $html;
+}
+
+// Rejestruj poprawne rozmiary
+add_action('after_setup_theme', 'safepilot_register_correct_sizes', 999);
+function safepilot_register_correct_sizes() {
+    // Usuń stare
+    remove_image_size('large-image');
+    remove_image_size('medium-image');
+    
+    // Dodaj nowe z poprawnymi rozmiarami
+    add_image_size('sp-large', 1200, 600, true);
+    add_image_size('sp-medium', 800, 450, true); 
+    add_image_size('sp-small', 400, 300, true);
+    add_image_size('sp-grid', 600, 400, true);
+    
+    // Upewnij się że thumbnail support jest włączony
+    add_theme_support('post-thumbnails');
+    
+    // Ustaw domyślny rozmiar
+    update_option('thumbnail_size_w', 150);
+    update_option('thumbnail_size_h', 150);
+    update_option('medium_size_w', 800);
+    update_option('medium_size_h', 450);
+    update_option('large_size_w', 1200);
+    update_option('large_size_h', 600);
+}
+
+// Poprawiona funkcja g5plus_get_post_thumbnail
+if (!function_exists('g5plus_get_post_thumbnail')) {
+    function g5plus_get_post_thumbnail($size = 'large', $gallery_id = 0, $is_single = false) {
+        // Mapowanie rozmiarów
+        $size_map = array(
+            'large-image' => 'sp-large',
+            'medium-image' => 'sp-medium',
+            'large' => 'sp-large',
+            'medium' => 'sp-medium',
+            'full' => 'full'
+        );
+        
+        if (isset($size_map[$size])) {
+            $size = $size_map[$size];
+        }
+        
+        if (has_post_thumbnail()) {
+            $thumbnail_id = get_post_thumbnail_id();
+            $image_url = wp_get_attachment_image_url($thumbnail_id, $size);
+            $image_alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+            
+            echo '<div class="sp-post-thumbnail">';
+            if (!$is_single) {
+                echo '<a href="' . get_permalink() . '">';
+            }
+            
+            // Użyj wp_get_attachment_image z poprawnymi atrybutami
+            echo wp_get_attachment_image($thumbnail_id, $size, false, array(
+                'class' => 'img-fluid sp-blog-img',
+                'alt' => $image_alt ? $image_alt : get_the_title(),
+                'loading' => 'lazy'
+            ));
+            
+            if (!$is_single) {
+                echo '</a>';
+            }
+            echo '</div>';
+        } else {
+            // Placeholder
+            echo '<div class="sp-post-thumbnail sp-no-image">';
+            if (!$is_single) {
+                echo '<a href="' . get_permalink() . '">';
+            }
+            echo '<div class="sp-placeholder-image">';
+            echo '<i class="fa-regular fa-image"></i>';
+            echo '<span>Brak obrazka</span>';
+            echo '</div>';
+            if (!$is_single) {
+                echo '</a>';
+            }
+            echo '</div>';
+        }
+    }
+}
