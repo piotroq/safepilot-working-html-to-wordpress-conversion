@@ -1,0 +1,1237 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: g5-startup\n"
+"POT-Creation-Date: 2022-05-24 16:41+0700\n"
+"PO-Revision-Date: 2025-01-19 21:00+0100\n"
+"Last-Translator: SafePilot Team\n"
+"Language-Team: Polish\n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;__\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:3
+msgid "404"
+msgstr "404"
+
+#: 404.php:4
+msgid "page not found"
+msgstr "strona nie znaleziona"
+
+#: 404.php:5
+msgid "It seems we couldn't find the page you are looking for. Please check to make sure you've typed the URL correctly."
+msgstr "Nie możemy znaleźć strony, której szukasz. Sprawdź czy adres URL został wpisany poprawnie."
+
+#: 404.php:6
+msgid "BACK TO HOME"
+msgstr "WRÓĆ DO STRONY GŁÓWNEJ"
+
+#: comments.php:24
+msgid "NO COMMENT"
+msgstr "BRAK KOMENTARZY"
+
+#: comments.php:24
+msgid "ONE COMMENT"
+msgstr "JEDEN KOMENTARZ"
+
+#: comments.php:24
+msgid "COMMENTS (%)"
+msgstr "KOMENTARZE (%)"
+
+#: core/class-tgm-plugin-activation.php:331 inc/register-require-plugin.php:140
+msgid "Install Required Plugins"
+msgstr "Zainstaluj wymagane wtyczki"
+
+#: core/class-tgm-plugin-activation.php:332 inc/register-require-plugin.php:141
+msgid "Install Plugins"
+msgstr "Zainstaluj wtyczki"
+
+#: core/class-tgm-plugin-activation.php:334 inc/register-require-plugin.php:142
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr "Instalowanie wtyczki: %s"
+
+#: core/class-tgm-plugin-activation.php:336
+#, php-format
+msgid "Updating Plugin: %s"
+msgstr "Aktualizowanie wtyczki: %s"
+
+#: core/class-tgm-plugin-activation.php:337 inc/register-require-plugin.php:143
+msgid "Something went wrong with the plugin API."
+msgstr "Coś poszło nie tak z API wtyczki."
+
+#: core/class-tgm-plugin-activation.php:340 inc/register-require-plugin.php:144
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] "Ten motyw wymaga następującej wtyczki: %1$s."
+msgstr[1] "Ten motyw wymaga następujących wtyczek: %1$s."
+msgstr[2] "Ten motyw wymaga następujących wtyczek: %1$s."
+
+#: core/class-tgm-plugin-activation.php:346 inc/register-require-plugin.php:145
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] "Ten motyw zaleca następującą wtyczkę: %1$s."
+msgstr[1] "Ten motyw zaleca następujące wtyczki: %1$s."
+msgstr[2] "Ten motyw zaleca następujące wtyczki: %1$s."
+
+#: core/class-tgm-plugin-activation.php:352 inc/register-require-plugin.php:150
+#, php-format
+msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
+msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
+msgstr[0] "Następująca wtyczka musi być zaktualizowana do najnowszej wersji, aby zapewnić maksymalną zgodność z tym motywem: %1$s."
+msgstr[1] "Następujące wtyczki muszą być zaktualizowane do najnowszej wersji, aby zapewnić maksymalną zgodność z tym motywem: %1$s."
+msgstr[2] "Następujące wtyczki muszą być zaktualizowane do najnowszej wersji, aby zapewnić maksymalną zgodność z tym motywem: %1$s."
+
+#: core/class-tgm-plugin-activation.php:358
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] "Dostępna jest aktualizacja dla: %1$s."
+msgstr[1] "Dostępne są aktualizacje dla następujących wtyczek: %1$s."
+msgstr[2] "Dostępne są aktualizacje dla następujących wtyczek: %1$s."
+
+#: core/class-tgm-plugin-activation.php:364 inc/register-require-plugin.php:147
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] "Następująca wymagana wtyczka jest obecnie nieaktywna: %1$s."
+msgstr[1] "Następujące wymagane wtyczki są obecnie nieaktywne: %1$s."
+msgstr[2] "Następujące wymagane wtyczki są obecnie nieaktywne: %1$s."
+
+#: core/class-tgm-plugin-activation.php:370 inc/register-require-plugin.php:148
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] "Następująca zalecana wtyczka jest obecnie nieaktywna: %1$s."
+msgstr[1] "Następujące zalecane wtyczki są obecnie nieaktywne: %1$s."
+msgstr[2] "Następujące zalecane wtyczki są obecnie nieaktywne: %1$s."
+
+#: core/class-tgm-plugin-activation.php:375 inc/register-require-plugin.php:152
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] "Rozpocznij instalację wtyczki"
+msgstr[1] "Rozpocznij instalację wtyczek"
+msgstr[2] "Rozpocznij instalację wtyczek"
+
+#: core/class-tgm-plugin-activation.php:380
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] "Rozpocznij aktualizację wtyczki"
+msgstr[1] "Rozpocznij aktualizację wtyczek"
+msgstr[2] "Rozpocznij aktualizację wtyczek"
+
+#: core/class-tgm-plugin-activation.php:385 inc/register-require-plugin.php:153
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] "Rozpocznij aktywację wtyczki"
+msgstr[1] "Rozpocznij aktywację wtyczek"
+msgstr[2] "Rozpocznij aktywację wtyczek"
+
+#: core/class-tgm-plugin-activation.php:389 inc/register-require-plugin.php:154
+msgid "Return to Required Plugins Installer"
+msgstr "Wróć do instalatora wymaganych wtyczek"
+
+#: core/class-tgm-plugin-activation.php:390
+#: core/class-tgm-plugin-activation.php:837
+#: core/class-tgm-plugin-activation.php:2602
+#: core/class-tgm-plugin-activation.php:3676
+msgid "Return to the Dashboard"
+msgstr "Wróć do kokpitu"
+
+#: core/class-tgm-plugin-activation.php:391
+#: core/class-tgm-plugin-activation.php:3245
+#: inc/register-require-plugin.php:155
+msgid "Plugin activated successfully."
+msgstr "Wtyczka została pomyślnie aktywowana."
+
+#: core/class-tgm-plugin-activation.php:392
+#: core/class-tgm-plugin-activation.php:3030
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] "Następująca wtyczka została pomyślnie aktywowana:"
+msgstr[1] "Następujące wtyczki zostały pomyślnie aktywowane:"
+msgstr[2] "Następujące wtyczki zostały pomyślnie aktywowane:"
+
+#: core/class-tgm-plugin-activation.php:394
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr "Żadna akcja nie została podjęta. Wtyczka %1$s była już aktywna."
+
+#: core/class-tgm-plugin-activation.php:396
+#, php-format
+msgid "Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin."
+msgstr "Wtyczka nie została aktywowana. Potrzebna jest nowsza wersja %s dla tego motywu. Zaktualizuj wtyczkę."
+
+#: core/class-tgm-plugin-activation.php:398
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr "Wszystkie wtyczki zostały zainstalowane i aktywowane pomyślnie. %1$s"
+
+#: core/class-tgm-plugin-activation.php:399
+msgid "Dismiss this notice"
+msgstr "Odrzuć to powiadomienie"
+
+#: core/class-tgm-plugin-activation.php:400
+msgid "There are one or more required or recommended plugins to install, update or activate."
+msgstr "Istnieje jedna lub więcej wymaganych lub zalecanych wtyczek do zainstalowania, zaktualizowania lub aktywacji."
+
+#: core/class-tgm-plugin-activation.php:401
+msgid "Please contact the administrator of this site for help."
+msgstr "Skontaktuj się z administratorem strony, aby uzyskać pomoc."
+
+#: core/class-tgm-plugin-activation.php:525
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr "Ta wtyczka musi być zaktualizowana, aby była zgodna z Twoim motywem."
+
+#: core/class-tgm-plugin-activation.php:526
+msgid "Update Required"
+msgstr "Wymagana aktualizacja"
+
+#: core/class-tgm-plugin-activation.php:946
+msgid "The remote plugin package does not contain a folder with the desired slug and renaming did not work."
+msgstr "Zdalny pakiet wtyczki nie zawiera folderu z pożądaną nazwą i zmiana nazwy nie powiodła się."
+
+#: core/class-tgm-plugin-activation.php:946
+#: core/class-tgm-plugin-activation.php:949
+msgid "Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines."
+msgstr "Skontaktuj się z dostawcą wtyczki i poproś o spakowanie wtyczki zgodnie z wytycznymi WordPress."
+
+#: core/class-tgm-plugin-activation.php:949
+msgid "The remote plugin package consists of more than one file, but the files are not packaged in a folder."
+msgstr "Zdalny pakiet wtyczki składa się z więcej niż jednego pliku, ale pliki nie są spakowane w folderze."
+
+#: core/class-tgm-plugin-activation.php:1135
+#: core/class-tgm-plugin-activation.php:3026
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr "i"
+
+#: core/class-tgm-plugin-activation.php:2032
+#, php-format
+msgid "TGMPA v%s"
+msgstr "TGMPA v%s"
+
+#: core/class-tgm-plugin-activation.php:2333
+msgid "Required"
+msgstr "Wymagane"
+
+#: core/class-tgm-plugin-activation.php:2336
+msgid "Recommended"
+msgstr "Zalecane"
+
+#: core/class-tgm-plugin-activation.php:2353
+msgid "WordPress Repository"
+msgstr "Repozytorium WordPress"
+
+#: core/class-tgm-plugin-activation.php:2356
+msgid "External Source"
+msgstr "Źródło zewnętrzne"
+
+#: core/class-tgm-plugin-activation.php:2359
+msgid "Pre-Packaged"
+msgstr "Wstępnie spakowane"
+
+#: core/class-tgm-plugin-activation.php:2377
+msgid "Not Installed"
+msgstr "Nie zainstalowane"
+
+#: core/class-tgm-plugin-activation.php:2381
+msgid "Installed But Not Activated"
+msgstr "Zainstalowane, ale nie aktywowane"
+
+#: core/class-tgm-plugin-activation.php:2383
+msgid "Active"
+msgstr "Aktywne"
+
+#: core/class-tgm-plugin-activation.php:2389
+msgid "Required Update not Available"
+msgstr "Wymagana aktualizacja niedostępna"
+
+#: core/class-tgm-plugin-activation.php:2392
+msgid "Requires Update"
+msgstr "Wymaga aktualizacji"
+
+#: core/class-tgm-plugin-activation.php:2395
+msgid "Update recommended"
+msgstr "Zalecana aktualizacja"
+
+#: core/class-tgm-plugin-activation.php:2404
+#, php-format
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr "%1$s, %2$s"
+
+#: core/class-tgm-plugin-activation.php:2452
+#, php-format
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] "Wszystkie <span class=\"count\">(%s)</span>"
+msgstr[1] "Wszystkie <span class=\"count\">(%s)</span>"
+msgstr[2] "Wszystkie <span class=\"count\">(%s)</span>"
+
+#: core/class-tgm-plugin-activation.php:2456
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] "Do zainstalowania <span class=\"count\">(%s)</span>"
+msgstr[1] "Do zainstalowania <span class=\"count\">(%s)</span>"
+msgstr[2] "Do zainstalowania <span class=\"count\">(%s)</span>"
+
+#: core/class-tgm-plugin-activation.php:2460
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] "Dostępna aktualizacja <span class=\"count\">(%s)</span>"
+msgstr[1] "Dostępne aktualizacje <span class=\"count\">(%s)</span>"
+msgstr[2] "Dostępne aktualizacje <span class=\"count\">(%s)</span>"
+
+#: core/class-tgm-plugin-activation.php:2464
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] "Do aktywacji <span class=\"count\">(%s)</span>"
+msgstr[1] "Do aktywacji <span class=\"count\">(%s)</span>"
+msgstr[2] "Do aktywacji <span class=\"count\">(%s)</span>"
+
+#: core/class-tgm-plugin-activation.php:2550
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr "nieznana"
+
+#: core/class-tgm-plugin-activation.php:2558
+msgid "Installed version:"
+msgstr "Zainstalowana wersja:"
+
+#: core/class-tgm-plugin-activation.php:2566
+msgid "Minimum required version:"
+msgstr "Minimalna wymagana wersja:"
+
+#: core/class-tgm-plugin-activation.php:2578
+msgid "Available version:"
+msgstr "Dostępna wersja:"
+
+#: core/class-tgm-plugin-activation.php:2602
+msgid "No plugins to install, update or activate."
+msgstr "Brak wtyczek do zainstalowania, aktualizacji lub aktywacji."
+
+#: core/class-tgm-plugin-activation.php:2617
+msgid "Plugin"
+msgstr "Wtyczka"
+
+#: core/class-tgm-plugin-activation.php:2618
+msgid "Source"
+msgstr "Źródło"
+
+#: core/class-tgm-plugin-activation.php:2619
+msgid "Type"
+msgstr "Typ"
+
+#: core/class-tgm-plugin-activation.php:2623
+msgid "Version"
+msgstr "Wersja"
+
+#: core/class-tgm-plugin-activation.php:2624
+msgid "Status"
+msgstr "Status"
+
+#: core/class-tgm-plugin-activation.php:2676
+#, php-format
+msgid "Install %2$s"
+msgstr "Zainstaluj %2$s"
+
+#: core/class-tgm-plugin-activation.php:2681
+#, php-format
+msgid "Update %2$s"
+msgstr "Zaktualizuj %2$s"
+
+#: core/class-tgm-plugin-activation.php:2687
+#, php-format
+msgid "Activate %2$s"
+msgstr "Aktywuj %2$s"
+
+#: core/class-tgm-plugin-activation.php:2759
+msgid "Upgrade message from the plugin author:"
+msgstr "Wiadomość o aktualizacji od autora wtyczki:"
+
+#: core/class-tgm-plugin-activation.php:2794
+msgid "Install"
+msgstr "Zainstaluj"
+
+#: core/class-tgm-plugin-activation.php:2800
+msgid "Update"
+msgstr "Aktualizuj"
+
+#: core/class-tgm-plugin-activation.php:2803
+msgid "Activate"
+msgstr "Aktywuj"
+
+#: core/class-tgm-plugin-activation.php:2835
+msgid "No plugins were selected to be installed. No action taken."
+msgstr "Nie wybrano wtyczek do zainstalowania. Żadna akcja nie została podjęta."
+
+#: core/class-tgm-plugin-activation.php:2837
+msgid "No plugins were selected to be updated. No action taken."
+msgstr "Nie wybrano wtyczek do aktualizacji. Żadna akcja nie została podjęta."
+
+#: core/class-tgm-plugin-activation.php:2878
+msgid "No plugins are available to be installed at this time."
+msgstr "Obecnie brak dostępnych wtyczek do zainstalowania."
+
+#: core/class-tgm-plugin-activation.php:2880
+msgid "No plugins are available to be updated at this time."
+msgstr "Obecnie brak dostępnych wtyczek do aktualizacji."
+
+#: core/class-tgm-plugin-activation.php:2986
+msgid "No plugins were selected to be activated. No action taken."
+msgstr "Nie wybrano wtyczek do aktywacji. Żadna akcja nie została podjęta."
+
+#: core/class-tgm-plugin-activation.php:3012
+msgid "No plugins are available to be activated at this time."
+msgstr "Obecnie brak dostępnych wtyczek do aktywacji."
+
+#: core/class-tgm-plugin-activation.php:3244
+msgid "Plugin activation failed."
+msgstr "Aktywacja wtyczki nie powiodła się."
+
+#: core/class-tgm-plugin-activation.php:3591
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr "Aktualizowanie wtyczki %1$s (%2$d/%3$d)"
+
+#: core/class-tgm-plugin-activation.php:3594
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr "Wystąpił błąd podczas instalowania %1$s: <strong>%2$s</strong>."
+
+#: core/class-tgm-plugin-activation.php:3596
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr "Instalacja %1$s nie powiodła się."
+
+#: core/class-tgm-plugin-activation.php:3600
+msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr "Proces instalacji i aktywacji rozpoczyna się. Może to potrwać chwilę na niektórych hostingach, prosimy o cierpliwość."
+
+#: core/class-tgm-plugin-activation.php:3602
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr "%1$s zainstalowano i aktywowano pomyślnie."
+
+#: core/class-tgm-plugin-activation.php:3603
+msgid "All installations and activations have been completed."
+msgstr "Wszystkie instalacje i aktywacje zostały ukończone."
+
+#: core/class-tgm-plugin-activation.php:3605
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr "Instalowanie i aktywowanie wtyczki %1$s (%2$d/%3$d)"
+
+#: core/class-tgm-plugin-activation.php:3608
+msgid "The installation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr "Proces instalacji rozpoczyna się. Może to potrwać chwilę na niektórych hostingach, prosimy o cierpliwość."
+
+#: core/class-tgm-plugin-activation.php:3610
+#, php-format
+msgid "%1$s installed successfully."
+msgstr "%1$s zainstalowano pomyślnie."
+
+#: core/class-tgm-plugin-activation.php:3611
+msgid "All installations have been completed."
+msgstr "Wszystkie instalacje zostały ukończone."
+
+#: core/class-tgm-plugin-activation.php:3613
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr "Instalowanie wtyczki %1$s (%2$d/%3$d)"
+
+#: core/widget-custom-class.php:5
+msgid "CSS Class"
+msgstr "Klasa CSS"
+
+#: core/woocommerce.php:213
+msgid "Product Description"
+msgstr "Opis produktu"
+
+#: core/woocommerce.php:323
+msgid "Description"
+msgstr "Opis"
+
+#: core/woocommerce.php:356 templates/paging/navigation.php:34
+#: woocommerce/loop/pagination.php:40
+msgid "<i class=\"fa fa-angle-left\"></i>"
+msgstr "<i class=\"fa fa-angle-left\"></i>"
+
+#: core/woocommerce.php:357 templates/paging/navigation.php:35
+#: woocommerce/loop/pagination.php:41
+msgid "<i class=\"fa fa-angle-right\"></i>"
+msgstr "<i class=\"fa fa-angle-right\"></i>"
+
+#: grid-plus/skins/blog-skin-01.php:63 grid-plus/skins/blog-skin-02.php:60
+#: grid-plus/skins/portfolio-skin-03.php:77
+msgid "January 01, 2017"
+msgstr "1 stycznia 2017"
+
+#: grid-plus/skins/blog-skin-01.php:71 grid-plus/skins/blog-skin-02.php:49
+msgid "The post excerpt"
+msgstr "Zajawka wpisu"
+
+#: grid-plus/skins/blog-skin-01.php:86 templates/archive/content-grid.php:31
+#: templates/archive/content-masonry.php:31
+msgid "VIEW WORKS"
+msgstr "ZOBACZ REALIZACJE"
+
+#: grid-plus/skins/blog-skin-02.php:68
+msgid "5"
+msgstr "5"
+
+#: grid-plus/skins/portfolio-skin-01.php:24
+#: grid-plus/skins/portfolio-skin-02.php:23
+#: grid-plus/skins/portfolio-skin-03.php:24
+msgid "Share"
+msgstr "Udostępnij"
+
+#: inc/ajax.php:50
+msgid "Sorry, but nothing matched your search terms. Please try again with different keywords."
+msgstr "Niestety, nic nie pasuje do Twoich kryteriów wyszukiwania. Spróbuj ponownie z innymi słowami kluczowymi."
+
+#: inc/ajax.php:55
+msgid "View More"
+msgstr "Zobacz więcej"
+
+#: inc/frontend-enqueue.php:96
+msgid "Next"
+msgstr "Następny"
+
+#: inc/frontend-enqueue.php:97
+msgid "Back"
+msgstr "Wstecz"
+
+#: inc/frontend-enqueue.php:99
+msgid "Sorry, the minimum value was reached"
+msgstr "Przepraszamy, osiągnięto minimalną wartość"
+
+#: inc/frontend-enqueue.php:100
+msgid "Sorry, the maximum value was reached"
+msgstr "Przepraszamy, osiągnięto maksymalną wartość"
+
+#: inc/register-require-plugin.php:146
+#, php-format
+msgid "Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
+msgid_plural "Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed."
+msgstr[0] "Przepraszamy, ale nie masz odpowiednich uprawnień do zainstalowania wtyczki %s. Skontaktuj się z administratorem strony, aby uzyskać pomoc w instalacji wtyczki."
+msgstr[1] "Przepraszamy, ale nie masz odpowiednich uprawnień do zainstalowania wtyczek %s. Skontaktuj się z administratorem strony, aby uzyskać pomoc w instalacji wtyczek."
+msgstr[2] "Przepraszamy, ale nie masz odpowiednich uprawnień do zainstalowania wtyczek %s. Skontaktuj się z administratorem strony, aby uzyskać pomoc w instalacji wtyczek."
+
+#: inc/register-require-plugin.php:149
+#, php-format
+msgid "Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
+msgid_plural "Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated."
+msgstr[0] "Przepraszamy, ale nie masz odpowiednich uprawnień do aktywacji wtyczki %s. Skontaktuj się z administratorem strony, aby uzyskać pomoc w aktywacji wtyczki."
+msgstr[1] "Przepraszamy, ale nie masz odpowiednich uprawnień do aktywacji wtyczek %s. Skontaktuj się z administratorem strony, aby uzyskać pomoc w aktywacji wtyczek."
+msgstr[2] "Przepraszamy, ale nie masz odpowiednich uprawnień do aktywacji wtyczek %s. Skontaktuj się z administratorem strony, aby uzyskać pomoc w aktywacji wtyczek."
+
+#: inc/register-require-plugin.php:151
+#, php-format
+msgid "Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated."
+msgid_plural "Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated."
+msgstr[0] "Przepraszamy, ale nie masz odpowiednich uprawnień do aktualizacji wtyczki %s. Skontaktuj się z administratorem strony, aby uzyskać pomoc w aktualizacji wtyczki."
+msgstr[1] "Przepraszamy, ale nie masz odpowiednich uprawnień do aktualizacji wtyczek %s. Skontaktuj się z administratorem strony, aby uzyskać pomoc w aktualizacji wtyczek."
+msgstr[2] "Przepraszamy, ale nie masz odpowiednich uprawnień do aktualizacji wtyczek %s. Skontaktuj się z administratorem strony, aby uzyskać pomoc w aktualizacji wtyczek."
+
+#: inc/register-require-plugin.php:156
+#, php-format
+msgid "All plugins installed and activated successfully. %s"
+msgstr "Wszystkie wtyczki zostały zainstalowane i aktywowane pomyślnie. %s"
+
+#: inc/sidebar.php:12
+msgid "Main Sidebar"
+msgstr "Główny panel boczny"
+
+#: inc/sidebar.php:13
+msgid "Add widgets here to appear in your sidebar"
+msgstr "Dodaj widżety tutaj, aby pojawiły się w panelu bocznym"
+
+#: inc/sidebar.php:16 inc/sidebar.php:18
+msgid "Top Drawer"
+msgstr "Górna szuflada"
+
+#: inc/sidebar.php:21 inc/sidebar.php:23
+msgid "Top Bar Left"
+msgstr "Górny pasek lewy"
+
+#: inc/sidebar.php:26 inc/sidebar.php:28
+msgid "Top Bar Right"
+msgstr "Górny pasek prawy"
+
+#: inc/sidebar.php:31 inc/sidebar.php:33
+msgid "Footer 1"
+msgstr "Stopka 1"
+
+#: inc/sidebar.php:36 inc/sidebar.php:38
+msgid "Footer 2"
+msgstr "Stopka 2"
+
+#: inc/sidebar.php:41 inc/sidebar.php:43
+msgid "Footer 3"
+msgstr "Stopka 3"
+
+#: inc/sidebar.php:46 inc/sidebar.php:48
+msgid "Footer 4"
+msgstr "Stopka 4"
+
+#: inc/sidebar.php:51 inc/sidebar.php:53
+msgid "Bottom Bar Left"
+msgstr "Dolny pasek lewy"
+
+#: inc/sidebar.php:56 inc/sidebar.php:58
+msgid "Bottom Bar Right"
+msgstr "Dolny pasek prawy"
+
+#: inc/sidebar.php:61
+msgid "Canvas Sidebar"
+msgstr "Panel boczny Canvas"
+
+#: inc/sidebar.php:63
+msgid "Canvas Sidebar Widget Area"
+msgstr "Obszar widżetów panelu bocznego Canvas"
+
+#: inc/sidebar.php:66 inc/sidebar.php:68
+msgid "Woocommerce Filter"
+msgstr "Filtr Woocommerce"
+
+#: inc/theme-action.php:233
+msgid "Sidebar"
+msgstr "Panel boczny"
+
+#: inc/theme-filter.php:103
+#, php-format
+msgid "Your Name %s"
+msgstr "Twoje imię %s"
+
+#: inc/theme-filter.php:105
+#, php-format
+msgid "Email Address %s"
+msgstr "Adres e-mail %s"
+
+#: inc/theme-filter.php:107
+msgid "Website"
+msgstr "Strona internetowa"
+
+#: inc/theme-filter.php:119
+msgid "Your Comment *"
+msgstr "Twój komentarz *"
+
+#: inc/theme-filter.php:122
+msgid "SUBMIT"
+msgstr "WYŚLIJ"
+
+#: inc/theme-functions.php:325 inc/theme-functions.php:331
+#: templates/breadcrumb.php:18
+msgid "Home"
+msgstr "Strona główna"
+
+#: inc/theme-functions.php:397 inc/theme-functions.php:400
+#: inc/theme-functions.php:403
+msgid "Archives for "
+msgstr "Archiwum dla "
+
+#: inc/theme-functions.php:405
+msgid "Archives by: "
+msgstr "Archiwum według: "
+
+#: inc/theme-functions.php:409
+msgid "Search results"
+msgstr "Wyniki wyszukiwania"
+
+#: inc/theme-functions.php:412
+msgid "Page Not Found"
+msgstr "Strona nie została znaleziona"
+
+#: inc/theme-functions.php:918
+msgid "Your name (required)"
+msgstr "Twoje imię (wymagane)"
+
+#: inc/theme-functions.php:921
+msgid "Your email (required)"
+msgstr "Twój e-mail (wymagany)"
+
+#: inc/theme-functions.php:927
+msgid "Your comment (required)"
+msgstr "Twój komentarz (wymagany)"
+
+#: inc/theme-functions.php:985 inc/theme-functions.php:1029
+#: templates/breadcrumb.php:19
+msgid "Blog"
+msgstr "Blog"
+
+#: inc/theme-functions.php:989
+msgid "Nothing Found"
+msgstr "Nic nie znaleziono"
+
+#: inc/theme-functions.php:991
+msgid "Tags: "
+msgstr "Tagi: "
+
+#: inc/theme-functions.php:995
+#, php-format
+msgid "Author: %s"
+msgstr "Autor: %s"
+
+#: inc/theme-functions.php:997
+#, php-format
+msgid "Daily Archives: %s"
+msgstr "Archiwum dzienne: %s"
+
+#: inc/theme-functions.php:999
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr "Archiwum miesięczne: %s"
+
+#: inc/theme-functions.php:999
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr "F Y"
+
+#: inc/theme-functions.php:1001
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr "Archiwum roczne: %s"
+
+#: inc/theme-functions.php:1001
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y"
+
+#: inc/theme-functions.php:1003
+msgid "Search Results"
+msgstr "Wyniki wyszukiwania"
+
+#: inc/theme-functions.php:1005
+msgid "Asides"
+msgstr "Notki"
+
+#: inc/theme-functions.php:1007
+msgid "Galleries"
+msgstr "Galerie"
+
+#: inc/theme-functions.php:1009
+msgid "Images"
+msgstr "Obrazy"
+
+#: inc/theme-functions.php:1011
+msgid "Videos"
+msgstr "Filmy"
+
+#: inc/theme-functions.php:1013
+msgid "Quotes"
+msgstr "Cytaty"
+
+#: inc/theme-functions.php:1015
+msgid "Links"
+msgstr "Linki"
+
+#: inc/theme-functions.php:1017
+msgid "Statuses"
+msgstr "Statusy"
+
+#: inc/theme-functions.php:1019
+msgid "Audios"
+msgstr "Pliki audio"
+
+#: inc/theme-functions.php:1021
+msgid "Chats"
+msgstr "Czaty"
+
+#: inc/theme-functions.php:1025
+msgid "404 Error"
+msgstr "Błąd 404"
+
+#: inc/theme-setup.php:28
+msgid "Primary Menu"
+msgstr "Menu główne"
+
+#: inc/theme-setup.php:29
+msgid "Left Menu ( Header 3 )"
+msgstr "Menu lewe (Nagłówek 3)"
+
+#: inc/theme-setup.php:30
+msgid "Right Menu ( Header 3 )"
+msgstr "Menu prawe (Nagłówek 3)"
+
+#: inc/theme-setup.php:31
+msgid "Mobile Menu"
+msgstr "Menu mobilne"
+
+#: search.php:14
+#, php-format
+msgid "%s SEARCH RESULTS FOR: %s"
+msgstr "%s WYNIKI WYSZUKIWANIA DLA: %s"
+
+#: search.php:18
+msgid "NEW SEARCH"
+msgstr "NOWE WYSZUKIWANIE"
+
+#: search.php:19
+msgid "If you are not happy with the results below please do another search"
+msgstr "Jeśli nie jesteś zadowolony z poniższych wyników, wykonaj kolejne wyszukiwanie"
+
+#: searchform.php:12
+msgctxt "placeholder"
+msgid "Search&hellip;"
+msgstr "Szukaj&hellip;"
+
+#: searchform.php:12 woocommerce/product-searchform.php:30
+msgctxt "label"
+msgid "Search for:"
+msgstr "Szukaj:"
+
+#: sidebar.php:36
+msgid "Click to show Canvas Sidebar"
+msgstr "Kliknij, aby pokazać panel boczny Canvas"
+
+#: templates/archive/content-large-image.php:37
+msgid "READ MORE"
+msgstr "CZYTAJ WIĘCEJ"
+
+#: templates/archive/content-none.php:12
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "Gotowy do opublikowania swojego pierwszego wpisu? <a href=\"%1$s\">Zacznij tutaj</a>."
+
+#: templates/archive/content-none.php:14
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "Przepraszamy, ale nic nie pasuje do Twoich kryteriów wyszukiwania. Spróbuj ponownie z innymi słowami kluczowymi."
+
+#: templates/archive/content-none.php:17
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Wygląda na to, że nie możemy znaleźć tego, czego szukasz. Być może wyszukiwanie pomoże."
+
+#: templates/archive/content-search.php:29
+msgid "Post"
+msgstr "Wpis"
+
+#: templates/archive/content-search.php:32
+msgid "Pages"
+msgstr "Strony"
+
+#: templates/archive/content-search.php:35 woocommerce/cart/cart.php:30
+#: woocommerce/cart/cart.php:73
+msgid "Product"
+msgstr "Produkt"
+
+#: templates/archive/content.php:15
+msgid "Featured"
+msgstr "Wyróżnione"
+
+#: templates/archive/content.php:29
+#, php-format
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Czytaj dalej<span class=\"screen-reader-text\"> \"%s\"</span>"
+
+#: templates/archive/content.php:34 templates/content-page.php:20
+#: templates/content-single.php:44
+msgid "Pages:"
+msgstr "Strony:"
+
+#: templates/archive/content.php:38
+msgid "Page"
+msgstr "Strona"
+
+#: templates/archive/content.php:50
+#, php-format
+msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Edytuj<span class=\"screen-reader-text\"> \"%s\"</span>"
+
+#: templates/archive/post-meta.php:19 templates/content-single.php:32
+msgid "<i class=\"fa fa-comment-o\"></i> 0 Comments"
+msgstr "<i class=\"fa fa-comment-o\"></i> 0 komentarzy"
+
+#: templates/archive/post-meta.php:19 templates/content-single.php:32
+msgid "<i class=\"fa fa-comment-o\"></i> 1 Comment"
+msgstr "<i class=\"fa fa-comment-o\"></i> 1 komentarz"
+
+#: templates/archive/post-meta.php:19 templates/content-single.php:32
+msgid "<i class=\"fa fa-comment-o\"></i> % Comments"
+msgstr "<i class=\"fa fa-comment-o\"></i> % komentarzy"
+
+#: templates/archive/thumbnail-no-image.php:12
+#: templates/archive/thumbnail.php:153
+msgid "No Image"
+msgstr "Brak obrazu"
+
+#: templates/canvas-menu.php:10
+msgid "Close menu"
+msgstr "Zamknij menu"
+
+#: templates/header/customize-canvas-sidebar.php:12
+msgid "Close sidebar"
+msgstr "Zamknij panel boczny"
+
+#: templates/header/search-popup-ajax.php:3
+msgid "Type at least 3 characters to search"
+msgstr "Wpisz co najmniej 3 znaki, aby wyszukać"
+
+#: templates/header/search-popup-standard.php:16
+msgid "Enter your keyword"
+msgstr "Wpisz swoje słowo kluczowe"
+
+#: templates/header/search-popup-standard.php:18
+msgid "Type and hit enter..."
+msgstr "Wpisz i naciśnij enter..."
+
+#: templates/header/search-popup-standard.php:19
+msgid "Search"
+msgstr "Szukaj"
+
+#: templates/paging/load-more.php:14
+msgid "Loading..."
+msgstr "Ładowanie..."
+
+#: templates/paging/load-more.php:15
+msgid "Load More"
+msgstr "Załaduj więcej"
+
+#: templates/single/comment.php:22
+msgid "Edit"
+msgstr "Edytuj"
+
+#: templates/single/comment.php:23
+msgid "Reply"
+msgstr "Odpowiedz"
+
+#: templates/single/comment.php:28
+msgid "Your comment is awaiting moderation."
+msgstr "Twój komentarz czeka na moderację."
+
+#: templates/single/post-nav.php:14
+msgctxt "Previous post link"
+msgid "<div class=\"post-navigation-content\"><i class=\"pe-7s-angle-left\"></i><span class=\"post-navigation-label\">Previous</span></div> "
+msgstr "<div class=\"post-navigation-content\"><i class=\"pe-7s-angle-left\"></i><span class=\"post-navigation-label\">Poprzedni</span></div> "
+
+#: templates/single/post-nav.php:15
+msgctxt "Next post link"
+msgid "<div class=\"post-navigation-content\"><span class=\"post-navigation-label\">Next</span><i class=\"pe-7s-angle-right\"></i></div> "
+msgstr "<div class=\"post-navigation-content\"><span class=\"post-navigation-label\">Następny</span><i class=\"pe-7s-angle-right\"></i></div> "
+
+#: templates/single/related.php:67
+msgid "RELATE POSTS"
+msgstr "POWIĄZANE WPISY"
+
+#: templates/site-loading.php:21
+msgid "Logo Loading"
+msgstr "Ładowanie logo"
+
+#: templates/social-share.php:20
+msgid "SHARE"
+msgstr "UDOSTĘPNIJ"
+
+#: woocommerce/cart/cart-shipping.php:51
+#, php-format
+msgid "Shipping to %s."
+msgstr "Wysyłka do %s."
+
+#: woocommerce/cart/cart-shipping.php:52
+msgid "Change address"
+msgstr "Zmień adres"
+
+#: woocommerce/cart/cart-shipping.php:54
+msgid "Shipping options will be updated during checkout."
+msgstr "Opcje wysyłki zostaną zaktualizowane podczas składania zamówienia."
+
+#: woocommerce/cart/cart-shipping.php:62
+msgid "Shipping costs are calculated during checkout."
+msgstr "Koszty wysyłki są obliczane podczas składania zamówienia."
+
+#: woocommerce/cart/cart-shipping.php:64
+msgid "Enter your address to view shipping options."
+msgstr "Wprowadź swój adres, aby zobaczyć opcje wysyłki."
+
+#: woocommerce/cart/cart-shipping.php:67
+msgid "There are no shipping methods available. Please ensure that your address has been entered correctly, or contact us if you need any help."
+msgstr "Nie ma dostępnych metod wysyłki. Upewnij się, że Twój adres został wprowadzony poprawnie lub skontaktuj się z nami, jeśli potrzebujesz pomocy."
+
+#: woocommerce/cart/cart-shipping.php:70
+#, php-format
+msgid "No shipping options were found for %s."
+msgstr "Nie znaleziono opcji wysyłki dla %s."
+
+#: woocommerce/cart/cart-shipping.php:71
+msgid "Enter a different address"
+msgstr "Wprowadź inny adres"
+
+#: woocommerce/cart/cart-totals.php:37
+msgid "Cart Totals"
+msgstr "Podsumowanie koszyka"
+
+#: woocommerce/cart/cart-totals.php:42
+msgid "Cart Subtotal:"
+msgstr "Suma częściowa koszyka:"
+
+#: woocommerce/cart/cart-totals.php:43
+msgid "Cart Subtotal"
+msgstr "Suma częściowa koszyka"
+
+#: woocommerce/cart/cart-totals.php:72
+#, php-format
+msgid "estimated for %s"
+msgstr "szacowane dla %s"
+
+#: woocommerce/cart/cart-totals.php:93
+msgid "All Total:"
+msgstr "Suma całkowita:"
+
+#: woocommerce/cart/cart-totals.php:94 woocommerce/cart/cart.php:33
+#: woocommerce/cart/cart.php:117
+msgid "Total"
+msgstr "Suma"
+
+#: woocommerce/cart/cart.php:31 woocommerce/cart/cart.php:93
+msgid "Price"
+msgstr "Cena"
+
+#: woocommerce/cart/cart.php:32 woocommerce/cart/cart.php:99
+msgid "Quantity"
+msgstr "Ilość"
+
+#: woocommerce/cart/cart.php:54 woocommerce/cart/mini-cart.php:63
+msgid "Remove this item"
+msgstr "Usuń ten przedmiot"
+
+#: woocommerce/cart/cart.php:88
+msgid "Available on backorder"
+msgstr "Dostępny na zamówienie"
+
+#: woocommerce/cart/cart.php:135
+msgid "Coupon:"
+msgstr "Kupon:"
+
+#: woocommerce/cart/cart.php:135
+msgid "Enter coupon code"
+msgstr "Wpisz kod kuponu"
+
+#: woocommerce/cart/cart.php:135
+msgid "Apply coupon"
+msgstr "Zastosuj kupon"
+
+#: woocommerce/cart/cart.php:141
+msgid "Update cart"
+msgstr "Zaktualizuj koszyk"
+
+#: woocommerce/cart/cross-sells.php:31
+msgid "You may be interested in&hellip;"
+msgstr "Może Cię zainteresować&hellip;"
+
+#: woocommerce/cart/mini-cart.php:37
+msgid "My Cart"
+msgstr "Mój koszyk"
+
+#: woocommerce/cart/mini-cart.php:38
+msgid "items"
+msgstr "przedmioty"
+
+#: woocommerce/cart/mini-cart.php:88
+msgid "No product in the cart."
+msgstr "Brak produktów w koszyku."
+
+#: woocommerce/cart/mini-cart.php:97
+msgid "Subtotal"
+msgstr "Suma częściowa"
+
+#: woocommerce/cart/mini-cart.php:104
+msgid "View Cart"
+msgstr "Zobacz koszyk"
+
+#: woocommerce/cart/mini-cart.php:106
+msgid "Checkout"
+msgstr "Do kasy"
+
+#: woocommerce/cart/shipping-calculator.php:28
+msgid "Calculate shipping"
+msgstr "Oblicz wysyłkę"
+
+#: woocommerce/cart/shipping-calculator.php:34
+msgid "Select a country / region&hellip;"
+msgstr "Wybierz kraj / region&hellip;"
+
+#: woocommerce/cart/shipping-calculator.php:53
+#: woocommerce/cart/shipping-calculator.php:58
+#: woocommerce/cart/shipping-calculator.php:70
+msgid "State / County"
+msgstr "Stan / Województwo"
+
+#: woocommerce/cart/shipping-calculator.php:59
+msgid "Select an option&hellip;"
+msgstr "Wybierz opcję&hellip;"
+
+#: woocommerce/cart/shipping-calculator.php:80
+msgid "City"
+msgstr "Miasto"
+
+#: woocommerce/cart/shipping-calculator.php:88
+msgid "Postcode / ZIP"
+msgstr "Kod pocztowy"
+
+#: woocommerce/cart/shipping-calculator.php:93
+msgid "Update Totals"
+msgstr "Zaktualizuj sumy"
+
+#: woocommerce/checkout/form-billing.php:23
+msgid "Billing &amp; Shipping"
+msgstr "Rozliczenie i wysyłka"
+
+#: woocommerce/checkout/form-billing.php:25
+msgid "Billing details"
+msgstr "Szczegóły rozliczenia"
+
+#: woocommerce/checkout/form-billing.php:49
+msgid "Create an account?"
+msgstr "Utworzyć konto?"
+
+#: woocommerce/checkout/form-checkout.php:23
+#: woocommerce/checkout/form-login.php:24
+msgid "Returning customer?"
+msgstr "Powracający klient?"
+
+#: woocommerce/checkout/form-checkout.php:28
+msgid "You must be logged in to checkout."
+msgstr "Musisz być zalogowany, aby złożyć zamówienie."
+
+#: woocommerce/checkout/form-checkout.php:57
+msgid "Your order"
+msgstr "Twoje zamówienie"
+
+#: woocommerce/checkout/form-coupon.php:25
+msgid "Have a coupon?"
+msgstr "Masz kupon?"
+
+#: woocommerce/checkout/form-coupon.php:25
+msgid "Click here to enter your code"
+msgstr "Kliknij tutaj, aby wprowadzić swój kod"
+
+#: woocommerce/checkout/form-coupon.php:32
+msgid "Coupon code"
+msgstr "Kod kuponu"
+
+#: woocommerce/checkout/form-coupon.php:36
+msgid "Apply Coupon"
+msgstr "Zastosuj kupon"
+
+#: woocommerce/checkout/form-login.php:25
+msgid "Click here to login"
+msgstr "Kliknij tutaj, aby się zalogować"
+
+#: woocommerce/checkout/form-login.php:33
+msgid "If you have shopped with us before, please enter your details below. If you are a new customer, please proceed to the Billing section."
+msgstr "Jeśli robiłeś u nas zakupy wcześniej, wprowadź swoje dane poniżej. Jeśli jesteś nowym klientem, przejdź do sekcji Rozliczenie."
+
+#: woocommerce/global/quantity-input.php:40
+msgctxt "Product quantity input tooltip"
+msgid "Qty"
+msgstr "Ilość"
+
+#: woocommerce/loop/catalog-filter.php:26
+msgid "Filter"
+msgstr "Filtr"
+
+#: woocommerce/loop/quick-view.php:12
+msgid "Quick view"
+msgstr "Szybki podgląd"
+
+#: woocommerce/loop/sale-count-down.php:48
+msgid "Days"
+msgstr "Dni"
+
+#: woocommerce/loop/sale-count-down.php:54
+msgid "Hours"
+msgstr "Godziny"
+
+#: woocommerce/loop/sale-count-down.php:60
+msgid "Mins"
+msgstr "Minuty"
+
+#: woocommerce/loop/sale-count-down.php:66
+msgid "Secs"
+msgstr "Sekundy"
+
+#: woocommerce/myaccount/form-login.php:32
+#: woocommerce/myaccount/form-login.php:54
+msgid "Login"
+msgstr "Zaloguj się"
+
+#: woocommerce/myaccount/form-login.php:39
+msgid "Username or email address"
+msgstr "Nazwa użytkownika lub adres e-mail"
+
+#: woocommerce/myaccount/form-login.php:43
+#: woocommerce/myaccount/form-login.php:93
+msgid "Password"
+msgstr "Hasło"
+
+#: woocommerce/myaccount/form-login.php:52
+msgid "Stay logged in"
+msgstr "Pozostań zalogowany"
+
+#: woocommerce/myaccount/form-login.php:57
+msgid "Lost your password?"
+msgstr "Zapomniałeś hasła?"
+
+#: woocommerce/myaccount/form-login.php:70
+#: woocommerce/myaccount/form-login.php:103
+msgid "Register"
+msgstr "Zarejestruj się"
+
+#: woocommerce/myaccount/form-login.php:79
+msgid "Username"
+msgstr "Nazwa użytkownika"
+
+#: woocommerce/myaccount/form-login.php:86
+msgid "Email address"
+msgstr "Adres e-mail"
+
+#: woocommerce/product-searchform.php:28
+msgctxt "placeholder"
+msgid "Search Products&hellip;"
+msgstr "Szukaj produktów&hellip;"
+
+#: woocommerce/quick-view/rating.php:27
+#, php-format
+msgid "Rated %s out of 5"
+msgstr "Ocenione %s na 5"
+
+#: woocommerce/quick-view/rating.php:29
+#, php-format
+msgid "out of %s5%s"
+msgstr "na %s5%s"
+
+#: woocommerce/quick-view/rating.php:30
+#, php-format
+msgid "based on %s customer rating"
+msgid_plural "based on %s customer ratings"
+msgstr[0] "na podstawie %s oceny klienta"
+msgstr[1] "na podstawie %s ocen klientów"
+msgstr[2] "na podstawie %s ocen klientów"
+
+#: woocommerce/quick-view/rating.php:33
+#, php-format
+msgid "%s customer review"
+msgid_plural "%s customer reviews"
+msgstr[0] "%s opinia klienta"
+msgstr[1] "%s opinie klientów"
+msgstr[2] "%s opinii klientów"
+
+#: woocommerce/single-product/related.php:34
+msgid "Related Products"
+msgstr "Powiązane produkty"
+
+#: woocommerce/single-product/up-sells.php:32
+msgid "You may also like&hellip;"
+msgstr "Może Ci się także spodobać&hellip;"
