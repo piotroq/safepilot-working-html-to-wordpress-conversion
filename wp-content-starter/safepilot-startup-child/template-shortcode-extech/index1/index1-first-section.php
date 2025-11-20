@@ -37,10 +37,10 @@
                                 </p>
                                 
                                 <div class="sp-hero-home-cta">
-                                    <a href="/kontakt/" class="btn btn-primary">
+                                    <a href="<?php echo get_site_url(); ?>/kontakt/" class="btn btn-primary">
                                         Zapytaj o ofertę <i class="fa-solid fa-arrow-right ms-2"></i>
                                     </a>
-                                    <a href="/uslugi/" class="btn btn-secondary">
+                                    <a href="<?php echo get_site_url(); ?>/uslugi/" class="btn btn-secondary">
                                         Poznaj usługi
                                     </a>
                                 </div>
@@ -64,7 +64,7 @@
                         
                         <div class="col-lg-6">
                             <div class="sp-hero-home-image">
-                                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=2784&auto=format&fit=crop" 
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/slider1.jpg" 
                                      alt="Specjalista BHP SafePilot">
                             </div>
                         </div>
@@ -93,10 +93,10 @@
                                 </p>
                                 
                                 <div class="sp-hero-home-cta">
-                                    <a href="/uslugi/dokumentacja-bhp/" class="btn btn-primary">
+                                    <a href="<?php echo get_site_url(); ?>/uslugi/dokumentacja-bhp/" class="btn btn-primary">
                                         Dokumentacja BHP <i class="fa-solid fa-arrow-right ms-2"></i>
                                     </a>
-                                    <a href="/uslugi/szkolenia-bhp/" class="btn btn-secondary">
+                                    <a href="<?php echo get_site_url(); ?>/uslugi/szkolenia-bhp/" class="btn btn-secondary">
                                         Szkolenia BHP
                                     </a>
                                 </div>
@@ -120,7 +120,7 @@
                         
                         <div class="col-lg-6">
                             <div class="sp-hero-home-image">
-                                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2940&auto=format&fit=crop" 
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/slider2.jpg" 
                                      alt="Dokumentacja BHP SafePilot">
                             </div>
                         </div>
@@ -149,10 +149,10 @@
                                 </p>
                                 
                                 <div class="sp-hero-home-cta">
-                                    <a href="/uslugi/dokumentacja-ppoz/" class="btn btn-primary">
+                                    <a href="<?php echo get_site_url(); ?>/uslugi/dokumentacja-ppoz/" class="btn btn-primary">
                                         Dokumentacja PPOŻ <i class="fa-solid fa-arrow-right ms-2"></i>
                                     </a>
-                                    <a href="/uslugi/pierwsza-pomoc-i-rko/" class="btn btn-secondary">
+                                    <a href="<?php echo get_site_url(); ?>/uslugi/pierwsza-pomoc-i-rko/" class="btn btn-secondary">
                                         Pierwsza Pomoc
                                     </a>
                                 </div>
@@ -176,7 +176,7 @@
                         
                         <div class="col-lg-6">
                             <div class="sp-hero-home-image">
-                                <img src="https://images.unsplash.com/photo-1581092921462-63f4a258c738?q=80&w=2940&auto=format&fit=crop" 
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/slider/slider3.jpg" 
                                      alt="Ochrona przeciwpożarowa SafePilot">
                             </div>
                         </div>
