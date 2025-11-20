@@ -265,6 +265,18 @@ function safepilot_enqueue_image_fix() {
     );
 }
 
+/**
+ * Alternatywna metoda - filtrowanie ścieżki do plików tłumaczeniowych
+ * Używaj tej funkcji, jeśli powyższa nie działa
+ */
+function safepilot_child_override_translation_path($mofile, $domain) {
+    if ('g5-startup' === $domain) {
+        $mofile = get_stylesheet_directory() . '/languages/' . $domain . '-' . get_locale() . '.mo';
+    }
+    return $mofile;
+}
+add_filter('load_textdomain_mofile', 'safepilot_child_override_translation_path', 10, 2);
+
 remove_action('wp_head', 'wp_generator');
 
 function my_secure_generator( $generator, $type ) {
@@ -1612,3 +1624,107 @@ if (!function_exists('safepilot_show_placeholder')) {
         echo '</div>';
     }
 }
+
+/**
+ * ===================================================================
+ * Przekierowanie tłumaczeń wtyczki Startup Framework do motywu potomnego
+ * ===================================================================
+ */
+
+/**
+ * Ładuje tłumaczenia wtyczki Startup Framework z motywu potomnego
+ *
+ * Ta funkcja pozwala na nadpisanie domyślnych tłumaczeń wtyczki
+ * przez umieszczenie plików tłumaczeniowych w katalogu languages motywu potomnego.
+ *
+ * Pliki tłumaczeniowe powinny mieć format: startup-framework-{locale}.mo
+ * Przykład: startup-framework-pl_PL.mo
+ *
+ * @since 1.0.0
+ */
+function safepilot_load_startup_framework_translations() {
+    // Pobierz obecne ustawienia lokalizacji
+    $locale = determine_locale();
+
+    // Ścieżka do pliku tłumaczeniowego w motywie potomnym
+    $mofile_child = get_stylesheet_directory() . '/languages/startup-framework-' . $locale . '.mo';
+
+    // Najpierw sprawdź czy istnieje tłumaczenie w motywie potomnym
+    if ( file_exists( $mofile_child ) ) {
+        // Ładuj tłumaczenia z motywu potomnego
+        load_textdomain( 'startup-framework', $mofile_child );
+        return; // Jeśli znaleziono, zakończ funkcję
+    }
+
+    // Jeśli nie ma w motywie potomnym, sprawdź w standardowej lokalizacji wtyczki
+    $mofile_plugin = WP_PLUGIN_DIR . '/startup-framework/languages/startup-framework-' . $locale . '.mo';
+
+    if ( file_exists( $mofile_plugin ) ) {
+        load_textdomain( 'startup-framework', $mofile_plugin );
+    }
+}
+// Podpięcie funkcji do hooka z priorytetem 10 (wykonuje się po załadowaniu wtyczek)
+add_action( 'plugins_loaded', 'safepilot_load_startup_framework_translations', 10 );
+
+/**
+ * Alternatywna metoda: Filtr override_load_textdomain
+ *
+ * Ta funkcja przechwytuje próby załadowania tłumaczeń przez WordPress
+ * i przekierowuje je do katalogu languages w motywie potomnym.
+ *
+ * @param bool   $override Czy nadpisać domyślne ładowanie
+ * @param string $domain   Domena tekstowa
+ * @param string $mofile   Ścieżka do pliku .mo
+ * @return bool
+ */
+function safepilot_override_startup_framework_textdomain( $override, $domain, $mofile ) {
+    // Sprawdź czy to domena startup-framework
+    if ( 'startup-framework' !== $domain ) {
+        return $override;
+    }
+
+    // Pobierz lokalizację
+    $locale = determine_locale();
+
+    // Zbuduj ścieżkę do pliku tłumaczeniowego w motywie potomnym
+    $mofile_child = get_stylesheet_directory() . '/languages/startup-framework-' . $locale . '.mo';
+
+    // Jeśli plik istnieje w motywie potomnym, załaduj go
+    if ( file_exists( $mofile_child ) ) {
+        load_textdomain( $domain, $mofile_child );
+        return true; // Zwróć true aby poinformować WordPress że tłumaczenie zostało załadowane
+    }
+
+    // W przeciwnym razie użyj domyślnego mechanizmu
+    return $override;
+}
+// Podpięcie filtra z wysokim priorytetem (1) aby działał jako pierwszy
+add_filter( 'override_load_textdomain', 'safepilot_override_startup_framework_textdomain', 1, 3 );
+
+/**
+ * Dodatkowa funkcja diagnostyczna (opcjonalna)
+ *
+ * Ta funkcja wyświetla informacje o załadowanych tłumaczeniach
+ * Użyj tylko w celach debugowania - zakomentuj w wersji produkcyjnej
+ */
+/*
+function safepilot_debug_translations() {
+    if ( current_user_can( 'manage_options' ) && isset( $_GET['debug_translations'] ) ) {
+        $locale = determine_locale();
+        $mofile_child = get_stylesheet_directory() . '/languages/startup-framework-' . $locale . '.mo';
+        $mofile_plugin = WP_PLUGIN_DIR . '/startup-framework/languages/startup-framework-' . $locale . '.mo';
+
+        echo '<div style="background: #fff; border: 1px solid #ccc; padding: 20px; margin: 20px;">';
+        echo '<h3>Debug: Tłumaczenia Startup Framework</h3>';
+        echo '<p><strong>Lokalizacja:</strong> ' . esc_html( $locale ) . '</p>';
+        echo '<p><strong>Plik w motywie potomnym:</strong> ' . esc_html( $mofile_child ) . '</p>';
+        echo '<p><strong>Istnieje:</strong> ' . ( file_exists( $mofile_child ) ? 'TAK' : 'NIE' ) . '</p>';
+        echo '<p><strong>Plik we wtyczce:</strong> ' . esc_html( $mofile_plugin ) . '</p>';
+        echo '<p><strong>Istnieje:</strong> ' . ( file_exists( $mofile_plugin ) ? 'TAK' : 'NIE' ) . '</p>';
+        echo '<p><strong>Czy domena załadowana:</strong> ' . ( is_textdomain_loaded( 'startup-framework' ) ? 'TAK' : 'NIE' ) . '</p>';
+        echo '</div>';
+    }
+}
+add_action( 'wp_footer', 'safepilot_debug_translations' );
+add_action( 'admin_footer', 'safepilot_debug_translations' );
+*/
