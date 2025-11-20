@@ -1627,104 +1627,217 @@ if (!function_exists('safepilot_show_placeholder')) {
 
 /**
  * ===================================================================
- * Przekierowanie tłumaczeń wtyczki Startup Framework do motywu potomnego
+ * POPRAWIONA OBSŁUGA TŁUMACZEŃ - SafePilot Startup Framework
+ * Wersja 3.0 - Naprawia błąd nieskończonej rekurencji
  * ===================================================================
  */
 
 /**
- * Ładuje tłumaczenia wtyczki Startup Framework z motywu potomnego
- *
- * Ta funkcja pozwala na nadpisanie domyślnych tłumaczeń wtyczki
- * przez umieszczenie plików tłumaczeniowych w katalogu languages motywu potomnego.
- *
- * Pliki tłumaczeniowe powinny mieć format: startup-framework-{locale}.mo
- * Przykład: startup-framework-pl_PL.mo
- *
- * @since 1.0.0
+ * Globalna flaga zapobiegająca rekurencji
+ */
+global $safepilot_loading_textdomain;
+$safepilot_loading_textdomain = false;
+
+/**
+ * Główna funkcja ładująca tłumaczenia Startup Framework
+ * Priorytet 5 - wykonuje się wcześnie, przed innymi wtyczkami
  */
 function safepilot_load_startup_framework_translations() {
-    // Pobierz obecne ustawienia lokalizacji
-    $locale = determine_locale();
-
-    // Ścieżka do pliku tłumaczeniowego w motywie potomnym
-    $mofile_child = get_stylesheet_directory() . '/languages/startup-framework-' . $locale . '.mo';
-
-    // Najpierw sprawdź czy istnieje tłumaczenie w motywie potomnym
-    if ( file_exists( $mofile_child ) ) {
-        // Ładuj tłumaczenia z motywu potomnego
-        load_textdomain( 'startup-framework', $mofile_child );
-        return; // Jeśli znaleziono, zakończ funkcję
+    // Sprawdź flagę rekurencji
+    global $safepilot_loading_textdomain;
+    if ( $safepilot_loading_textdomain ) {
+        return;
     }
-
-    // Jeśli nie ma w motywie potomnym, sprawdź w standardowej lokalizacji wtyczki
-    $mofile_plugin = WP_PLUGIN_DIR . '/startup-framework/languages/startup-framework-' . $locale . '.mo';
-
-    if ( file_exists( $mofile_plugin ) ) {
-        load_textdomain( 'startup-framework', $mofile_plugin );
-    }
-}
-// Podpięcie funkcji do hooka z priorytetem 10 (wykonuje się po załadowaniu wtyczek)
-add_action( 'plugins_loaded', 'safepilot_load_startup_framework_translations', 10 );
-
-/**
- * Alternatywna metoda: Filtr override_load_textdomain
- *
- * Ta funkcja przechwytuje próby załadowania tłumaczeń przez WordPress
- * i przekierowuje je do katalogu languages w motywie potomnym.
- *
- * @param bool   $override Czy nadpisać domyślne ładowanie
- * @param string $domain   Domena tekstowa
- * @param string $mofile   Ścieżka do pliku .mo
- * @return bool
- */
-function safepilot_override_startup_framework_textdomain( $override, $domain, $mofile ) {
-    // Sprawdź czy to domena startup-framework
-    if ( 'startup-framework' !== $domain ) {
-        return $override;
-    }
-
+    
+    // Ustaw flagę
+    $safepilot_loading_textdomain = true;
+    
     // Pobierz lokalizację
     $locale = determine_locale();
-
-    // Zbuduj ścieżkę do pliku tłumaczeniowego w motywie potomnym
+    
+    // Ścieżki do plików
     $mofile_child = get_stylesheet_directory() . '/languages/startup-framework-' . $locale . '.mo';
-
-    // Jeśli plik istnieje w motywie potomnym, załaduj go
+    $mofile_parent = get_template_directory() . '/languages/startup-framework-' . $locale . '.mo';
+    $mofile_plugin = WP_PLUGIN_DIR . '/startup-framework/languages/startup-framework-' . $locale . '.mo';
+    
+    // Debug log (zakomentowane w produkcji)
+    // error_log( 'SafePilot: Sprawdzam tłumaczenia dla locale: ' . $locale );
+    // error_log( 'SafePilot: Child theme MO exists: ' . ( file_exists( $mofile_child ) ? 'YES' : 'NO' ) );
+    
+    // Najpierw próbuj załadować z motywu potomnego
     if ( file_exists( $mofile_child ) ) {
-        load_textdomain( $domain, $mofile_child );
-        return true; // Zwróć true aby poinformować WordPress że tłumaczenie zostało załadowane
+        unload_textdomain( 'startup-framework' );
+        $result = load_textdomain( 'startup-framework', $mofile_child );
+        
+        // Debug log
+        // error_log( 'SafePilot: Ładowanie z child theme: ' . ( $result ? 'SUCCESS' : 'FAILED' ) );
+        
+        $safepilot_loading_textdomain = false;
+        return;
     }
-
-    // W przeciwnym razie użyj domyślnego mechanizmu
-    return $override;
+    
+    // Następnie z motywu rodzica
+    if ( file_exists( $mofile_parent ) ) {
+        unload_textdomain( 'startup-framework' );
+        load_textdomain( 'startup-framework', $mofile_parent );
+        $safepilot_loading_textdomain = false;
+        return;
+    }
+    
+    // Na końcu ze standardowej lokalizacji wtyczki
+    if ( file_exists( $mofile_plugin ) ) {
+        unload_textdomain( 'startup-framework' );
+        load_textdomain( 'startup-framework', $mofile_plugin );
+    }
+    
+    // Zresetuj flagę
+    $safepilot_loading_textdomain = false;
 }
-// Podpięcie filtra z wysokim priorytetem (1) aby działał jako pierwszy
-add_filter( 'override_load_textdomain', 'safepilot_override_startup_framework_textdomain', 1, 3 );
+
+// Usuń wszystkie poprzednie hooki przed dodaniem nowych
+remove_action( 'plugins_loaded', 'safepilot_load_startup_framework_translations', 10 );
+remove_filter( 'override_load_textdomain', 'safepilot_override_startup_framework_textdomain', 1 );
+
+// Dodaj główny hook z priorytetem 5
+add_action( 'plugins_loaded', 'safepilot_load_startup_framework_translations', 5 );
 
 /**
- * Dodatkowa funkcja diagnostyczna (opcjonalna)
- *
- * Ta funkcja wyświetla informacje o załadowanych tłumaczeniach
- * Użyj tylko w celach debugowania - zakomentuj w wersji produkcyjnej
+ * Bezpieczny filtr dla load_textdomain_mofile
+ * Przekierowuje ścieżkę do pliku MO bez wywoływania load_textdomain
  */
-/*
-function safepilot_debug_translations() {
-    if ( current_user_can( 'manage_options' ) && isset( $_GET['debug_translations'] ) ) {
-        $locale = determine_locale();
-        $mofile_child = get_stylesheet_directory() . '/languages/startup-framework-' . $locale . '.mo';
-        $mofile_plugin = WP_PLUGIN_DIR . '/startup-framework/languages/startup-framework-' . $locale . '.mo';
+function safepilot_change_startup_framework_mofile_path( $mofile, $domain ) {
+    // Tylko dla domeny startup-framework
+    if ( 'startup-framework' !== $domain ) {
+        return $mofile;
+    }
+    
+    // Sprawdź flagę rekurencji
+    global $safepilot_loading_textdomain;
+    if ( $safepilot_loading_textdomain ) {
+        return $mofile;
+    }
+    
+    // Pobierz lokalizację
+    $locale = determine_locale();
+    
+    // Zbuduj ścieżkę do pliku w motywie potomnym
+    $mofile_child = get_stylesheet_directory() . '/languages/startup-framework-' . $locale . '.mo';
+    
+    // Jeśli plik istnieje w motywie potomnym, zwróć jego ścieżkę
+    if ( file_exists( $mofile_child ) ) {
+        // error_log( 'SafePilot: Przekierowuję do child theme MO: ' . $mofile_child );
+        return $mofile_child;
+    }
+    
+    // W przeciwnym razie zwróć oryginalną ścieżkę
+    return $mofile;
+}
 
-        echo '<div style="background: #fff; border: 1px solid #ccc; padding: 20px; margin: 20px;">';
-        echo '<h3>Debug: Tłumaczenia Startup Framework</h3>';
-        echo '<p><strong>Lokalizacja:</strong> ' . esc_html( $locale ) . '</p>';
-        echo '<p><strong>Plik w motywie potomnym:</strong> ' . esc_html( $mofile_child ) . '</p>';
-        echo '<p><strong>Istnieje:</strong> ' . ( file_exists( $mofile_child ) ? 'TAK' : 'NIE' ) . '</p>';
-        echo '<p><strong>Plik we wtyczce:</strong> ' . esc_html( $mofile_plugin ) . '</p>';
-        echo '<p><strong>Istnieje:</strong> ' . ( file_exists( $mofile_plugin ) ? 'TAK' : 'NIE' ) . '</p>';
-        echo '<p><strong>Czy domena załadowana:</strong> ' . ( is_textdomain_loaded( 'startup-framework' ) ? 'TAK' : 'NIE' ) . '</p>';
-        echo '</div>';
+// Dodaj bezpieczny filtr
+add_filter( 'load_textdomain_mofile', 'safepilot_change_startup_framework_mofile_path', 10, 2 );
+
+/**
+ * Alternatywna metoda - hook dla init
+ * Uruchamia się później, po załadowaniu wszystkich wtyczek
+ */
+function safepilot_late_load_translations() {
+    // Tylko jeśli domena nie jest jeszcze załadowana
+    if ( ! is_textdomain_loaded( 'startup-framework' ) ) {
+        safepilot_load_startup_framework_translations();
     }
 }
-add_action( 'wp_footer', 'safepilot_debug_translations' );
-add_action( 'admin_footer', 'safepilot_debug_translations' );
-*/
+add_action( 'init', 'safepilot_late_load_translations', 1 );
+
+/**
+ * Funkcja czyszcząca cache tłumaczeń (pomocnicza)
+ */
+function safepilot_clear_translation_cache() {
+    global $l10n, $l10n_unloaded;
+    
+    if ( isset( $l10n['startup-framework'] ) ) {
+        unset( $l10n['startup-framework'] );
+    }
+    
+    if ( isset( $l10n_unloaded['startup-framework'] ) ) {
+        unset( $l10n_unloaded['startup-framework'] );
+    }
+}
+
+/**
+ * Hook dla theme switch - czyści cache przy zmianie motywu
+ */
+add_action( 'switch_theme', 'safepilot_clear_translation_cache' );
+
+/**
+ * Funkcja debugowania (TYLKO DLA TESTÓW - zakomentuj w produkcji)
+ */
+function safepilot_debug_translations() {
+    // Wyłączone w produkcji - odkomentuj tylko do debugowania
+    return;
+    
+    /*
+    if ( ! current_user_can( 'manage_options' ) || ! isset( $_GET['debug_translations'] ) ) {
+        return;
+    }
+    
+    $locale = determine_locale();
+    $mofile_child = get_stylesheet_directory() . '/languages/startup-framework-' . $locale . '.mo';
+    $mofile_parent = get_template_directory() . '/languages/startup-framework-' . $locale . '.mo';
+    $mofile_plugin = WP_PLUGIN_DIR . '/startup-framework/languages/startup-framework-' . $locale . '.mo';
+    
+    echo '<div style="background: #fff; border: 2px solid #4fb9ad; padding: 20px; margin: 20px; border-radius: 8px;">';
+    echo '<h3 style="color: #213543;">🔍 Debug: Tłumaczenia Startup Framework</h3>';
+    echo '<table style="width: 100%; border-collapse: collapse;">';
+    echo '<tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Lokalizacja:</strong></td><td>' . esc_html( $locale ) . '</td></tr>';
+    echo '<tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Child Theme:</strong></td><td>' . ( file_exists( $mofile_child ) ? '✅ Istnieje' : '❌ Brak' ) . '</td></tr>';
+    echo '<tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Parent Theme:</strong></td><td>' . ( file_exists( $mofile_parent ) ? '✅ Istnieje' : '❌ Brak' ) . '</td></tr>';
+    echo '<tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Plugin:</strong></td><td>' . ( file_exists( $mofile_plugin ) ? '✅ Istnieje' : '❌ Brak' ) . '</td></tr>';
+    echo '<tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Textdomain loaded:</strong></td><td>' . ( is_textdomain_loaded( 'startup-framework' ) ? '✅ TAK' : '❌ NIE' ) . '</td></tr>';
+    echo '</table>';
+    
+    // Test tłumaczenia
+    $test_string = __( 'Theme Options', 'startup-framework' );
+    echo '<p style="margin-top: 15px; padding: 10px; background: #f0f0f0; border-left: 4px solid #4fb9ad;">';
+    echo '<strong>Test tłumaczenia:</strong> "Theme Options" → "' . esc_html( $test_string ) . '"';
+    echo '</p>';
+    
+    echo '</div>';
+    */
+}
+// add_action( 'wp_footer', 'safepilot_debug_translations' );
+// add_action( 'admin_footer', 'safepilot_debug_translations' );
+
+/**
+ * Funkcja sprawdzająca poprawność plików MO (opcjonalna)
+ */
+function safepilot_validate_mo_file( $file_path ) {
+    if ( ! file_exists( $file_path ) ) {
+        return false;
+    }
+    
+    // Sprawdź czy plik nie jest pusty
+    if ( filesize( $file_path ) < 20 ) {
+        error_log( 'SafePilot: Plik MO jest za mały: ' . $file_path );
+        return false;
+    }
+    
+    // Sprawdź sygnaturę pliku MO
+    $handle = fopen( $file_path, 'rb' );
+    if ( ! $handle ) {
+        return false;
+    }
+    
+    $magic = fread( $handle, 4 );
+    fclose( $handle );
+    
+    // Magiczne numery dla plików MO
+    $magic_le = "\x95\x04\x12\xde"; // Little-endian
+    $magic_be = "\xde\x12\x04\x95"; // Big-endian
+    
+    if ( $magic !== $magic_le && $magic !== $magic_be ) {
+        error_log( 'SafePilot: Nieprawidłowy format pliku MO: ' . $file_path );
+        return false;
+    }
+    
+    return true;
+}
