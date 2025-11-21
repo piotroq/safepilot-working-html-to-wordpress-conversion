@@ -1,6 +1,6 @@
 # SafePilot - HTML to WordPress Theme Conversion
 
-Complete conversion of Extech HTML template to a custom WordPress theme for SafePilot.
+Complete conversion of HTML template to a custom WordPress theme for SafePilot Main.
 
 ## 🎯 Project Overview
 
@@ -31,12 +31,12 @@ The theme is built from a static HTML template (Extech) and converted into a ful
 ├── O-projekcie.md                  # Project description
 ├── Geneza-SafePilot.md             # SafePilot brand story
 └── Zakres-uslug-SafePilot.md       # Services scope
-
 ```
 
 ## ✨ Theme Features
 
 ### Core Functionality
+
 - ✅ **Full Site Editing (FSE)** - Block-based theme with theme.json
 - ✅ **Custom Post Types** - Portfolio and Services
 - ✅ **SEO Optimized** - Meta fields, Open Graph, structured data
@@ -45,6 +45,7 @@ The theme is built from a static HTML template (Extech) and converted into a ful
 - ✅ **Translation Ready** - Polish language support (text domain: safepilot)
 
 ### Technical Stack
+
 - **WordPress**: 6.0+ required
 - **PHP**: 8.2+ required
 - **CSS Framework**: Bootstrap 5
@@ -52,6 +53,7 @@ The theme is built from a static HTML template (Extech) and converted into a ful
 - **JavaScript**: jQuery, Swiper, WOW.js, and more
 
 ### Theme Components
+
 - ✅ Header with top bar (contact info, social links)
 - ✅ Main navigation with dropdown menus
 - ✅ Footer with 4 widget areas
@@ -69,75 +71,81 @@ The theme is built from a static HTML template (Extech) and converted into a ful
 ### Installation
 
 1. **Clone the repository**
+   
    ```bash
    git clone https://github.com/piotroq/safepilot-extech-html-to-php-wordpress.git
    ```
 
 2. **Set up WordPress**
+   
    - Install WordPress 6.0 or higher
    - Ensure PHP 8.2+ is installed
    - Configure database connection
 
 3. **Install the theme**
+   
    ```bash
    # Copy theme to WordPress
    cp -r wp-content/themes/safepilot-main /path/to/wordpress/wp-content/themes/
    ```
 
 4. **Activate the theme**
+   
    - Go to WordPress Admin → Appearance → Themes
    - Find "SafePilot" and click "Activate"
 
 ### Configuration
 
 1. **Basic Setup**
+   
    - SafePilot → Theme Settings (contact info, social media)
    - Appearance → Customize (logo, colors, site identity)
    - Appearance → Menus (create and assign menus)
    - Appearance → Widgets (configure footer widgets)
 
 2. **Create Content**
+   
    - Pages: Home, About, Services, FAQ, Contact
    - Posts: Blog articles
    - Portfolio: Project showcases
    - Services: Service offerings
 
 3. **Recommended Plugins**
+   
    - Contact Form 7 (contact forms)
    - Yoast SEO or Rank Math (advanced SEO)
    - Polylang (multilingual support)
    - WooCommerce (optional, for e-commerce)
 
-## 📖 Documentation
 
-- **Theme Documentation**: See [wp-content/themes/safepilot-main/README.md](wp-content/themes/safepilot-main/README.md)
-- **Security Policy**: See [wp-content/themes/safepilot-main/SECURITY.md](wp-content/themes/safepilot-main/SECURITY.md)
-- **Project Requirements**: See [Polecenia-SafePilot.md](Polecenia-SafePilot.md)
 
 ## 🎨 Brand Colors
 
-| Color Name | Hex Code | Usage |
-|------------|----------|-------|
+| Color Name | Hex Code | Usage                            |
+| ---------- | -------- | -------------------------------- |
 | Primary    | #4fb9ad  | Main brand color, buttons, links |
-| Secondary  | #213543  | Headers, text, navigation |
-| Background | #d8d5c8  | Page background |
-| Tertiary   | #19222a  | Footer, dark sections |
-| Hover      | #213542  | Hover states |
+| Secondary  | #213543  | Headers, text, navigation        |
+| Background | #d8d5c8  | Page background                  |
+| Tertiary   | #19222a  | Footer, dark sections            |
+| Hover      | #213542  | Hover states                     |
 
 ## 🔧 Development
 
 ### Prerequisites
+
 - Node.js (optional, for build tools)
 - WordPress local development environment
 - Code editor (VS Code recommended)
 
 ### Coding Standards
+
 - WordPress Coding Standards
 - PHP_CodeSniffer for linting
 - ESLint for JavaScript
 - WCAG 2.2 for accessibility
 
 ### Theme Structure
+
 ```
 safepilot-main/
 ├── assets/              # CSS, JS, images, fonts
@@ -162,6 +170,7 @@ safepilot-main/
 ## 🤝 Contributing
 
 This is a private project for SafePilot. For any issues or questions:
+
 1. Create an issue in the repository
 2. Contact the development team
 3. Review documentation before submitting changes
@@ -173,7 +182,7 @@ This theme is licensed under GNU General Public License v2 or later.
 ## 👥 Credits
 
 - **Client**: SafePilot (https://safepilot.pl)
-- **Base Template**: Extech HTML Template
+- **Base Template**: SafePilot Main
 - **Framework**: Bootstrap 5
 - **Icons**: Font Awesome 6
 - **WordPress Community**
@@ -181,7 +190,8 @@ This theme is licensed under GNU General Public License v2 or later.
 ## 📞 Support
 
 For support and questions:
-- **Email**: info@safepilot.pl
+
+- **Email**: biuro@safepilot.pl
 - **Website**: https://safepilot.pl
 
 ---
@@ -190,4 +200,16 @@ For support and questions:
 
 **Version**: 1.0.0
 
-**Last Updated**: 2025-10-28
+**Last Updated**: 2025-11-21
+
+
+
+**Production by PB MEDIA - Strony, sklepy Internetowe**
+
+**Senior Fullstack Web Developer:** Piotr Bartosik
+
+**Email:** biuro@pbmediaonline.pl
+
+**Telefon:** +48 695 816 068
+
+**Website:** https://pbmediaonline.pl
